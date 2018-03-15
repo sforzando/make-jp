@@ -1,0 +1,9 @@
+{
+  "name": "make-jp",
+  "version": "1.0.0",
+  "description": "for Maker Faire Tokyo",
+  "main": "index.js",
+  "repository": "https://github.com/sforzando/make-jp.git",
+  "author": "sforzando LLC.",
+  "license": "WTFPL"
+}

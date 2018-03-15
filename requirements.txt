@@ -1,0 +1,4 @@
+# Execute `pip install -t lib -r requirements.txt --upgrade`
+Flask
+sendgrid
+flask-debugtoolbar

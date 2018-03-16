@@ -51,6 +51,7 @@ jobs:
             echo "$(uname -a)"
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
+            echo "Python $(python -V)"
 
       - run:
           name: Install Node Dependencies

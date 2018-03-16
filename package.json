@@ -30,7 +30,7 @@
     "build:debug":
       "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
     "build:debug:common":
-      "./rewrite_variables.sh && parcel build src/common.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
+      "parcel build src/common.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
     "build:debug:registration":
       "parcel build src/registration.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
     "build:debug:survey":
@@ -38,7 +38,7 @@
     "build:production":
       "yarn run clean && yarn run build:production:common && yarn run build:production:registration && yarn run build:production:survey",
     "build:production:common":
-      "./rewrite_variables.sh && parcel build src/common.js --no-cache --target browser --detailed-report --out-dir static",
+      "parcel build src/common.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:registration":
       "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:survey":

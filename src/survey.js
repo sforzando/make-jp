@@ -1,2 +1,2 @@
 import 'materialize-css';
-import './base.scss';
+import './survey.scss';

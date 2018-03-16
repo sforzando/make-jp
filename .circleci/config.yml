@@ -24,7 +24,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install dependencies
+          name: Install Python Dependencies
           command: |
             pip install -t lib -r requirements.txt --upgrade
 
@@ -33,16 +33,6 @@ jobs:
           paths:
             - ./lib
 
-      - run:
-          name: Hello world!
-          command: |
-            echo 'Hello world!'
-
-      - run:
-          name: Check CIRCLE_BRANCH
-          command: |
-            echo $CIRCLE_BRANCH
-
       - store_artifacts:
           path: test-reports
           destination: test-reports
@@ -50,18 +40,24 @@ jobs:
   deploy:
     docker:
       - image: google/cloud-sdk
-    working_directory: ~/repo
+
+      working_directory: ~/repo
+
     steps:
       - checkout
+
       - run:
-          name: Check GCP_SERVICE_ACCOUNT_KEY
+          name: Authenticate and Set Project ID
           command: |
             echo $GCP_SERVICE_ACCOUNT_KEY | base64 -i --decode > "$HOME/gcp-service-account-key.json"
             gcloud auth activate-service-account --key-file "$HOME/gcp-service-account-key.json"
             gcloud --quiet config set project make-jp
+
+      - run:
+          name: Deploy to GAE
+          command: |
             gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/\//\-/g")
           no_output_timeout: 20m
-
 
 workflows:
   version: 2
@@ -71,6 +67,6 @@ workflows:
       - deploy:
           requires:
             - build
-          # filters:
-          #   branches:
-          #     only: sequential-branch-filter
+          filters:
+            branches:
+              only: sequential-branch-filter

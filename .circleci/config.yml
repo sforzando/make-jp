@@ -63,14 +63,19 @@ jobs:
           paths:
             - node_modules
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
       - run:
           name: Bundle with Parcel
           command: |
             yarn run build:production
+
+      - run:
+          name: Test with Puppeteer
+          command: |
+            yarn run test
+
+      - store_artifacts:
+          path: test
+          destination: test
 
       - run:
           name: To Disable Debug

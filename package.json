@@ -21,7 +21,8 @@
     "parcel-bundler": "^1.6.2",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
-    "prettier-eslint-cli": "^4.7.1"
+    "prettier-eslint-cli": "^4.7.1",
+    "puppeteer": "^1.2.0"
   },
   "scripts": {
     "start": "dev_appserver.py app.yaml",
@@ -43,6 +44,7 @@
       "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:survey":
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
+    "test": "node test/registration.js",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

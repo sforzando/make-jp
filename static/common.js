@@ -71,7 +71,7 @@ require = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({16:[function(require,module,exports) {
+})({5:[function(require,module,exports) {
 /*! Hammer.JS - v2.0.7 - 2016-04-22
  * http://hammerjs.github.io/
  *
@@ -2716,7 +2716,7 @@ if (typeof define === 'function' && define.amd) {
 
 })(window, document, 'Hammer');
 
-},{}],19:[function(require,module,exports) {
+},{}],7:[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {};
@@ -2903,7 +2903,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],18:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 var global = (1,eval)("this");
 var process = require("process");
 /*!
@@ -13271,7 +13271,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{"process":19}],17:[function(require,module,exports) {
+},{"process":7}],4:[function(require,module,exports) {
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
  * Copyright 2014-2017 Materialize
@@ -23294,9 +23294,9 @@ if (Vel) {
   };
 })(jQuery);
 
-},{"jquery":18,"hammerjs":16}],3:[function(require,module,exports) {
+},{"jquery":6,"hammerjs":5}],2:[function(require,module,exports) {
 
-},{"./../node_modules/materialize-css/dist/css/materialize.css":[["1f0cd9ed3faeeba6d9e545abc0c12505.css",5],5],"./../node_modules/toastr/build/toastr.css":[["c78ddfa880d93307eac3610132309fa6.css",4],4]}],1:[function(require,module,exports) {
+},{"./../node_modules/toastr/build/toastr.css":[["c78ddfa880d93307eac3610132309fa6.css",9],9]}],1:[function(require,module,exports) {
 'use strict';
 
 require('hammerjs');
@@ -23341,4 +23341,4 @@ $(document).ready(function () {
     return false;
   }
 });
-},{"hammerjs":16,"materialize-css":17,"./common.scss":3}]},{},[1])
+},{"hammerjs":5,"materialize-css":4,"./common.scss":2}]},{},[1])

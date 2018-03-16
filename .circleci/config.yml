@@ -25,16 +25,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Install Python Dependencies
-          command: |
-            pip install -t lib -r requirements.txt --upgrade
-
-      - save_cache:
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-          paths:
-            - lib
-
-      - run:
           name: Install Node.js
           command: |
             curl -sL https://deb.nodesource.com/setup_9.x | bash -
@@ -52,6 +42,16 @@ jobs:
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
             echo "Python $(python -V)"
+
+      - run:
+          name: Install Python Dependencies
+          command: |
+            pip install -t lib -r requirements.txt --upgrade
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+            - lib
 
       - run:
           name: Install Node Dependencies
@@ -81,7 +81,7 @@ jobs:
       - run:
           name: Test with Puppeteer
           command: |
-            yarn run test
+            yarn run test:puppeteer
 
       - store_artifacts:
           path: test

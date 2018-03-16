@@ -8,9 +8,9 @@ const puppeteer = require('puppeteer');
   });
   const page = await browser.newPage();
   await page.emulate(util.pc);
-  await page.goto(util.target('registration'), {
+  await page.goto(util.target('survey'), {
     waitUntil: 'networkidle2'
   });
-  await page.screenshot({ path: 'test/registration.png', fullPage: true });
+  await page.screenshot({ path: 'test/survey.png', fullPage: true });
   await browser.close();
 })();

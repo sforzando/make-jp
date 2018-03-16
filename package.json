@@ -44,7 +44,17 @@
       "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:survey":
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
-    "test": "node test/registration.js",
+    "test:puppeteer:debug":
+      "yarn test:puppeteer:debug:registration && yarn test:puppeteer:debug:survey",
+    "test:puppeteer:debug:registration":
+      "env mode=local node test/registration.js",
+    "test:puppeteer:debug:survey": "env mode=local node test/survey.js",
+    "test:puppeteer:production":
+      "yarn test:puppeteer:production:registration && yarn test:puppeteer:production:survey",
+    "test:puppeteer:production:registration":
+      "env mode=production node test/registration.js",
+    "test:puppeteer:production:survey":
+      "env mode=production node test/survey.js",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

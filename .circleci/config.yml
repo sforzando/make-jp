@@ -35,6 +35,11 @@ jobs:
           command: |
             echo 'Hello world!'
 
+      - run:
+          name: Check GCP_SERVICE_ACCOUNT_KEY
+          command: |
+            echo $GCP_SERVICE_ACCOUNT_KEY
+
       - store_artifacts:
           path: test-reports
           destination: test-reports

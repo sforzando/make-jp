@@ -5,6 +5,9 @@
 version: 2
 jobs:
   build:
+    environment:
+      TZ: /usr/share/zoneinfo/Asia/Tokyo
+
     docker:
       # - image: circleci/python:2.7.14-browsers
       - image: google/cloud-sdk
@@ -36,10 +39,18 @@ jobs:
             echo 'Hello world!'
 
       - run:
+          name: Check CIRCLE_BRANCH
+          command: |
+            echo 'Hello world!'
+
+      - run:
           name: Check GCP_SERVICE_ACCOUNT_KEY
           command: |
             echo $GCP_SERVICE_ACCOUNT_KEY | base64 -i --decode > "$HOME/gcp-service-account-key.json"
             gcloud auth activate-service-account --key-file "$HOME/gcp-service-account-key.json"
+            gcloud --quiet config set project make-jp
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/\//\-/g")
+          no_output_timeout: 20m
 
       - store_artifacts:
           path: test-reports

@@ -1,6 +1,8 @@
 runtime: python27
 api_version: 1
 threadsafe: yes
+env_variables:
+  SENDGRID_API_KEY: 'Hello World!'
 
 automatic_scaling:
   min_idle_instances: automatic # idle状態にあるインスタンスの最小値

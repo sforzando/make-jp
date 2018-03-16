@@ -9,5 +9,8 @@
   "private": true,
   "dependencies": {
     "materialize-css": "^0.100.2"
+  },
+  "scripts": {
+    "secret": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret"
   }
 }

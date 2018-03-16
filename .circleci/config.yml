@@ -25,6 +25,11 @@ jobs:
           - v1-dependencies-
 
       - run:
+          name: Decrypt app.yaml
+          command: |
+            openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
+
+      - run:
           name: Install Python Dependencies
           command: |
             pip install -t lib -r requirements.txt --upgrade
@@ -80,7 +85,7 @@ jobs:
           command: |
             echo $GCP_SERVICE_ACCOUNT_KEY | base64 -i --decode > "$HOME/gcp-service-account-key.json"
             gcloud auth activate-service-account --key-file "$HOME/gcp-service-account-key.json"
-            gcloud --quiet config set project make-jp
+            gcloud --quiet config set project $GCP_PROJECT_ID
 
       - run:
           name: Deploy to GAE

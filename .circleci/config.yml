@@ -25,16 +25,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Install Python Dependencies
-          command: |
-            pip install -t lib -r requirements.txt --upgrade
-
-      - save_cache:
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-          paths:
-            - lib
-
-      - run:
           name: Install Node.js
           command: |
             curl -sL https://deb.nodesource.com/setup_9.x | bash -
@@ -54,6 +44,16 @@ jobs:
             echo "Python $(python -V)"
 
       - run:
+          name: Install Python Dependencies
+          command: |
+            pip install -t lib -r requirements.txt --upgrade
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+          paths:
+            - lib
+
+      - run:
           name: Install Node Dependencies
           command: |
             yarn install
@@ -63,14 +63,20 @@ jobs:
           paths:
             - node_modules
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
-
       - run:
           name: Bundle with Parcel
           command: |
             yarn run build:production
+
+      - run:
+          name: Install Puppeteer
+          command: |
+            apt-get install -yq libgconf-2-4
+            apt-get install -y wget --no-install-recommends
+            wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+            sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+            apt-get update
+            apt-get install -y google-chrome-unstable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont --no-install-recommends
 
       - run:
           name: To Disable Debug
@@ -92,5 +98,14 @@ jobs:
       - run:
           name: Deploy to GAE
           command: |
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g") --verbosity=info
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g")
           no_output_timeout: 20m
+
+      - run:
+          name: Test with Puppeteer
+          command: |
+            yarn test:puppeteer:production
+
+      - store_artifacts:
+          path: test
+          destination: test

@@ -1,0 +1,156 @@
+@import '../node_modules/materialize-css/sass/materialize.scss';
+@import '../node_modules/toastr/build/toastr.css';
+
+/* Common */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  // For sticky footer
+  flex: 1 0 auto;
+}
+
+.required-mark .material-icons {
+  font-size: 18px;
+}
+
+.input-field label {
+  color: #333;
+}
+
+.input-field dt {
+  font-weight: bold;
+}
+
+div.error {
+  color: #f00;
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+footer {
+  font-size: 12px;
+}
+
+/* Registration */
+.section.scrollspy {
+  // for keeping .scrollspy div's height
+  overflow: hidden;
+}
+
+#agreements {
+  font-size: 14px;
+  border: double 1px #000;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 10px;
+  overflow-y: scroll;
+  max-height: 300px;
+}
+
+/* Survey */
+
+/* Thanks */
+.social {
+  margin: 30px auto;
+}
+
+.twitter {
+  background-color: #008dde;
+  box-shadow: 0 4px 0 #0078bd;
+  display: inline;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+
+  &:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #0078bd;
+  }
+
+  &:hover {
+    background-color: #1397d8;
+  }
+}
+
+.facebook {
+  background-color: #2e4a88;
+  box-shadow: 0 4px 0 #1b3d82;
+  text-shadow: 0 -1px -1px #1b3d82;
+  display: inline;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+
+  &:hover {
+    background-color: #354f84;
+  }
+
+  &:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #1b3d82;
+  }
+}
+
+.google {
+  background-color: #cc3622;
+  box-shadow: 0 4px 0 #ba2714;
+  display: inline;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+
+  &:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #ba2714;
+  }
+
+  &:hover {
+    background-color: #d04829;
+  }
+}
+
+.instagram {
+  background-color: #fd1d1d;
+  box-shadow: 0 4px 0 #e1306c;
+  display: inline;
+  position: relative;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  color: white;
+  border-radius: 5px;
+  padding: 14px 80px;
+
+  &:active {
+    top: 2px;
+    box-shadow: 0 2px 0 #f77737;
+  }
+
+  &:hover {
+    background-color: #f56040;
+  }
+}

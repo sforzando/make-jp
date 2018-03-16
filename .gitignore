@@ -145,8 +145,6 @@ ENV/
 # Google App Engine generated folder
 appengine-generated/
 
-static
-
 
 ### Code ###
 # Visual Studio Code - https://code.visualstudio.com/
@@ -263,4 +261,3 @@ jspm_packages
 
 ### Misc. ###
 app.yaml
-appengine-generated/

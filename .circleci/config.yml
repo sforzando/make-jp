@@ -10,7 +10,7 @@ jobs:
 
     docker:
       # - image: circleci/python:2.7.14-browsers
-      - image: google/cloud-sdk
+      - image: google/cloud-sdk:alpine
 
     working_directory: ~/repo
 

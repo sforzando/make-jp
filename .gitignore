@@ -261,5 +261,8 @@ jspm_packages
 
 ### Misc. ###
 app.yaml
-*.woff
-*.woff2
+*.py.bak
+static/*.js
+static/*.css
+static/*.woff
+static/*.woff2

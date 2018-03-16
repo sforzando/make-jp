@@ -2,7 +2,7 @@
 
 FROM=src/variables.scss
 DST=node_modules/materialize-css/sass/components/_variables.scss
-DST_ORG=node_modules/materialize-css/sass/components/_variables.scss.org
+DST_ORG=node_modules/materialize-css/sass/components/_variables.scss.bak
 
 if [ -f $DST ]; then
   if [ -f $DST_ORG ]; then

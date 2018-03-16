@@ -67,16 +67,19 @@ jobs:
           destination: test-reports
 
       - run:
-          name: Install Node Dependencies
+          name: Bundle with Parcel
           command: |
             yarn run build:production
+
+      - run:
+          name: To Disable Debug
+          command: |
+            sed -i.bak -e 's/"DEBUG": True/"DEBUG": False/' main.py
 
       - run:
           name: Decrypt app.yaml
           command: |
             yarn run uncover -- -k $GCP_PROJECT_ID
-            # openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
-            cat app.yaml
 
       - run:
           name: Authenticate and Set Project ID
@@ -88,5 +91,5 @@ jobs:
       - run:
           name: Deploy to GAE
           command: |
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g")
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g") --verbosity=info
           no_output_timeout: 20m

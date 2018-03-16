@@ -25,12 +25,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: Decrypt app.yaml
-          command: |
-            openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
-            cat app.yaml
-
-      - run:
           name: Install Python Dependencies
           command: |
             pip install -t lib -r requirements.txt --upgrade
@@ -80,6 +74,12 @@ jobs:
 
     steps:
       - checkout
+
+      - run:
+          name: Decrypt app.yaml
+          command: |
+            openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
+            cat app.yaml
 
       - run:
           name: Authenticate and Set Project ID

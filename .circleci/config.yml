@@ -28,6 +28,7 @@ jobs:
           name: Decrypt app.yaml
           command: |
             openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
+            cat app.yaml
 
       - run:
           name: Install Python Dependencies

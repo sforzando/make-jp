@@ -20,6 +20,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "requirements.txt" }}
+          - v1-dependencies-{{ checksum "yarn.lock" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
@@ -31,7 +32,17 @@ jobs:
       - save_cache:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
           paths:
-            - ./lib
+            - lib
+
+      - run:
+          name: Install Node Dependencies
+          command: |
+            yarn install
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
 
       - store_artifacts:
           path: test-reports
@@ -67,6 +78,3 @@ workflows:
       - deploy:
           requires:
             - build
-          filters:
-            branches:
-              only: sequential-branch-filter

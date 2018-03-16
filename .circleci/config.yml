@@ -41,21 +41,26 @@ jobs:
             apt-get install -y nodejs
 
       - run:
+          name: Install Yarn
+          command: |
+            npm install -g yarn
+
+      - run:
           name: Check System information
           command: |
             echo "$(uname -a)"
             echo "Node $(node -v)"
             echo "Yarn v$(yarn --version)"
 
-      # - run:
-      #     name: Install Node Dependencies
-      #     command: |
-      #       yarn install
+      - run:
+          name: Install Node Dependencies
+          command: |
+            yarn install
 
-      # - save_cache:
-      #     key: v1-dependencies-{{ checksum "yarn.lock" }}
-      #     paths:
-      #       - node_modules
+      - save_cache:
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
 
       - store_artifacts:
           path: test-reports

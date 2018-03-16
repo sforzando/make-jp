@@ -79,15 +79,6 @@ jobs:
             apt-get install -y google-chrome-unstable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont --no-install-recommends
 
       - run:
-          name: Test with Puppeteer
-          command: |
-            yarn run test:puppeteer
-
-      - store_artifacts:
-          path: test
-          destination: test
-
-      - run:
           name: To Disable Debug
           command: |
             sed -i.bak -e 's/"DEBUG": True/"DEBUG": False/' main.py
@@ -109,3 +100,12 @@ jobs:
           command: |
             gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g")
           no_output_timeout: 20m
+
+      - run:
+          name: Test with Puppeteer
+          command: |
+            yarn test:puppeteer:production
+
+      - store_artifacts:
+          path: test
+          destination: test

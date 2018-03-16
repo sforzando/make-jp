@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}Maker Faire Tokyo 2017 出展申し込みフォーム{% endblock title %} {% block body %}
 
 <body>{{ super() }}
+  <script type="text/javascript" src="../static/registration.js"></script>
   <main class="container">
     <div class="row">
       <div class="col s9">
@@ -22,8 +23,7 @@
             <li>入力欄の記入例を参考に、正確な情報を入力してください。</li>
             <li>申し込みいただいた情報は、出展に関するご連絡、資料や資材の発送、出展内容の告知などMaker Faire Tokyoの運営に関わる業務や、関連イベントのご案内などの目的に使用させていただきます。また、出展者の情報はMaker
               Faireのライセンス元であるMaker Media, Inc.へ報告が行われること、統計処理を行い個人が特定されない形でオライリー・ジャパンのウェブサイトやパンフレット、報告資料にて紹介させていただく場合がございますことを、あらかじめご了承ください。オライリー・ジャパンの個人情報の取り扱いについては
-              <a
-                href="http://www.oreilly.co.jp/company/privacypolicy.shtml" target="_blank">こちら</a>をご覧ください。</li>
+              <a href="http://www.oreilly.co.jp/company/privacypolicy.shtml" target="_blank">こちら</a>をご覧ください。</li>
             <li>ご不明な点は、
               <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>（makers@makejapan.org）までメールでお問い合わせください。</li>
           </ol>
@@ -50,8 +50,8 @@
                   </dt>
                   <dd>ウェブやフロアマップなどに掲載されるお名前です。</dd>
                 </dl>
-                <input type="text" id="_101_makers_name" name="_101_makers_name" data-name="1-01. 出展者名" class="validate"
-                  placeholder="MAKE日本語版編集部" required>
+                <input type="text" id="_101_makers_name" name="_101_makers_name" data-name="1-01. 出展者名" class="validate" placeholder="MAKE日本語版編集部"
+                  required>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -62,16 +62,16 @@
                   </dt>
                   <dd>英数字はひらがなにせず、そのまま記入してください。</dd>
                 </dl>
-                <input type="text" id="_102_makers_name_phonetic" name="_102_makers_name_phonetic" data-name="1-02. 出展者名ふりがな"
-                  class="validate" placeholder="MAKEにほんごばんへんしゅうぶ" required>
+                <input type="text" id="_102_makers_name_phonetic" name="_102_makers_name_phonetic" data-name="1-02. 出展者名ふりがな" class="validate"
+                  placeholder="MAKEにほんごばんへんしゅうぶ" required>
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt>1-03. 出展者名の英文表記</dt>
                   <dd>ウェブなどに掲載される名称です。</dd>
                 </dl>
-                <input type="text" id="_103_makers_english_name" name="_103_makers_english_name" data-name="1-03. 出展者名の英文表記"
-                  class="validate" placeholder="MAKE JAPAN">
+                <input type="text" id="_103_makers_english_name" name="_103_makers_english_name" data-name="1-03. 出展者名の英文表記" class="validate"
+                  placeholder="MAKE JAPAN">
               </div>
               <div class="col input-field s6">
                 <dl>
@@ -131,8 +131,8 @@
                   <dd>携帯メールアドレス(@docomo.ne.jp, @ezweb.ne.jp, @softbank.ne.jp, @ymobile.ne.jp, @vodafone.ne.jp, @willcom.com,
                     @pdx.ne.jp, @disney.ne.jp など)はご使用になれません。</dd>
                 </dl>
-                <input type="email" autocomplete="email" id="_108_email" name="_108_email" data-name="1-08. 代表者のメールアドレス"
-                  class="validate" placeholder="makers@makejapan.org" required>
+                <input type="email" autocomplete="email" id="_108_email" name="_108_email" data-name="1-08. 代表者のメールアドレス" class="validate"
+                  placeholder="makers@makejapan.org" required>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -155,8 +155,8 @@
                   </dt>
                   <dd>半角、-［ハイフン］を含めて記入してください。</dd>
                 </dl>
-                <input type="tel" autocomplete="tel" id="_110_primary_phone" name="_110_primary_phone" data-name="1-10. 代表者の携帯電話番号（半角）"
-                  class="validate" placeholder="080-0000-0000" required>
+                <input type="tel" autocomplete="tel" id="_110_primary_phone" name="_110_primary_phone" data-name="1-10. 代表者の携帯電話番号（半角）" class="validate"
+                  placeholder="080-0000-0000" required>
               </div>
               <div class="col input-field s6">
                 <dl>
@@ -167,8 +167,8 @@
                   </dt>
                   <dd>半角、-［ハイフン］を含めて記入してください。</dd>
                 </dl>
-                <input type="text" autocomplete="postal-code" id="_111_zip" name="_111_zip" data-name="1-11. 代表者の郵便番号（半角）"
-                  class="validate" placeholder="160-0002" required>
+                <input type="text" autocomplete="postal-code" id="_111_zip" name="_111_zip" data-name="1-11. 代表者の郵便番号（半角）" class="validate"
+                  placeholder="160-0002" required>
               </div>
               <div class="col input-field s6">
                 <dl>
@@ -179,8 +179,7 @@
                   </dt>
                   <dd>リストから選択してください。</dd>
                 </dl>
-                <select id="_112_prefectures" name="_112_prefectures" data-name="1-12. 代表者の住所（都道府県）" class="browser-default"
-                  required>
+                <select id="_112_prefectures" name="_112_prefectures" data-name="1-12. 代表者の住所（都道府県）" class="browser-default" required>
                   <option value="0" selected="selected" disabled="disabled">都道府県</option>{% for prefecture in prefectures %}
                   <option value="{{ loop.index }}">{{ prefecture }}</option>{% endfor %}</select>
               </div>
@@ -205,8 +204,8 @@
                   </dt>
                   <dd>ウェブなどに掲載される紹介文です。200文字以内で記入してください。</dd>
                 </dl>
-                <textarea id="_114_maker_bio" name="_114_maker_bio" data-name="1-14. 出展者のプロフィール" class="materialize-textarea validate"
-                  placeholder="" length="200" required></textarea>
+                <textarea id="_114_maker_bio" name="_114_maker_bio" data-name="1-14. 出展者のプロフィール" class="materialize-textarea validate" placeholder=""
+                  length="200" required></textarea>
               </div>
               <div class="col input-field s12">
                 <p style="margin-bottom:30px"></p>
@@ -220,13 +219,11 @@
                 </dl>
                 <p></p>
                 <p>
-                  <input name="_115_class" id="_115_class_maker" data-name="Maker" class="with-gap" type="radio" value="_115_class_maker"
-                    data-error=".error_115_class">
+                  <input name="_115_class" id="_115_class_maker" data-name="Maker" class="with-gap" type="radio" value="_115_class_maker" data-error=".error_115_class">
                   <label for="_115_class_maker">Maker</label>
                 </p>
                 <p>
-                  <input name="_115_class" id="_115_class_commercial_maker" data-name="Commercial Maker" class="with-gap" type="radio"
-                    value="_115_class_commercial_maker">
+                  <input name="_115_class" id="_115_class_commercial_maker" data-name="Commercial Maker" class="with-gap" type="radio" value="_115_class_commercial_maker">
                   <label for="_115_class_commercial_maker">Commercial Maker</label>
                 </p>
                 <p>
@@ -284,16 +281,14 @@
                   </dt>
                   <dd>ウェブなどに掲載される名称です。30文字以内で記入してください。複数ある場合は代表作品のみでもかまいません。</dd>
                 </dl>
-                <input type="text" id="_201_project_name" name="_201_project_name" class="validate" placeholder="" length="30"
-                  required>
+                <input type="text" id="_201_project_name" name="_201_project_name" class="validate" placeholder="" length="30" required>
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt>2-02. 作品またはプロジェクトの名称の英文表記</dt>
                   <dd>ウェブなどに掲載される名称です。半角英数100文字以内で記入してください。複数ある場合は、代表作品のみでもかまいません。</dd>
                 </dl>
-                <input type="text" id="_202_project_english_name" name="_202_project_english_name" class="validate" placeholder=""
-                  length="100">
+                <input type="text" id="_202_project_english_name" name="_202_project_english_name" class="validate" placeholder="" length="100">
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -303,11 +298,9 @@
                     </span>
                   </dt>
                   <dd>ウェブなどに掲載される紹介文です。選考で最も参考にさせていただきますので、200文字以内で、できるだけ具体的に記入してください。選考については、
-                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines"
-                      target="_blank">出展のガイドライン</a>「6-1」をご覧ください。</dd>
+                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「6-1」をご覧ください。</dd>
                 </dl>
-                <textarea id="_203_project_describe" name="_203_project_describe" class="materialize-textarea validate" length="200"
-                  required></textarea>
+                <textarea id="_203_project_describe" name="_203_project_describe" class="materialize-textarea validate" length="200" required></textarea>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -370,10 +363,9 @@
                 <dl>
                   <dt>2-07. 写真や動画のURL</dt>
                   <dd>作品の写真や動画も選考の重要な要素です。最大3点まで、画像もしくは動画のURLを指定してください。Flickr、Instagram、Dropbox、YouTubeなどの該当ページのURLも可能です。写真をメールで送付する場合は、件名を「MFT2017写真（出展者名）」として、
-                    <a
-                      href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>へ5月2日（火）13時までにお送りください。
-                      <br>
-                      <br>指定いただいた写真や動画は、事務局が確認のうえ、ウェブサイトの出展者情報ページに掲載します。指定先が複数の画像・動画が掲載されているページで対象が不明な場合は掲載ができません。</dd>
+                    <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>へ5月2日（火）13時までにお送りください。
+                    <br>
+                    <br>指定いただいた写真や動画は、事務局が確認のうえ、ウェブサイトの出展者情報ページに掲載します。指定先が複数の画像・動画が掲載されているページで対象が不明な場合は掲載ができません。</dd>
                 </dl>
                 <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2017_table01.jpg" alt="出展者情報ページのイメージ">
               </div>
@@ -408,11 +400,10 @@
                   <dd>予定している作品、機材をすべて記載ください。台数、大きなものについてはサイズなども明記してください。
                     <br>
                     <br>特に、高温になる器具（ハンダごてを含む）、高電圧を扱う装置、高速で稼働する装置、レーザー光線を発する装置など、出展者や来場者が怪我をする可能性があるもの、工作機械、ドローン、飛行機、バルーン、大型の作品、無線を使った作品、食品などについては、必ず明記してください。この段階でお申し込みのなかったこれらの作品・機材については展示を撤去していただきます。詳しくは
-                    <a
-                      href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
-                      <br>
-                      <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
-                      <br>※出展者による市販品・販促品としての飲食物の配布はできません。</dd>
+                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
+                    <br>
+                    <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
+                    <br>※出展者による市販品・販促品としての飲食物の配布はできません。</dd>
                 </dl>
                 <textarea id="_208_equipments" name="_208_equipments" class="materialize-textarea validate" placeholder="高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点、RaspberryPiを使ったラジオ*1点、ノートPC*1台、ディスプレイ 19インチ、3Dプリンター*1台、家庭用ミシン*1台 など"
                   required></textarea>
@@ -451,15 +442,13 @@
                     </span>
                   </dt>
                   <dd>屋内の展示スペースを、会議用テーブル（180cm×60cm、以降テーブル）、広いスペースから選択してください。スペースの注意点については、
-                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines"
-                      target="_blank">出展のガイドライン</a>「7-3」をご覧ください。
+                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「7-3」をご覧ください。
                     <br>
                     <br>企業出展はテーブル数は2本を上限とします。また、広いスペースを申し込むことができません。スポンサーとしての出展をご検討ください。</dd>
                 </dl>
                 <p></p>
                 <p>
-                  <input name="_301_space_type" id="_301_space_type_table" value="_301_space_type_table" class="with-gap" type="radio"
-                    data-error=".error_301_space_type">
+                  <input name="_301_space_type" id="_301_space_type_table" value="_301_space_type_table" class="with-gap" type="radio" data-error=".error_301_space_type">
                   <label for="_301_space_type_table">テーブル</label>
                 </p>
                 <p>
@@ -650,22 +639,21 @@
                   <dt id="label_402_presentation_title">4-02. プレゼンテーションのタイトル</dt>
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
-                <input type="text" id="_402_presentation_title" name="_402_presentation_title" class="validate" placeholder=""
-                  length="20">
+                <input type="text" id="_402_presentation_title" name="_402_presentation_title" class="validate" placeholder="" length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt id="label_403_presentation_describe">4-03. プレゼンテーションの内容</dt>
                   <dd>200文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_403_presentation_describe" name="_403_presentation_describe" class="materialize-textarea validate"
-                  length="200"></textarea>
+                <textarea id="_403_presentation_describe" name="_403_presentation_describe" class="materialize-textarea validate" length="200"></textarea>
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt>4-04. ワークショップ（50分間、110分間から選択）</dt>
                   <dd>「希望する」を選択した場合は、以下4-05から4-11に回答してください。Commercial Maker、企業出展の場合、ワークショップ専用スペースを使ったワークショップの実施には別途 スペースの利用費が必要です（開催時間に関わらず1回につき、Commercial
-                    Maker：10,800円［税込］、企業出展：54,000円［税込］）。出展決定後に実施の可否を連絡します。</dd>
+                    Maker：10,800円［税込］、企業出展：54,000円［税込］）。出展決定後に実施の可否を連絡します。
+                  </dd>
                 </dl>
                 <p>
                   <input type="checkbox" id="_404_workshop" class="with-gap" name="_404_workshop">
@@ -684,8 +672,7 @@
                   <dt id="label_406_workshop_describe">4-06. ワークショップの内容</dt>
                   <dd>200文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_406_workshop_describe" name="_406_workshop_describe" class="materialize-textarea validate"
-                  length="200"></textarea>
+                <textarea id="_406_workshop_describe" name="_406_workshop_describe" class="materialize-textarea validate" length="200"></textarea>
               </div>
               <div class="col input-field s12">
                 <p style="margin-bottom:30px"></p>
@@ -759,8 +746,8 @@
                   <dt id="label_413_live_title">4-13. ライブパフォーマンスのタイトル</dt>
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
-                <input type="text" id="_413_live_title" name="_413_live_title" data-name="4-13. ライブパフォーマンスのタイトル" class="validate"
-                  placeholder="" length="20">
+                <input type="text" id="_413_live_title" name="_413_live_title" data-name="4-13. ライブパフォーマンスのタイトル" class="validate" placeholder=""
+                  length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -796,15 +783,15 @@
                 </div>
               </div>
               <p>お申し込みの前に下記の「Maker Faire Tokyo参加規約」を必ずご一読ください。お申し込み内容の送信をもって「Maker Faire Tokyo参加規約」に承諾いただいたものといたします。</p>
-              <div
-                id="agreements">
+              <div id="agreements">
                 <h5 class="center-align">Maker Faire Tokyo参加規約</h5>
                 <p class="right-align">2016年4月5日 制定
                   <br>株式会社オライリー・ジャパン
                   <br>
                 </p>
                 <p>この利用規約（以下「本規約」といいます。）は、株式会社オライリー・ジャパン（以下「当社」といいます。）が提供または運営する「Maker Faire Tokyo」（以下「本イベント」といいます。）への参加に関する条件および当社と本イベントへの参加者（以下「参加者」といいます。）との間の権利義務関係を定めるものです。
-                  本イベントを利用していただくためには、本規約の全文をお読みいただき、本規約に同意いただく必要があります。</p>
+                  本イベントを利用していただくためには、本規約の全文をお読みいただき、本規約に同意いただく必要があります。
+                </p>
                 <p></p>
                 <h6>1. 規約への同意</h6>1.1 参加者は、あらかじめ本規約に有効かつ取消不能な同意をしないかぎり本イベントに参加することができません。
                 <br>1.2 参加者が未成年者である場合、親権者など法定代理人の同意を得た上で本イベントに参加する必要があります。
@@ -894,59 +881,58 @@
                 <br>
                 <p></p>
                 <p class="right-align">以上</p>
+              </div>
             </div>
-        </div>
-        <div class="right">
-          <a id="pre-submit-button" class="btn btn-large waves-effect waves-light">申込内容を確認する
-            <i class="material-icons right">done</i>
-          </a>
-        </div>
-        <div id="submit-modal" class="modal bottom-sheet">
-          <div class="modal-content">
-            <h4>
-              <i class="material-icons">info</i>出展申込内容の確認</h4>
-            <p>お申し込み内容を確認のうえ、内容を送信してください。</p>
-          </div>
-          <div class="modal-footer">
-            <div class="divider"></div>
-            <div id="submit-progress" class="progress" style="display:none">
-              <div class="indeterminate"></div>
+            <div class="right">
+              <a id="pre-submit-button" class="btn btn-large waves-effect waves-light">申込内容を確認する
+                <i class="material-icons right">done</i>
+              </a>
             </div>
-            <a id="submit-button" class="btn modal-action modal-close waves-effect">入力した内容で申込内容を送信する
-              <i class="material-icons right">done_all</i>
-            </a>
-            <a id="replay-button" class="btn modal-close waves-effect">戻る
-              <i class="material-icons right">replay</i>
-            </a>
-          </div>
-        </div>
-        </form>
-      </div>
-    </div>
-    <div class="col s3">
-      <div class="container">
-        <div class="toc-wrapper">
-          <ul class="section table-of-contents">
-            <li>
-              <a href="#1_exhibitor">1. 出展者情報</a>
-            </li>
-            <li>
-              <a href="#2_project">2. 作品情報</a>
-            </li>
-            <li>
-              <a href="#3_booth">3. 展示スペース</a>
-            </li>
-            <li>
-              <a href="#4_extra">4. プレゼンテーション、ワークショップ、ライブパフォーマンス</a>
-            </li>
-            <li>
-              <a href="#5_other">5. その他</a>
-            </li>
-          </ul>
+            <div id="submit-modal" class="modal bottom-sheet">
+              <div class="modal-content">
+                <h4>
+                  <i class="material-icons">info</i>出展申込内容の確認</h4>
+                <p>お申し込み内容を確認のうえ、内容を送信してください。</p>
+              </div>
+              <div class="modal-footer">
+                <div class="divider"></div>
+                <div id="submit-progress" class="progress" style="display:none">
+                  <div class="indeterminate"></div>
+                </div>
+                <a id="submit-button" class="btn modal-action modal-close waves-effect">入力した内容で申込内容を送信する
+                  <i class="material-icons right">done_all</i>
+                </a>
+                <a id="replay-button" class="btn modal-close waves-effect">戻る
+                  <i class="material-icons right">replay</i>
+                </a>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+      <div class="col s3">
+        <div class="container">
+          <div class="toc-wrapper">
+            <ul class="section table-of-contents">
+              <li>
+                <a href="#1_exhibitor">1. 出展者情報</a>
+              </li>
+              <li>
+                <a href="#2_project">2. 作品情報</a>
+              </li>
+              <li>
+                <a href="#3_booth">3. 展示スペース</a>
+              </li>
+              <li>
+                <a href="#4_extra">4. プレゼンテーション、ワークショップ、ライブパフォーマンス</a>
+              </li>
+              <li>
+                <a href="#5_other">5. その他</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </main>{% include '_footer.html' %}
-  <script type="text/javascript" src="../static/registration.js"></script>
 </body>{% endblock body %}

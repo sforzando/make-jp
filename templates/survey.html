@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}Maker Faire Tokyo 2017 出展内容調査シート{% endblock title %} {% block body %}
 
 <body>{{ super() }}
+  <script type="text/javascript" src="../static/survey.js"></script>
   <main class="container">
     <div class="row">
       <div class="col s12">
@@ -45,8 +46,7 @@
                 </dt>
                 <dd>申し込みいただいた出展者名を記入してください。</dd>
               </dl>
-              <input type="text" id="_102_makers_name" name="_102_makers_name" class="validate" placeholder="MAKE日本語版編集部"
-                required>
+              <input type="text" id="_102_makers_name" name="_102_makers_name" class="validate" placeholder="MAKE日本語版編集部" required>
             </div>
             <div class="col input-field s6">
               <dl>
@@ -57,8 +57,8 @@
                 </dt>
                 <dd></dd>
               </dl>
-              <input type="text" autocomplete="family-name" id="_103_primary_lastname" name="_103_primary_lastname" class="validate"
-                placeholder="山田" required>
+              <input type="text" autocomplete="family-name" id="_103_primary_lastname" name="_103_primary_lastname" class="validate" placeholder="山田"
+                required>
             </div>
             <div class="col input-field s6">
               <dl>
@@ -69,8 +69,8 @@
                 </dt>
                 <dd></dd>
               </dl>
-              <input type="text" autocomplete="given-name" id="_104_primary_firstname" name="_104_primary_firstname" class="validate"
-                placeholder="太郎" required>
+              <input type="text" autocomplete="given-name" id="_104_primary_firstname" name="_104_primary_firstname" class="validate" placeholder="太郎"
+                required>
             </div>
             <div class="col input-field s12">
               <dl>
@@ -95,13 +95,12 @@
                 <dd>予定している作品、機材をすべて記載ください。台数、大きなものについてはサイズなども明記してください。プレゼンテーション、ワークショップ、ハンズオンに使用する持ち込み品も合わせて申請をお願いします。
                   <br>
                   <br>特に、高温になる器具（ハンダごてを含む）、高電圧を扱う装置、高速で稼働する装置、薬品類、レーザー光線を発する装置など、出展者や来場者が怪我をする可能性があるもの、工作機械、ドローン、飛行機、バルーン、大型の作品、無線を使った作品、食品などについては、必ず明記してください。お申し込みのなかったこれらの作品・機材については展示を撤去していただきます。詳しくは
-                  <a
-                    href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
-                    <br>
-                    <br>
-                    <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
-                    <br>※出展者による市販品・販促品としての飲食物の配布はできません。
-                    <br>※食品に関連した展示がある方は、順次必要な手続きについてご案内いたします。</dd>
+                  <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
+                  <br>
+                  <br>
+                  <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
+                  <br>※出展者による市販品・販促品としての飲食物の配布はできません。
+                  <br>※食品に関連した展示がある方は、順次必要な手続きについてご案内いたします。</dd>
               </dl>
               <textarea id="_201_equipments" name="_201_equipments" class="materialize-textarea validate" placeholder="・高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点・RaspberryPiを使ったラジオ*1点・ノートPC*1台・ディスプレイ 19インチ*1台・3Dプリンター*1台・家庭用ミシン*1台 など"
                 required></textarea>
@@ -263,5 +262,4 @@
       </div>
     </div>
   </main>{% include '_footer.html' %}
-  <script type="text/javascript" src="../static/survey.js"></script>
 </body>{% endblock body %}

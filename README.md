@@ -9,6 +9,10 @@ for Maker Faire Tokyo
   - [Google Cloud SDK for GAE/Python](#google-cloud-sdk-for-gaepython)
     - [Case of MacOS w/ Homebrew](#case-of-macos-w-homebrew)
     - [Case of others](#case-of-others)
+- [How to Deploy](#how-to-deploy)
+  - [via Circle CI](#via-circle-ci)
+    - [Prepare Service Account's JSON](#prepare-service-accounts-json)
+    - [Set Environment Variables on Circle CI](#set-environment-variables-on-circle-ci)
 - [ToDo](#todo)
 - [Misc.](#misc)
   - [Contributes](#contributes)
@@ -42,6 +46,24 @@ $ gcloud components install app-engine-python
 #### Case of others
 
 Download SDK from [official site](https://cloud.google.com/sdk/) and install it.
+
+## How to Deploy
+
+### via Circle CI
+
+#### Prepare Service Account's JSON
+
+Prepare json key at `IAM & Role`.
+
+```
+$ base64 make-jp-xxxxxxxxxxxx.json
+```
+
+And to enable Google App Engine Admin API.
+
+#### Set Environment Variables on Circle CI
+
+Add Base64 encoded key to Circle CI Environment Variables like `$GCP_SERVICE_ACCOUNT_KEY`.
 
 ## ToDo
 

@@ -82,5 +82,5 @@ jobs:
       - run:
           name: Deploy to GAE
           command: |
-            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/(\/|_)/\-/g")
+            gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g")
           no_output_timeout: 20m

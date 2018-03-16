@@ -67,9 +67,15 @@ jobs:
           destination: test-reports
 
       - run:
+          name: Install Node Dependencies
+          command: |
+            yarn run build:production
+
+      - run:
           name: Decrypt app.yaml
           command: |
-            openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
+            yarn run uncover -- -k $GCP_PROJECT_ID
+            # openssl enc -d -aes256 -in app.yaml.secret -out app.yaml -k $GCP_PROJECT_ID
             cat app.yaml
 
       - run:

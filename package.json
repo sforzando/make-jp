@@ -25,6 +25,7 @@
   },
   "scripts": {
     "start": "dev_appserver.py app.yaml",
+    "clean": "rm -rf .cache",
     "build": "yarn run build:debug",
     "build:debug":
       "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
@@ -35,7 +36,7 @@
     "build:debug:survey":
       "parcel build src/survey.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
     "build:production":
-      "yarn run build:production:common && yarn run build:production:registration && yarn run build:production:survey",
+      "yarn run clean && yarn run build:production:common && yarn run build:production:registration && yarn run build:production:survey",
     "build:production:common":
       "./rewrite_variables.sh && parcel build src/common.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:registration":

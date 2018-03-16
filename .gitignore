@@ -261,3 +261,5 @@ jspm_packages
 
 ### Misc. ###
 app.yaml
+*.woff
+*.woff2

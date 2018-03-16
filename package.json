@@ -24,8 +24,9 @@
     "prettier-eslint-cli": "^4.7.1"
   },
   "scripts": {
+    "build:production": "",
     "build:common":
-      "parcel build src/common.js --no-minify --target browser --detailed-report --out-dir static",
+      "./rewrite_variables.sh && parcel build src/common.js --no-minify --target browser --detailed-report --out-dir static",
     "build:registration":
       "parcel build src/registration.js --no-minify --target browser --detailed-report --out-dir static",
     "build:survey":

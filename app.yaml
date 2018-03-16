@@ -2,10 +2,6 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
-# Codeship required vars (disable these if deploying via local 'gcloud app deploy' command)
-# application: mft2017-form
-# version: codeship
-
 automatic_scaling:
   min_idle_instances: automatic # idle状態にあるインスタンスの最小値
   max_idle_instances: 1         # idle状態にあるインスタンスの最大値

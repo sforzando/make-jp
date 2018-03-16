@@ -263,3 +263,4 @@ jspm_packages
 
 ### Misc. ###
 app.yaml
+appengine-generated/

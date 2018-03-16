@@ -9,6 +9,8 @@ for Maker Faire Tokyo
   - [Google Cloud SDK for GAE/Python](#google-cloud-sdk-for-gaepython)
     - [Case of MacOS w/ Homebrew](#case-of-macos-w-homebrew)
     - [Case of others](#case-of-others)
+  - [Install Python Packages](#install-python-packages)
+  - [Install Node.js Packages](#install-nodejs-packages)
 - [How to Deploy](#how-to-deploy)
   - [via Circle CI](#via-circle-ci)
     - [Prepare Service Account's JSON](#prepare-service-accounts-json)
@@ -46,6 +48,18 @@ $ gcloud components install app-engine-python
 #### Case of others
 
 Download SDK from [official site](https://cloud.google.com/sdk/) and install it.
+
+### Install Python Packages
+
+```
+$ pip install -t lib -r requirements.txt --upgrade
+```
+
+### Install Node.js Packages
+
+```
+$ yarn install
+```
 
 ## How to Deploy
 

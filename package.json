@@ -2,8 +2,11 @@
   "name": "make-jp",
   "version": "1.0.0",
   "description": "for Maker Faire Tokyo",
-  "main": "index.js",
+  "main": "common.js",
   "repository": "https://github.com/sforzando/make-jp.git",
+  "bugs": {
+    "url": "https://github.com/sforzando/make-jp/issues"
+  },
   "author": "sforzando LLC.",
   "license": "WTFPL",
   "private": true,

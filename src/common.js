@@ -1,3 +1,4 @@
+import 'hammerjs';
 import 'materialize-css';
 import './common.scss';
 

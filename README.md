@@ -12,9 +12,10 @@ for Maker Faire Tokyo
   - [Install Python Packages](#install-python-packages)
   - [Install Node.js Packages](#install-nodejs-packages)
 - [How to Deploy](#how-to-deploy)
-  - [via Circle CI](#via-circle-ci)
+  - [GAE via Circle CI](#gae-via-circle-ci)
     - [Prepare Service Account's JSON](#prepare-service-accounts-json)
     - [Set Environment Variables on Circle CI](#set-environment-variables-on-circle-ci)
+  - [GAS via clasp](#gas-via-clasp)
 - [ToDo](#todo)
 - [Misc.](#misc)
   - [Contributes](#contributes)
@@ -35,6 +36,7 @@ for Maker Faire Tokyo
     * [MaterializeCSS](http://materializecss.com)
     * [jQuery Validation Plugin](https://jqueryvalidation.org)
     * [Toastr](https://github.com/CodeSeven/toastr)
+    * [clasp](https://github.com/google/clasp)
 
 ### Google Cloud SDK for GAE/Python
 
@@ -63,7 +65,7 @@ $ yarn install
 
 ## How to Deploy
 
-### via Circle CI
+### GAE via Circle CI
 
 #### Prepare Service Account's JSON
 
@@ -78,6 +80,13 @@ And to enable Google App Engine Admin API.
 #### Set Environment Variables on Circle CI
 
 Add Base64 encoded key to Circle CI Environment Variables like `$GCP_SERVICE_ACCOUNT_KEY`.
+
+### GAS via clasp
+
+```
+$ clasp login
+$ clasp clone GAS_PROJECT_ID
+```
 
 ## ToDo
 

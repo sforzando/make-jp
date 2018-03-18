@@ -5,13 +5,23 @@ const puppeteer = require('puppeteer');
 describe('Puppeteer', function() {
   this.timeout(10000);
 
-  it('should take screenshot of /registration', async () => {
-    const browser = await puppeteer.launch({
+  let browser;
+  let page;
+  beforeEach(async () => {
+    browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       headless: util.isProduction
     });
-    const page = await browser.newPage();
+    page = await browser.newPage();
     await page.emulate(util.pc);
+  });
+
+  afterEach(async done => {
+    browser.close();
+    done();
+  });
+
+  it('should take screenshot of /registration', async () => {
     await page.goto(util.target('registration'), {
       waitUntil: 'networkidle2'
     });
@@ -19,16 +29,9 @@ describe('Puppeteer', function() {
       path: 'test/registration.png',
       fullPage: true
     });
-    await browser.close();
   });
 
   it('should take screenshot of /survey', async () => {
-    const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      headless: util.isProduction
-    });
-    const page = await browser.newPage();
-    await page.emulate(util.pc);
     await page.goto(util.target('survey'), {
       waitUntil: 'networkidle2'
     });
@@ -36,6 +39,5 @@ describe('Puppeteer', function() {
       path: 'test/survey.png',
       fullPage: true
     });
-    await browser.close();
   });
 });

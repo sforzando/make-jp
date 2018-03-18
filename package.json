@@ -47,12 +47,17 @@
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
     "pretest": "yarn start &",
     "test": "yarn test:puppeteer:debug",
-    "test:puppeteer:debug": "yarn test:puppeteer:debug:screenshot",
+    "test:puppeteer:debug":
+      "yarn test:puppeteer:debug:screenshot && yarn test:puppeteer:debug:dummy",
     "test:puppeteer:debug:screenshot":
       "env mode=local mocha test/screenshot.js",
-    "test:puppeteer:production": "yarn test:puppeteer:production:screenshot",
+    "test:puppeteer:debug:dummy": "env mode=local mocha test/dummy.js",
+    "test:puppeteer:production":
+      "yarn test:puppeteer:production:screenshot && yarn test:puppeteer:production:dummy",
     "test:puppeteer:production:screenshot":
       "env mode=production mocha test/screenshot.js",
+    "test:puppeteer:production:dummy":
+      "env mode=production mocha test/dummy.js",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

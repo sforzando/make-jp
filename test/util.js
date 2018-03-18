@@ -14,6 +14,7 @@ module.exports = {
       isLandscape: false
     }
   },
+  isProduction: process.env.mode == 'production',
   target: path => {
     switch (process.env.mode) {
       case 'production':

@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "eslint": "^4.18.2",
+    "mocha": "^5.0.4",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.6.2",
     "prettier": "^1.11.1",
@@ -44,17 +45,14 @@
       "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:survey":
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
-    "test:puppeteer:debug":
-      "yarn test:puppeteer:debug:registration && yarn test:puppeteer:debug:survey",
-    "test:puppeteer:debug:registration":
-      "env mode=local node test/registration.js",
-    "test:puppeteer:debug:survey": "env mode=local node test/survey.js",
-    "test:puppeteer:production":
-      "yarn test:puppeteer:production:registration && yarn test:puppeteer:production:survey",
-    "test:puppeteer:production:registration":
-      "env mode=production node test/registration.js",
-    "test:puppeteer:production:survey":
-      "env mode=production node test/survey.js",
+    "pretest": "yarn start &",
+    "test": "yarn test:puppeteer:debug",
+    "test:puppeteer:debug": "yarn test:puppeteer:debug:screenshot",
+    "test:puppeteer:debug:screenshot":
+      "env mode=local mocha test/screenshot.js",
+    "test:puppeteer:production": "yarn test:puppeteer:production:screenshot",
+    "test:puppeteer:production:screenshot":
+      "env mode=production mocha test/screenshot.js",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

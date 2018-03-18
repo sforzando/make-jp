@@ -27,7 +27,10 @@
   },
   "scripts": {
     "start": "dev_appserver.py app.yaml",
-    "clean": "rm -rf .cache",
+    "clean": "yarn run clean:cache && yarn run clean:static",
+    "clean:cache": "rm -rf .cache",
+    "clean:static":
+      "find static -type f \\( -name '*.woff*' -or -name '*.css' -or -name '*.js' \\) -exec rm -f {} \\;",
     "build": "yarn run build:debug",
     "build:debug":
       "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
@@ -46,18 +49,9 @@
     "build:production:survey":
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
     "pretest": "yarn start &",
-    "test": "yarn test:puppeteer:debug",
-    "test:puppeteer:debug":
-      "yarn test:puppeteer:debug:screenshot && yarn test:puppeteer:debug:dummy",
-    "test:puppeteer:debug:screenshot":
-      "env mode=local mocha test/screenshot.js",
-    "test:puppeteer:debug:dummy": "env mode=local mocha test/dummy.js",
-    "test:puppeteer:production":
-      "yarn test:puppeteer:production:screenshot && yarn test:puppeteer:production:dummy",
-    "test:puppeteer:production:screenshot":
-      "env mode=production mocha test/screenshot.js",
-    "test:puppeteer:production:dummy":
-      "env mode=production mocha test/dummy.js",
+    "test": "yarn test:e2e:debug",
+    "test:e2e:debug": "env mode=local mocha",
+    "test:e2e:production": "env mode=production mocha",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

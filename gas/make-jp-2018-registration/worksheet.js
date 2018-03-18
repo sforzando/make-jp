@@ -1,22 +1,18 @@
 /**
  * Maker Faire Tokyo 2018
- * GAS Project: make-jp
- * 2018/registration/worksheet
+ * GAS Project: make-jp-2018-registration
  * @author Shin'ichiro SUZUKI <shin@sforzando.co.jp>
  */
-
-var sheetId = '1igUIVqjr0cgBXM0XISTL7XnDoPqI4xxBUctKBymZWxE';
-var targetSheetId = '1OuaT1y3qtN9VzRZQVDBNhxVXC64o35Yeq8BAi3_RrFM';
 
 /**
  * Copy Data from Master sheet
  * @return [type] [description]
  */
 function copyDataFromMaster() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+  var spreadSheet = SpreadsheetApp.openById(sheetId.REGISTRATION_WORKSHEET);
   var sheet_active = spreadSheet.getSheets()[0];
   if (sheet_active.getIndex() == 1) {
-    var sheet_origin = SpreadsheetApp.openById(targetSheetId);
+    var sheet_origin = SpreadsheetApp.openById(sheetId.REGISTRATION_MASTER);
     var data_origin = sheet_origin.getDataRange().getValues();
     var lastRow = sheet_active.getLastRow();
     if (lastRow < data_origin.length) {
@@ -36,8 +32,8 @@ function copyDataFromMaster() {
 /**
  * Set Registration's Header Values for first row
  */
-function setHeaderForRegistration() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+function setHeaderForRegistrationWorksheet() {
+  var spreadSheet = SpreadsheetApp.openById(sheetId.REGISTRATION_WORKSHEET);
   var sheet = spreadSheet.getSheets()[0];
   var headerColumns = [
     '1-01. 出展者名',
@@ -105,19 +101,19 @@ function setHeaderForRegistration() {
   }
 }
 
-function onOpen(event) {
+function onOpenRegistrationWorksheet(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
     .addItem('Copy Data from Master', 'copyDataFromMaster')
-    .addItem('Set Header', 'setHeaderForRegistration')
+    .addItem('Set Header', 'setHeaderForRegistrationWorksheet')
     .addToUi();
 
   copyDataFromMaster();
 }
 
-function createSpreadsheetOpenTrigger() {
-  var ss = SpreadsheetApp.openById(sheetId);
-  ScriptApp.newTrigger('onOpen:2018/registration/worksheet.js')
+function createOpenTriggerForRegistrationWorksheet() {
+  var ss = SpreadsheetApp.openById(sheetId.REGISTRATION_WORKSHEET);
+  ScriptApp.newTrigger('onOpenRegistrationWorksheet')
     .forSpreadsheet(ss)
     .onOpen()
     .create();

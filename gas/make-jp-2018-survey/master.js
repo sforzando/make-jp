@@ -1,11 +1,8 @@
 /**
  * Maker Faire Tokyo 2018
- * GAS Project: make-jp
- * 2018/survey/master
+ * GAS Project: make-jp-2018-survey
  * @author Shin'ichiro SUZUKI <shin@sforzando.co.jp>
  */
-
-var sheetId = '1nfI3udrZcm4mH7WAyOqUAp97Yh-PuzTRDtqfM_BA3xo';
 
 /**
  * Recieve Data via POST
@@ -14,7 +11,7 @@ var sheetId = '1nfI3udrZcm4mH7WAyOqUAp97Yh-PuzTRDtqfM_BA3xo';
  */
 function doPost(e) {
   try {
-    var spreadSheet = SpreadsheetApp.openById(sheetId);
+    var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_MASTER);
     var sheet = spreadSheet.getSheets()[0];
     var param = e.parameter;
 
@@ -57,8 +54,8 @@ function doGet(e) {}
 /**
  * Set Survey's Header Values for first row
  */
-function setHeaderForSurvey() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+function setHeaderForSurveyMaster() {
+  var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_MASTER);
   var sheet = spreadSheet.getSheets()[0];
   var headerColumns = [
     '1-01. 出展者ID',
@@ -85,16 +82,16 @@ function setHeaderForSurvey() {
   }
 }
 
-function onOpen(event) {
+function onOpenSurveyMaster(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
-    .addItem('Set Header', 'setHeaderForSurvey')
+    .addItem('Set Header', 'setHeaderForSurveyMaster')
     .addToUi();
 }
 
-function createSpreadsheetOpenTrigger() {
-  var ss = SpreadsheetApp.openById(sheetId);
-  ScriptApp.newTrigger('onOpen:2018/survey/master.js')
+function createOpenTriggerForSurveyMaster() {
+  var ss = SpreadsheetApp.openById(sheetId.SURVEY_MASTER);
+  ScriptApp.newTrigger('onOpenSurveyMaster')
     .forSpreadsheet(ss)
     .onOpen()
     .create();

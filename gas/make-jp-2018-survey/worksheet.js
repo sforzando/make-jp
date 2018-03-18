@@ -1,21 +1,18 @@
 /**
  * Maker Faire Tokyo 2018
- * GAS Project: make-jp
- * 2018/survey/worksheet
+ * GAS Project: make-jp-2018-survey
  * @author Shin'ichiro SUZUKI <shin@sforzando.co.jp>
  */
-var sheetId = '1jb6jFt9LllDjwGqOPHjKGarm5HgOHFMx_zYH0D2VJuE';
-var targetSheetId = '1nfI3udrZcm4mH7WAyOqUAp97Yh-PuzTRDtqfM_BA3xo';
 
 /**
  * Copy Data from Master sheet
  * @return [type] [description]
  */
 function copyDataFromMaster() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+  var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_WORKSHEET);
   var sheet_active = spreadSheet.getSheets()[0];
   if (sheet_active.getIndex() == 1) {
-    var sheet_origin = SpreadsheetApp.openById(targetSheetId);
+    var sheet_origin = SpreadsheetApp.openById(sheetId.SURVEY_MASTER);
     var data_origin = sheet_origin.getDataRange().getValues();
     var lastRow = sheet_active.getLastRow();
     if (lastRow < data_origin.length) {
@@ -35,8 +32,8 @@ function copyDataFromMaster() {
 /**
  * Set Survey's Header Values for first row
  */
-function setHeaderForSurvey() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+function setHeaderForSurveyWorksheet() {
+  var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_WORKSHEET);
   var sheet = spreadSheet.getSheets()[0];
   var headerColumns = [
     '1-01. 出展者ID',
@@ -63,19 +60,19 @@ function setHeaderForSurvey() {
   }
 }
 
-function onOpen(event) {
+function onOpenSurveyWorksheet(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
     .addItem('Copy Data from Master', 'copyDataFromMaster')
-    .addItem('Set Header', 'setHeaderForSurvey')
+    .addItem('Set Header', 'setHeaderForSurveyWorksheet')
     .addToUi();
 
   copyDataFromMaster();
 }
 
-function createSpreadsheetOpenTrigger() {
-  var ss = SpreadsheetApp.openById(sheetId);
-  ScriptApp.newTrigger('onOpen:2018/registration/worksheet.js')
+function createOpenTriggerForSurveyWorksheet() {
+  var ss = SpreadsheetApp.openById(sheetId.SURVEY_WORKSHEET);
+  ScriptApp.newTrigger('onOpenSurveyWorksheet')
     .forSpreadsheet(ss)
     .onOpen()
     .create();

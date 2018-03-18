@@ -1,11 +1,8 @@
 /**
  * Maker Faire Tokyo 2018
- * GAS Project: make-jp
- * 2018/registration/master
+ * GAS Project: make-jp-2018-registration
  * @author Shin'ichiro SUZUKI <shin@sforzando.co.jp>
  */
-
-var sheetId = '1OuaT1y3qtN9VzRZQVDBNhxVXC64o35Yeq8BAi3_RrFM';
 
 /**
  * Recieve Data via POST
@@ -14,7 +11,7 @@ var sheetId = '1OuaT1y3qtN9VzRZQVDBNhxVXC64o35Yeq8BAi3_RrFM';
  */
 function doPost(e) {
   try {
-    var spreadSheet = SpreadsheetApp.openById(sheetId);
+    var spreadSheet = SpreadsheetApp.openById(sheetId.REGISTRATION_MASTER);
     var sheet = spreadSheet.getSheets()[0];
     var param = e.parameter;
 
@@ -56,8 +53,8 @@ function doGet(e) {}
 /**
  * Set Registration's Header Values for first row
  */
-function setHeaderForRegistration() {
-  var spreadSheet = SpreadsheetApp.openById(sheetId);
+function setHeaderForRegistrationMaster() {
+  var spreadSheet = SpreadsheetApp.openById(sheetId.REGISTRATION_MASTER);
   var sheet = spreadSheet.getSheets()[0];
   var headerColumns = [
     '1-01. 出展者名',
@@ -125,16 +122,16 @@ function setHeaderForRegistration() {
   }
 }
 
-function onOpen(event) {
+function onOpenRegistrationMaster(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
-    .addItem('Set Header', 'setHeaderForRegistration')
+    .addItem('Set Header', 'setHeaderForRegistrationMaster')
     .addToUi();
 }
 
-function createSpreadsheetOpenTrigger() {
-  var ss = SpreadsheetApp.openById(sheetId);
-  ScriptApp.newTrigger('onOpen:2018/registration/master.js')
+function createOpenTriggerForRegistrationMaster() {
+  var ss = SpreadsheetApp.openById(sheetId.REGISTRATION_MASTER);
+  ScriptApp.newTrigger('onOpenRegistrationMaster')
     .forSpreadsheet(ss)
     .onOpen()
     .create();

@@ -181,7 +181,7 @@ def store():
     import urllib
     import urllib2
 
-    url = "https://script.google.com/macros/s/AKfycbzbOHtn0lQpTiMFG25cAI0Dyta2Tb2a3muZE9x5OiPEQXrS608/exec"
+    url = "https://script.google.com/macros/s/AKfycbyBJFGzebnDwKpVo83Z4Dr6CSRn5wIoGMAjIlRv5u2af8hm-g/exec"
 
     data = urllib.urlencode(request.form)
     req = urllib2.Request(url, data)

@@ -1,0 +1,9 @@
+queue:
+  - name: queue-registration-store
+    rate: 1/s
+  - name: queue-registration-send
+    rate: 1/s
+  - name: queue-survey-store
+    rate: 1/s
+  - name: queue-survey-send
+    rate: 1/s

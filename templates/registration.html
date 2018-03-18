@@ -170,7 +170,7 @@
                 <input type="text" autocomplete="postal-code" id="_111_zip" name="_111_zip" data-name="1-11. 代表者の郵便番号（半角）" class="validate"
                   placeholder="160-0002" required>
               </div>
-              <div class="col input-field s6">
+              <div class="col s6" style="margin-top: 1rem">
                 <dl>
                   <dt>1-12. 代表者の住所（都道府県）
                     <span class="required-mark red-text">
@@ -179,8 +179,8 @@
                   </dt>
                   <dd>リストから選択してください。</dd>
                 </dl>
-                <select id="_112_prefectures" name="_112_prefectures" data-name="1-12. 代表者の住所（都道府県）" class="browser-default" required>
-                  <option value="0" selected="selected" disabled="disabled">都道府県</option>{% for prefecture in prefectures %}
+                <select id="_112_prefectures" name="_112_prefectures" data-name="1-12. 代表者の住所（都道府県）" required>
+                  <option value="0" selected disabled>都道府県</option>{% for prefecture in prefectures %}
                   <option value="{{ loop.index }}">{{ prefecture }}</option>{% endfor %}</select>
               </div>
               <div class="col input-field s12">
@@ -205,9 +205,9 @@
                   <dd>ウェブなどに掲載される紹介文です。200文字以内で記入してください。</dd>
                 </dl>
                 <textarea id="_114_maker_bio" name="_114_maker_bio" data-name="1-14. 出展者のプロフィール" class="materialize-textarea validate" placeholder=""
-                  length="200" required></textarea>
+                  data-length="200" required></textarea>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>1-15. 出展区分
@@ -232,7 +232,7 @@
                 </p>
                 <div class="error_115_class"></div>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>1-16. 出展者タグの枚数
@@ -245,8 +245,8 @@
                     <br>出展申し込み後に出展者タグが必要になった場合には、開催前日の設営日から会場内のインフォメーションカウンターにて販売します。</dd>
                 </dl>
                 <p></p>
-                <select class="browser-default" id="_116_tags" name="_116_tags" data-name="1-16. 出展者タグの枚数">
-                  <option value="2" selected="selected">2（無料）</option>
+                <select id="_116_tags" name="_116_tags" data-name="1-16. 出展者タグの枚数">
+                  <option value="2" selected>2（無料）</option>
                   <option value="3">3（1,000円／税込）</option>
                   <option value="4">4（2,000円／税込）</option>
                   <option value="5">5（3,000円／税込）</option>
@@ -281,14 +281,14 @@
                   </dt>
                   <dd>ウェブなどに掲載される名称です。30文字以内で記入してください。複数ある場合は代表作品のみでもかまいません。</dd>
                 </dl>
-                <input type="text" id="_201_project_name" name="_201_project_name" class="validate" placeholder="" length="30" required>
+                <input type="text" id="_201_project_name" name="_201_project_name" class="validate" placeholder="" data-length="30" required>
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt>2-02. 作品またはプロジェクトの名称の英文表記</dt>
                   <dd>ウェブなどに掲載される名称です。半角英数100文字以内で記入してください。複数ある場合は、代表作品のみでもかまいません。</dd>
                 </dl>
-                <input type="text" id="_202_project_english_name" name="_202_project_english_name" class="validate" placeholder="" length="100">
+                <input type="text" id="_202_project_english_name" name="_202_project_english_name" class="validate" placeholder="" data-length="100">
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -300,7 +300,8 @@
                   <dd>ウェブなどに掲載される紹介文です。選考で最も参考にさせていただきますので、200文字以内で、できるだけ具体的に記入してください。選考については、
                     <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「6-1」をご覧ください。</dd>
                 </dl>
-                <textarea id="_203_project_describe" name="_203_project_describe" class="materialize-textarea validate" length="200" required></textarea>
+                <textarea id="_203_project_describe" name="_203_project_describe" class="materialize-textarea validate" data-length="200"
+                  required></textarea>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -329,7 +330,7 @@
                   <dd>以下のカテゴリからご自身の作品・活動に近いと思われるものを第1希望と第2希望の2つ選択してください。選択したカテゴリと展示の内容をもとに、事務局が会場内のエリア（「エレクトロニクス」「ロボティクス」「キッズ・教育」「ミュージック」「デジタルファブリケーション」「地方からの出展」「サイエンス」「フード」など）に出展者の配置を行います。</dd>
                 </dl>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p></p>
                 <dl>
                   <dt>2-06-a. 出展カテゴリ（第1希望）
@@ -340,11 +341,11 @@
                   <dd></dd>
                 </dl>
                 <p></p>
-                <select id="_206_category1" name="_206_category1" class="browser-default" required>
-                  <option value="0" selected="selected" disabled="disabled">選択</option>{% for key, value in categories|dictsort %}
+                <select id="_206_category1" name="_206_category1" required>
+                  <option value="0" selected disabled>選択</option>{% for key, value in categories|dictsort %}
                   <option value="{{ key }}">{{ value }}</option>{% endfor %}</select>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p></p>
                 <dl>
                   <dt>2-06-b. 出展カテゴリ（第2希望）
@@ -355,8 +356,8 @@
                   <dd></dd>
                 </dl>
                 <p></p>
-                <select id="_206_category2" name="_206_category2" class="browser-default" required>
-                  <option value="0" selected="selected" disabled="disabled">選択</option>{% for key, value in categories|dictsort %}
+                <select id="_206_category2" name="_206_category2" required>
+                  <option value="0" selected disabled>選択</option>{% for key, value in categories|dictsort %}
                   <option value="{{ key }}">{{ value }}</option>{% endfor %}</select>
               </div>
               <div class="col input-field s12">
@@ -408,7 +409,7 @@
                 <textarea id="_208_equipments" name="_208_equipments" class="materialize-textarea validate" placeholder="高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点、RaspberryPiを使ったラジオ*1点、ノートPC*1台、ディスプレイ 19インチ、3Dプリンター*1台、家庭用ミシン*1台 など"
                   required></textarea>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p></p>
                 <dl>
                   <dt>2-09. 必要な電源容量（W数）
@@ -419,7 +420,7 @@
                   <dd>携帯電話（充電）10W、ノートPC 50〜150W、デスクトップPC 150W〜500W、電子ピアノ 150W〜400W、ドライヤー 600W〜1500Wを参考に、必要な合計W数を選択してください。「3001W以上もしくは単相100V以外の電源」を選択した方は、個別に仕様を確認させていただきます。</dd>
                 </dl>
                 <p></p>
-                <select class="browser-default" id="_209_watt" name="_209_watt" data-name="2-09. 必要な電源容量（W数）">{% for w in watt %}
+                <select id="_209_watt" name="_209_watt" data-name="2-09. 必要な電源容量（W数）">{% for w in watt %}
                   <option value="{{ loop.index0 }}">{{ w }}</option>{% endfor %}</select>
               </div>
             </div>
@@ -433,7 +434,7 @@
                 </div>
               </div>
               <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2017_table02.jpg" alt="展示スペースの例">
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-01. 展示スペースの種類
@@ -457,7 +458,7 @@
                 </p>
                 <div class="error_301_space_type"></div>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_302_table">3-02. テーブルの数</dt>
@@ -480,7 +481,7 @@
                 </p>
                 <div class="error_302_table"></div>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_303_space_area">3-03-a. 広いスペース</dt>
@@ -500,7 +501,7 @@
                   <label for="_303_space_area_4200x4200">4200mm*4200mm</label>
                 </p>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_303_space_table">3-03-b. 広いスペースのテーブルの数</dt>
@@ -524,7 +525,7 @@
                   <label for="_303_space_table_3">3</label>
                 </p>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-04. 椅子の数
@@ -553,7 +554,7 @@
                 </p>
                 <div class="error_304_chair"></div>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-05. ハンズオン（ミニワークショップ）用テーブル</dt>
@@ -572,14 +573,14 @@
                   <dt id="label_306_handson_title">3-06. ハンズオン（ミニワークショップ）のタイトル</dt>
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
-                <input type="text" id="_306_handson_title" name="_306_handson_title" class="validate" placeholder="" length="20">
+                <input type="text" id="_306_handson_title" name="_306_handson_title" class="validate" placeholder="" data-length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt id="label_307_handson_describe">3-07. ハンズオン（ミニワークショップ）の内容</dt>
                   <dd>100文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_307_handson_describe" name="_307_handson_describe" class="materialize-textarea validate" length="100"></textarea>
+                <textarea id="_307_handson_describe" name="_307_handson_describe" class="materialize-textarea validate" data-length="100"></textarea>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -588,7 +589,7 @@
                 </dl>
                 <input type="text" id="_308_handson_charge" name="_308_handson_charge" class="validate" placeholder="無料、300円/人">
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-09. 暗いスペース</dt>
@@ -624,7 +625,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <dl>
                   <dt>4-01. プレゼンテーション（20分間）</dt>
                   <dd>「希望する」を選択した場合は、以下4-02、4-03に回答してください。出展決定後に実施の可否を連絡します。</dd>
@@ -639,16 +640,16 @@
                   <dt id="label_402_presentation_title">4-02. プレゼンテーションのタイトル</dt>
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
-                <input type="text" id="_402_presentation_title" name="_402_presentation_title" class="validate" placeholder="" length="20">
+                <input type="text" id="_402_presentation_title" name="_402_presentation_title" class="validate" placeholder="" data-length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt id="label_403_presentation_describe">4-03. プレゼンテーションの内容</dt>
                   <dd>200文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_403_presentation_describe" name="_403_presentation_describe" class="materialize-textarea validate" length="200"></textarea>
+                <textarea id="_403_presentation_describe" name="_403_presentation_describe" class="materialize-textarea validate" data-length="200"></textarea>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <dl>
                   <dt>4-04. ワークショップ（50分間、110分間から選択）</dt>
                   <dd>「希望する」を選択した場合は、以下4-05から4-11に回答してください。Commercial Maker、企業出展の場合、ワークショップ専用スペースを使ったワークショップの実施には別途 スペースの利用費が必要です（開催時間に関わらず1回につき、Commercial
@@ -665,50 +666,50 @@
                   <dt id="label_405_workshop_title">4-05. ワークショップのタイトル</dt>
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
-                <input type="text" id="_405_workshop_title" name="_405_workshop_title" class="validate" placeholder="" length="20">
+                <input type="text" id="_405_workshop_title" name="_405_workshop_title" class="validate" placeholder="" data-length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt id="label_406_workshop_describe">4-06. ワークショップの内容</dt>
                   <dd>200文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_406_workshop_describe" name="_406_workshop_describe" class="materialize-textarea validate" length="200"></textarea>
+                <textarea id="_406_workshop_describe" name="_406_workshop_describe" class="materialize-textarea validate" data-length="200"></textarea>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_407_workshop_times">4-07. ワークショップの回数</dt>
                   <dd>2日間における開催希望回数を選択してください。ただし、スペースに限りがあるため、調整を行うことをご了承ください。</dd>
                 </dl>
                 <p></p>
-                <select class="browser-default" id="_407_workshop_times" name="_407_workshop_times">
-                  <option value="0" selected="selected" disabled="disabled">回数を選択</option>
+                <select id="_407_workshop_times" name="_407_workshop_times">
+                  <option value="0" selected disabled>回数を選択</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                 </select>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_408_workshop_time">4-08. ワークショップの時間</dt>
                   <dd>1回あたりに必要な時間を選択してください。</dd>
                 </dl>
                 <p></p>
-                <select class="browser-default" id="_408_workshop_time" name="_408_workshop_time">
-                  <option value="0" selected="selected" disabled="disabled">時間を選択</option>
+                <select id="_408_workshop_time" name="_408_workshop_time">
+                  <option value="0" selected disabled>時間を選択</option>
                   <option value="50">50分</option>
                   <option value="110">110分</option>
                 </select>
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt id="label_409_workshop_attendees">4-09. ワークショップの参加人数</dt>
                   <dd>各回における最大受入可能人数を選択してください。</dd>
                 </dl>
                 <p></p>
-                <select class="browser-default" id="_409_workshop_attendees" name="_409_workshop_attendees">
-                  <option value="0" selected="selected" disabled="disabled">人数を選択</option>
+                <select id="_409_workshop_attendees" name="_409_workshop_attendees">
+                  <option value="0" selected disabled>人数を選択</option>
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
@@ -731,7 +732,7 @@
                 </dl>
                 <input type="text" id="_411_workshop_registration" name="_411_workshop_registration" class="validate" placeholder="">
               </div>
-              <div class="col input-field s12">
+              <div class="col s12">
                 <dl>
                   <dt>4-12. ライブパフォーマンス</dt>
                   <dd>「希望する」を選択した場合は、以下4-13、4-14に回答してください。出展決定後に実施の可否を連絡します。</dd>
@@ -747,14 +748,14 @@
                   <dd>20文字以内でご記入ください。</dd>
                 </dl>
                 <input type="text" id="_413_live_title" name="_413_live_title" data-name="4-13. ライブパフォーマンスのタイトル" class="validate" placeholder=""
-                  length="20">
+                  data-length="20">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt id="label_414_live_describe">4-14. ライブパフォーマンスの内容</dt>
                   <dd>200文字以内でご記入ください。</dd>
                 </dl>
-                <textarea id="_414_live_describe" name="_414_live_describe" class="materialize-textarea validate" length="200"></textarea>
+                <textarea id="_414_live_describe" name="_414_live_describe" class="materialize-textarea validate" data-length="200"></textarea>
               </div>
             </div>
             <div id="5_other" class="section scrollspy">
@@ -771,7 +772,7 @@
                   <dt>5-01. その他、不明な点や事務局へのご要望</dt>
                   <dd>200文字以内で記入してください。スペース・備品に関するご要望は「3. 展示スペース」にてご回答、記入してください。</dd>
                 </dl>
-                <textarea id="_501_comment" name="_501_comment" class="materialize-textarea validate" length="200"></textarea>
+                <textarea id="_501_comment" name="_501_comment" class="materialize-textarea validate" data-length="200"></textarea>
               </div>
             </div>
             <div>

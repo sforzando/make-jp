@@ -470,6 +470,7 @@ $(document).ready(() => {
   $('.scrollspy').scrollSpy();
   $('.materialboxed').materialbox(); // for Media
   $('select').material_select(); // for input-select
+  $('input, textarea').characterCounter();
   $('#submit-modal').modal({
     opacity: 0.3,
     ready: () => {

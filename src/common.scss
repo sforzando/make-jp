@@ -1,6 +1,7 @@
 $primary-color: #00aeef;
 $secondary-color: #ed1d24;
 $roboto-font-path: '../node_modules/materialize-css/dist/fonts/roboto/';
+$toast-color: #ed1d24;
 
 @import '../node_modules/materialize-css/sass/materialize.scss';
 @import '../node_modules/toastr/build/toastr.css';
@@ -21,11 +22,11 @@ main {
   font-size: 18px;
 }
 
-.input-field label {
+label {
   color: #333;
 }
 
-.input-field dt {
+dt {
   font-weight: bold;
 }
 

@@ -194,7 +194,7 @@ describe('Input dummy data w/ Puppeteer', function() {
 
     await page.click('a#pre-submit-button');
     if (util.isProduction) {
-      await page.pdf({ path: 'test/registration.pdf' });
+      await page.pdf({ path: 'test/registration.pdf', printBackground: true });
     } else {
       await page.screenshot({
         path: 'test/registration.png',
@@ -264,7 +264,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     );
     await page.click('a#pre-submit-button');
     if (util.isProduction) {
-      await page.pdf({ path: 'test/survey.pdf' });
+      await page.pdf({ path: 'test/survey.pdf', printBackground: true });
     } else {
       await page.screenshot({
         path: 'test/survey.png',

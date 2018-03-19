@@ -107,5 +107,5 @@ jobs:
             yarn test:production
 
       - store_artifacts:
-          path: test
+          path: test/*.pdf
           destination: test

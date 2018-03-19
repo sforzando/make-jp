@@ -104,7 +104,7 @@ jobs:
       - run:
           name: Test with Puppeteer
           command: |
-            env mode=production mocha --reporter xunit --reporter-options output=mocha-results.xml
+            yarn test:report
           when: always
 
       - store_test_results:

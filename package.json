@@ -51,6 +51,8 @@
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
     "pretest": "yarn start &",
     "test": "yarn test:production",
+    "test:report":
+      "env mode=production mocha --reporter xunit --reporter-options output=mocha-results.xml",
     "test:debug": "yarn test:debug:e2e",
     "test:debug:e2e": "env mode=local mocha",
     "test:production": "yarn test:production:e2e",

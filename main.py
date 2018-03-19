@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.update({"DEBUG": True,  # XXX: it must be False used on production server.
                    "SENDGRID_API_KEY": os.environ['SENDGRID_API_KEY'],
-                   "FROM_MAILADDRESS": "makers-01@makejapan.org",
+                   "FROM_MAILADDRESS": "makers@makejapan.org",
                    "FROM_NAME": "Maker Faire Tokyo出展担当",
                    "CC_MAILADDRESS": "makers@makejapan.org",
                    "BCC_MAILADDRESS": "shin+mft@sforzando.co.jp",

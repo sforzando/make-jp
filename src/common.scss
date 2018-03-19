@@ -1,6 +1,7 @@
 $primary-color: #00aeef;
 $secondary-color: #ed1d24;
 $roboto-font-path: '../node_modules/materialize-css/dist/fonts/roboto/';
+$input-focus-color: $primary-color;
 $toast-color: #ed1d24;
 
 @import '../node_modules/materialize-css/sass/materialize.scss';

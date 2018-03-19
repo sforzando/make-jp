@@ -13,6 +13,7 @@ blueprint = Blueprint("registration", __name__)
 
 @blueprint.route("/registration", methods=["GET", "POST"])
 def registration():
+    current_app.logger.info("/registration(" + request.method + ")")
     now = datetime.now(timezone.JstTzInfo())
     if request.method == "GET":
         return render_template("registration.html", prefectures=current_app.config["PREFECTURES"], categories=current_app.config["CATEGORIES"], watt=current_app.config["WATT"])

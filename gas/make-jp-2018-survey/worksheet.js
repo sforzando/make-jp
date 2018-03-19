@@ -8,7 +8,7 @@
  * Copy Data from Master sheet
  * @return [type] [description]
  */
-function copyDataFromMaster() {
+function copyDataFromSurveyMaster() {
   var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_WORKSHEET);
   var sheet_active = spreadSheet.getSheets()[0];
   if (sheet_active.getIndex() == 1) {
@@ -63,11 +63,11 @@ function setHeaderForSurveyWorksheet() {
 function onOpenSurveyWorksheet(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
-    .addItem('Copy Data from Master', 'copyDataFromMaster')
+    .addItem('Copy Data from Master', 'copyDataFromSurveyMaster')
     .addItem('Set Header', 'setHeaderForSurveyWorksheet')
     .addToUi();
 
-  copyDataFromMaster();
+  copyDataFromSurveyMaster();
 }
 
 function createOpenTriggerForSurveyWorksheet() {

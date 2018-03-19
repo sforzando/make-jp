@@ -13,6 +13,7 @@ blueprint = Blueprint("survey", __name__)
 
 @blueprint.route("/survey", methods=["GET", "POST"])
 def survey():
+    current_app.logger.info("/survey(" + request.method + ")")
     now = datetime.now(timezone.JstTzInfo())
     if request.method == "GET":
         return render_template("survey.html")

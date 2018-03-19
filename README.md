@@ -4,6 +4,10 @@ for Maker Faire Tokyo
 
 [![CircleCI](https://circleci.com/gh/sforzando/make-jp/tree/master.svg?style=svg)](https://circleci.com/gh/sforzando/make-jp/tree/master)
 
+|                               /registration                                |                               /survey                                |                               /thanks                                |
+| :------------------------------------------------------------------------: | :------------------------------------------------------------------: | :------------------------------------------------------------------: |
+| ![](https://github.com/sforzando/make-jp/raw/master/test/registration.png) | ![](https://github.com/sforzando/make-jp/raw/master/test/survey.png) | ![](https://github.com/sforzando/make-jp/raw/master/test/thanks.png) |
+
 - [How to Setup](#how-to-setup)
   - [Requirements](#requirements)
   - [Google Cloud SDK for GAE/Python](#google-cloud-sdk-for-gaepython)
@@ -11,6 +15,10 @@ for Maker Faire Tokyo
     - [Case of others](#case-of-others)
   - [Install Python Packages](#install-python-packages)
   - [Install Node.js Packages](#install-nodejs-packages)
+- [How to Develop](#how-to-develop)
+- [How to Test](#how-to-test)
+  - [Local](#local)
+  - [Production](#production)
 - [How to Deploy](#how-to-deploy)
   - [GAE via Circle CI](#gae-via-circle-ci)
     - [Prepare Service Account's JSON](#prepare-service-accounts-json)
@@ -63,6 +71,23 @@ $ pip install -t lib -r requirements.txt --upgrade
 $ yarn install
 ```
 
+## How to Develop
+
+## How to Test
+
+### Local
+
+```
+$ yarn start
+$ yarn test
+```
+
+### Production
+
+```
+$ yarn test:production
+```
+
 ## How to Deploy
 
 ### GAE via Circle CI
@@ -87,6 +112,11 @@ Add Base64 encoded key to Circle CI Environment Variables like `$GCP_SERVICE_ACC
 $ clasp login
 $ clasp clone GAS_PROJECT_ID
 ```
+
+GAS project can be shared.
+
+After `clasp push` for each project, do some function on web to get the privileges.
+And `Publish as Web application` to get POST action.
 
 ## ToDo
 

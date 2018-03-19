@@ -8,7 +8,7 @@
  * Copy Data from Master sheet
  * @return [type] [description]
  */
-function copyDataFromMaster() {
+function copyDataFromRegistrationMaster() {
   var spreadSheet = SpreadsheetApp.openById(sheetId.REGISTRATION_WORKSHEET);
   var sheet_active = spreadSheet.getSheets()[0];
   if (sheet_active.getIndex() == 1) {
@@ -104,11 +104,11 @@ function setHeaderForRegistrationWorksheet() {
 function onOpenRegistrationWorksheet(event) {
   SpreadsheetApp.getUi()
     .createMenu('Custom Function')
-    .addItem('Copy Data from Master', 'copyDataFromMaster')
+    .addItem('Copy Data from Master', 'copyDataFromRegistrationMaster')
     .addItem('Set Header', 'setHeaderForRegistrationWorksheet')
     .addToUi();
 
-  copyDataFromMaster();
+  copyDataFromRegistrationMaster();
 }
 
 function createOpenTriggerForRegistrationWorksheet() {

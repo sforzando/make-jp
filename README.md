@@ -16,6 +16,7 @@ for Maker Faire Tokyo
   - [Install Python Packages](#install-python-packages)
   - [Install Node.js Packages](#install-nodejs-packages)
 - [How to Develop](#how-to-develop)
+  - [Bundle with Parcel](#bundle-with-parcel)
 - [How to Test](#how-to-test)
   - [Local](#local)
   - [Production](#production)
@@ -73,6 +74,12 @@ $ yarn install
 
 ## How to Develop
 
+### Bundle with Parcel
+
+```
+$ yarn run build
+```
+
 ## How to Test
 
 ### Local
@@ -89,6 +96,12 @@ $ yarn test:production
 ```
 
 ## How to Deploy
+
+```
+$ yarn run build:production
+```
+
+To bundle minified code.
 
 ### GAE via Circle CI
 

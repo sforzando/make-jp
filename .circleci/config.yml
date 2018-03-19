@@ -111,7 +111,7 @@ jobs:
           command: |
             yarn test:report
           environment:
-            MOCHA_FILE: junit/mocha-results.xml
+            MOCHA_FILE: ~/junit/mocha-results.xml
           when: always
 
       - store_test_results:

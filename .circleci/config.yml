@@ -103,13 +103,22 @@ jobs:
             apt-get install -y google-chrome-unstable fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont --no-install-recommends
 
       - run:
+          command: |
+            mkdir ~/junit
+
+      - run:
           name: Test with Puppeteer
           command: |
             yarn test:report
+          environment:
+            MOCHA_FILE: junit/mocha-results.xml
           when: always
 
       - store_test_results:
-          path: test
+          path: ~/junit
+
+      - store_artifacts:
+          path: ~/junit
 
       - store_artifacts:
           path: test

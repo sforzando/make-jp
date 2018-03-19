@@ -202,7 +202,8 @@ def send():
     for key, value in sorted(request.form.to_dict().items()):
         entries += "{}:\n{}\n\n".format(key, value)
 
-    body = """{exhibitor_name}様
+    body = """
+{exhibitor_name}様
 
 このたびはMaker Faire Tokyo 2017へ
 出展申し込みをいただきありがとうございます。
@@ -233,7 +234,7 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
         apikey=current_app.config["SENDGRID_API_KEY"])
 
     mail = Mail()
-    mail.from_from = Email(current_app.config["FROM_MAILADDRESS"])
+    mail.from_email = Email(current_app.config["FROM_MAILADDRESS"])
     mail.subject = "[MFT2017出展申し込み]({})を受け付けました".format(
         request.form.get(u"1-01. 出展者名", type=str))
 
@@ -253,7 +254,6 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
     res = sg.client.mail.send.post(request_body=mg)
 
     current_app.logger.info(res.status_code)
-
     if res.status_code != 202:
         return "An error occurred: {}".format(res.body), 500
     else:

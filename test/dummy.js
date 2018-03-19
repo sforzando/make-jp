@@ -218,7 +218,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_105_email', 'shin@forzando.co.jp');
     await page.type(
       'textarea#_201_equipments',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 200))
+      'Maker Faire Tokyo 2018は8月4日（土）、5日（日）に東京ビッグサイトにて開催いたします。\u000d出展者募集は例年同様に4月上旬から5月上旬まで行う予定です。\u000d詳しい情報は、このmakezine.jpやTwitter、Facebookにて今後公開します。\u000dすでにいくつかの企画も進んでおり、発表できるのが楽しみです。\u000dご出展、ご来場をお待ちしています！'
     );
     await page.click(
       util.getRandomItemFromArray([

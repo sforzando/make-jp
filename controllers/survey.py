@@ -13,6 +13,7 @@ blueprint = Blueprint("survey", __name__)
 
 @blueprint.route("/survey", methods=["GET", "POST"])
 def survey():
+    current_app.logger.info("/survey(" + request.method + ")")
     now = datetime.now(timezone.JstTzInfo())
     if request.method == "GET":
         return render_template("survey.html")
@@ -94,7 +95,7 @@ def store():
     import urllib
     import urllib2
 
-    url = "https://script.google.com/macros/s/AKfycbxeNihPVEz_RDC7RWKW6TedDPowHJklw8Ig9RyT3dGkFlGC2HQc/exec"
+    url = "https://script.google.com/macros/s/AKfycbxJI4_rD_2f1FAsaBcG6yKu9vkqNpCbhb2Pob2BGZChA0VPDEUO/exec"
 
     data = urllib.urlencode(request.form)
     req = urllib2.Request(url, data)

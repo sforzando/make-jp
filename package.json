@@ -16,6 +16,7 @@
     "toastr": "^2.1.4"
   },
   "devDependencies": {
+    "@google/clasp": "^1.1.5",
     "eslint": "^4.18.2",
     "mocha": "^5.0.4",
     "node-sass": "^4.7.2",
@@ -29,25 +30,16 @@
     "start": "dev_appserver.py app.yaml",
     "clean": "yarn run clean:cache && yarn run clean:static",
     "clean:cache": "rm -rf .cache",
-    "clean:static":
-      "find static -type f \\( -name '*.woff*' -or -name '*.css' -or -name '*.js' \\) -exec rm -f {} \\;",
+    "clean:static": "find static -type f \\( -name '*.woff*' -or -name '*.css' -or -name '*.js' \\) -exec rm -f {} \\;",
     "build": "yarn run build:debug",
-    "build:debug":
-      "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
-    "build:debug:common":
-      "parcel build src/common.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
-    "build:debug:registration":
-      "parcel build src/registration.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
-    "build:debug:survey":
-      "parcel build src/survey.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
-    "build:production":
-      "yarn run clean && yarn run build:production:common && yarn run build:production:registration && yarn run build:production:survey",
-    "build:production:common":
-      "parcel build src/common.js --no-cache --target browser --detailed-report --out-dir static",
-    "build:production:registration":
-      "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
-    "build:production:survey":
-      "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
+    "build:debug": "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
+    "build:debug:common": "parcel build src/common.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
+    "build:debug:registration": "parcel build src/registration.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
+    "build:debug:survey": "parcel build src/survey.js --no-cache --no-minify --target browser --detailed-report --out-dir static",
+    "build:production": "yarn run clean && yarn run build:production:common && yarn run build:production:registration && yarn run build:production:survey",
+    "build:production:common": "parcel build src/common.js --no-cache --target browser --detailed-report --out-dir static",
+    "build:production:registration": "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
+    "build:production:survey": "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
     "pretest": "yarn start &",
     "test": "yarn test:debug",
     "test:debug": "yarn test:debug:e2e",

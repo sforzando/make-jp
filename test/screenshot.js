@@ -40,4 +40,14 @@ describe('Puppeteer', function() {
       fullPage: true
     });
   });
+
+  it('should take screenshot of /thanks', async () => {
+    await page.goto(util.target('thanks'), {
+      waitUntil: 'networkidle2'
+    });
+    await page.screenshot({
+      path: 'test/thanks.png',
+      fullPage: true
+    });
+  });
 });

@@ -104,8 +104,11 @@ jobs:
       - run:
           name: Test with Puppeteer
           command: |
-            yarn test:production
+            yarn test:report
+
+      - store_test_results:
+          path: test
 
       - store_artifacts:
-          path: test/*.pdf
-          destination: test
+          path: test
+          # destination: test

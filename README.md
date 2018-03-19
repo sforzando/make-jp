@@ -16,6 +16,7 @@ for Maker Faire Tokyo
   - [Install Python Packages](#install-python-packages)
   - [Install Node.js Packages](#install-nodejs-packages)
 - [How to Develop](#how-to-develop)
+  - [Encrypt SENDGRID_API_KEY at app.yaml](#encrypt-sendgridapikey-at-appyaml)
   - [Bundle with Parcel](#bundle-with-parcel)
 - [How to Test](#how-to-test)
   - [Local](#local)
@@ -73,6 +74,20 @@ $ yarn install
 ```
 
 ## How to Develop
+
+### Encrypt SENDGRID_API_KEY at app.yaml
+
+Write `SENDGRID_API_KEY` at `app.yaml` like
+
+```
+runtime: python27
+api_version: 1
+threadsafe: yes
+env_variables:
+  SENDGRID_API_KEY: 'zzzzzzzzzzzzzzzz'
+```
+
+And `yarn run cover` to encrypt.
 
 ### Bundle with Parcel
 

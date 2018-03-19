@@ -2,7 +2,7 @@ const util = require('./util.js');
 const assert = require('assert');
 const puppeteer = require('puppeteer');
 
-describe('Puppeteer', function() {
+describe('Take screenshots w/ Puppeteer', function() {
   this.timeout(10000);
 
   let browser;
@@ -26,8 +26,8 @@ describe('Puppeteer', function() {
       waitUntil: 'networkidle2'
     });
     await page.screenshot({
-      path: 'test/registration.png',
-      fullPage: true
+      path: 'test/registration.png'
+      // ,fullPage: true
     });
   });
 
@@ -36,8 +36,8 @@ describe('Puppeteer', function() {
       waitUntil: 'networkidle2'
     });
     await page.screenshot({
-      path: 'test/survey.png',
-      fullPage: true
+      path: 'test/survey.png'
+      // ,fullPage: true
     });
   });
 
@@ -46,8 +46,8 @@ describe('Puppeteer', function() {
       waitUntil: 'networkidle2'
     });
     await page.screenshot({
-      path: 'test/thanks.png',
-      fullPage: true
+      path: 'test/thanks.png'
+      // ,fullPage: true
     });
   });
 });

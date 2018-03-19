@@ -16,6 +16,8 @@ for Maker Faire Tokyo
   - [Install Python Packages](#install-python-packages)
   - [Install Node.js Packages](#install-nodejs-packages)
 - [How to Develop](#how-to-develop)
+  - [Encrypt SENDGRID_API_KEY at app.yaml](#encrypt-sendgridapikey-at-appyaml)
+  - [Bundle with Parcel](#bundle-with-parcel)
 - [How to Test](#how-to-test)
   - [Local](#local)
   - [Production](#production)
@@ -73,6 +75,26 @@ $ yarn install
 
 ## How to Develop
 
+### Encrypt SENDGRID_API_KEY at app.yaml
+
+Write `SENDGRID_API_KEY` at `app.yaml` like
+
+```
+runtime: python27
+api_version: 1
+threadsafe: yes
+env_variables:
+  SENDGRID_API_KEY: 'zzzzzzzzzzzzzzzz'
+```
+
+And `yarn run cover` to encrypt.
+
+### Bundle with Parcel
+
+```
+$ yarn run build
+```
+
 ## How to Test
 
 ### Local
@@ -89,6 +111,12 @@ $ yarn test:production
 ```
 
 ## How to Deploy
+
+```
+$ yarn run build:production
+```
+
+To bundle minified code.
 
 ### GAE via Circle CI
 
@@ -111,9 +139,19 @@ Add Base64 encoded key to Circle CI Environment Variables like `$GCP_SERVICE_ACC
 ```
 $ clasp login
 $ clasp clone GAS_PROJECT_ID
+$ touch globals.js
 ```
 
 GAS project can be shared.
+
+`globals.js` should be written `sheetId` like
+
+```
+var sheetId = {
+  REGISTRATION_MASTER: 'xxxxxxxxxxxxxxxx',
+  REGISTRATION_WORKSHEET: 'yyyyyyyyyyyyyyyy'
+};
+```
 
 After `clasp push` for each project, do some function on web to get the privileges.
 And `Publish as Web application` to get POST action.

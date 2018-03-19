@@ -266,3 +266,6 @@ static/*.js
 static/*.css
 static/*.woff
 static/*.woff2
+gas/**/globals.js
+*.pdf
+test/test-results.xml

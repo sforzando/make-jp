@@ -118,7 +118,7 @@ def send():
     body = """
 {exhibitor_name}様
 
-この度は、Maker Faire Tokyo 2017 出展内容調査シートをご提出いただき、
+この度は、Maker Faire Tokyo 2018 出展内容調査シートをご提出いただき、
 ありがとうございました。下記の内容で承りました。
 
 「危険物」に当てはまる物品を持ち込む方は「危険物申請書」「展示レイアウト図」の提出も必要です。
@@ -139,7 +139,7 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 {entries}
 ------
 以上
-        """.format(exhibitor_name=request.form.get(u"1-02. 出展者名", type=str), entries=entries)
+    """.format(exhibitor_name=request.form.get(u"1-02. 出展者名", type=str), entries=entries)
 
     sg = sendgrid.SendGridAPIClient(
         apikey=current_app.config["SENDGRID_API_KEY"])

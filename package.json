@@ -19,6 +19,7 @@
     "@google/clasp": "^1.1.5",
     "eslint": "^4.18.2",
     "mocha": "^5.0.4",
+    "mocha-junit-reporter": "^1.17.0",
     "node-sass": "^4.7.2",
     "parcel-bundler": "^1.6.2",
     "prettier": "^1.11.1",
@@ -52,7 +53,7 @@
     "pretest": "yarn start &",
     "test": "yarn test:production",
     "test:report":
-      "env mode=production mocha --reporter xunit --reporter-options output=mocha-results.xml",
+      "env mode=production mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test/mocha-result.xml",
     "test:debug": "yarn test:debug:e2e",
     "test:debug:e2e": "env mode=local mocha",
     "test:production": "yarn test:production:e2e",

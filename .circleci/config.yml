@@ -69,7 +69,7 @@ jobs:
             yarn run build:production
 
       - run:
-          name: To Disable Debug
+          name: Alter main.py to Disable Debug
           command: |
             sed -i.bak -e 's/"DEBUG": True/"DEBUG": False/' main.py
 
@@ -90,6 +90,7 @@ jobs:
           command: |
             gcloud --quiet app deploy app.yaml --version $(echo $CIRCLE_BRANCH | sed "s/_/-/g")
           no_output_timeout: 20m
+          background: true
 
       - run:
           name: Install Puppeteer
@@ -112,3 +113,4 @@ jobs:
 
       - store_artifacts:
           path: test
+          destination: test

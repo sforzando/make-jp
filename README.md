@@ -111,9 +111,19 @@ Add Base64 encoded key to Circle CI Environment Variables like `$GCP_SERVICE_ACC
 ```
 $ clasp login
 $ clasp clone GAS_PROJECT_ID
+$ touch globals.js
 ```
 
 GAS project can be shared.
+
+`globals.js` should be written `sheetId` like
+
+```
+var sheetId = {
+  REGISTRATION_MASTER: 'xxxxxxxxxxxxxxxx',
+  REGISTRATION_WORKSHEET: 'yyyyyyyyyyyyyyyy'
+};
+```
 
 After `clasp push` for each project, do some function on web to get the privileges.
 And `Publish as Web application` to get POST action.

@@ -217,7 +217,7 @@ def send():
     year = current_app.config["YEAR"]
     exhibitor_name = request.form.get(u"1-01. 出展者名", type=str)
     from_email = Email(current_app.config["FROM_MAILADDRESS"])
-    subject = "[MFT{year}] 出展申し込み 受付確認 ({exhibitor_name}　様)".format(
+    subject = "[MFT{year}] 出展申し込み 受付確認 ({exhibitor_name} 様)".format(
         year=year, exhibitor_name=exhibitor_name)
     to_email = Email(request.form.get(u"1-08. 代表者のメールアドレス", type=str))
     category = Category("registration")

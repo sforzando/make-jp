@@ -27,7 +27,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     });
     await page.type(
       'input#_101_makers_name',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type(
       'input#_102_makers_name_phonetic',
@@ -212,11 +212,11 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_101_makers_id', 'M9999');
     await page.type(
       'input#_102_makers_name',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type('input#_103_primary_lastname', '鈴木');
     await page.type('input#_104_primary_firstname', '真一朗');
-    await page.type('input#_105_email', 'shin@forzando.co.jp');
+    await page.type('input#_105_email', 'shin@sforzando.co.jp');
     await page.type(
       'textarea#_201_equipments',
       'Maker Faire Tokyo 2018は8月4日（土）、5日（日）に東京ビッグサイトにて開催いたします。\u000d出展者募集は例年同様に4月上旬から5月上旬まで行う予定です。\u000d詳しい情報は、このmakezine.jpやTwitter、Facebookにて今後公開します。\u000dすでにいくつかの企画も進んでおり、発表できるのが楽しみです。\u000dご出展、ご来場をお待ちしています！'
@@ -253,7 +253,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_304b_car_number', 'レンタカー');
     await page.type(
       'input#_304c_car_driver',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type(
       'input#_304d_car_telephone',

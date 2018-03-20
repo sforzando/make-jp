@@ -2,9 +2,13 @@
 
 from collections import OrderedDict
 from datetime import datetime
+import urllib
+import urllib2
 
 from flask import current_app, Blueprint, render_template, request
 from google.appengine.api import taskqueue
+import sendgrid
+from sendgrid.helpers.mail import *
 
 from utilities import timezone
 
@@ -92,9 +96,6 @@ def survey():
 
 @blueprint.route("/survey/store", methods=["POST"])
 def store():
-    import urllib
-    import urllib2
-
     url = "https://script.google.com/macros/s/AKfycbxJI4_rD_2f1FAsaBcG6yKu9vkqNpCbhb2Pob2BGZChA0VPDEUO/exec"
 
     data = urllib.urlencode(request.form)
@@ -108,8 +109,20 @@ def store():
 
 @blueprint.route("/survey/send", methods=["POST"])
 def send():
-    import sendgrid
-    from sendgrid.helpers.mail import Email, Mail, Content, Personalization, Category
+    sg = sendgrid.SendGridAPIClient(
+        apikey=current_app.config["SENDGRID_API_KEY"])
+
+    entries = ""
+    for key, value in sorted(request.form.to_dict().items()):
+        entries += "{}:\n{}\n\n".format(key, value)
+
+    year = current_app.config["YEAR"]
+    exhibitor_name = request.form.get(u"1-02. 出展者名", type=str)
+    from_email = Email(current_app.config["FROM_MAILADDRESS"])
+    subject = "[MFT{year}] 出展内容調査 受付確認 ({exhibitor_name} 様)".format(
+        year=year, exhibitor_name=exhibitor_name)
+    to_email = Email(request.form.get(u"1-05. 代表者のメールアドレス", type=str))
+    category = Category("survey")
 
     entries = ""
     for key, value in sorted(request.form.to_dict().items()):
@@ -118,7 +131,7 @@ def send():
     body = """
 {exhibitor_name}様
 
-この度は、Maker Faire Tokyo 2018 出展内容調査シートをご提出いただき、
+この度は、Maker Faire Tokyo {year} 出展内容調査シートをご提出いただき、
 ありがとうございました。下記の内容で承りました。
 
 「危険物」に当てはまる物品を持ち込む方は「危険物申請書」「展示レイアウト図」の提出も必要です。
@@ -138,36 +151,21 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 ［申込内容]
 {entries}
 ------
-以上""".format(exhibitor_name=request.form.get(u"1-02. 出展者名", type=str), entries=entries)
+以上""".format(exhibitor_name=exhibitor_name, year=year, entries=entries)
 
-    sg = sendgrid.SendGridAPIClient(
-        apikey=current_app.config["SENDGRID_API_KEY"])
-
-    mail = Mail()
-    mail.from_email = Email(current_app.config["FROM_MAILADDRESS"])
-    mail.subject = "Maker Faire Tokyo 2017 出展内容調査 受付({} 様)".format(
-        request.form.get(u"1-02. 出展者名", type=str))
-
-    personalization = Personalization()
-    personalization.add_to(
-        Email(request.form.get(u"1-05. 代表者のメールアドレス", type=str)))
-    personalization.add_cc(Email(current_app.config["CC_MAILADDRESS"]))
-    personalization.add_bcc(Email(current_app.config["BCC_MAILADDRESS"]))
-    mail.add_personalization(personalization)
-
-    mail.reply_to = Email(current_app.config["REPLY_MAILADDRESS"])
-    mail.add_category(Category("survey"))
-    mail.add_content(Content("text/plain", body))
+    content = Content("text/plain", body)
+    mail = Mail(from_email, subject, to_email, content)
+    mail.personalizations[0].add_cc(
+        Email(current_app.config["CC_MAILADDRESS"]))
+    mail.add_category(category)
 
     mg = mail.get()
     current_app.logger.info(mg)
+
     res = sg.client.mail.send.post(request_body=mg)
-
-    current_app.logger.info(res.status_code)
-
     if res.status_code != 202:
         return "An error occurred: {}".format(res.body), 500
     else:
         current_app.logger.info(res.headers)
-        current_app.logger.info("Body: " + res.body)
+        current_app.logger.info("Response Body: " + res.body)
         return "Successfully sent email!", 200

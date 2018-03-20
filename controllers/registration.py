@@ -2,9 +2,13 @@
 
 from collections import OrderedDict
 from datetime import datetime
+import urllib
+import urllib2
 
 from flask import current_app, Blueprint, render_template, request
 from google.appengine.api import taskqueue
+import sendgrid
+from sendgrid.helpers.mail import *
 
 from utilities import timezone
 
@@ -106,8 +110,9 @@ def registration():
         else:
             ordered_dict["3-01. スペース"] = ""
         ordered_dict["3-02. テーブルの数"] = request.form.get(
-            "_302_table", default="", type=str)
-        ordered_dict["3-03. 椅子の数"] = request.form.get("_303_chair", type=str)
+            "_302_table", default="0", type=str)
+        ordered_dict["3-03. 椅子の数"] = request.form.get(
+            "_303_chair", default="0", type=str)
         if request.form.get("_304_sound", type=str) == "1":
             ordered_dict["3-04. 展示の音量のめやす"] = "特に音が出る展示は予定していない"
         elif request.form.get("_304_sound", type=str) == "2":
@@ -189,9 +194,6 @@ def registration():
 
 @blueprint.route("/registration/store", methods=["POST"])
 def store():
-    import urllib
-    import urllib2
-
     url = "https://script.google.com/macros/s/AKfycbyBJFGzebnDwKpVo83Z4Dr6CSRn5wIoGMAjIlRv5u2af8hm-g/exec"
 
     data = urllib.urlencode(request.form)
@@ -205,17 +207,25 @@ def store():
 
 @blueprint.route("/registration/send", methods=["POST"])
 def send():
-    import sendgrid
-    from sendgrid.helpers.mail import Email, Mail, Content, Personalization, Category
+    sg = sendgrid.SendGridAPIClient(
+        apikey=current_app.config["SENDGRID_API_KEY"])
 
     entries = ""
     for key, value in sorted(request.form.to_dict().items()):
         entries += "{}:\n{}\n\n".format(key, value)
 
+    year = current_app.config["YEAR"]
+    exhibitor_name = request.form.get(u"1-01. 出展者名", type=str)
+    from_email = Email(current_app.config["FROM_MAILADDRESS"])
+    subject = "[MFT{year}] 出展申し込み 受付確認 ({exhibitor_name}　様)".format(
+        year=year, exhibitor_name=exhibitor_name)
+    to_email = Email(request.form.get(u"1-08. 代表者のメールアドレス", type=str))
+    category = Category("registration")
+
     body = """
 {exhibitor_name}様
 
-このたびはMaker Faire Tokyo 2017へ
+このたびはMaker Faire Tokyo {year}へ
 出展申し込みをいただきありがとうございます。
 
 本メールはお申し込み内容を確認するための自動送信メールです。
@@ -223,7 +233,7 @@ def send():
 
 以下のお申し込み内容を必ずご確認ください。
 
-なお、5月31日（水）までに、すべての出展申し込み者の方に
+なお、5月31日（木）までに、すべての出展申し込み者の方に
 出展の可否をメールにてお知らせいたします。期日を過ぎても
 メールが届かない場合には、事務局までご連絡いただけますと幸いです。
 
@@ -237,36 +247,21 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 ［申込内容]
 {entries}
 ------
-以上""".format(exhibitor_name=request.form.get(u"1-01. 出展者名", type=str), entries=entries)
+以上""".format(exhibitor_name=exhibitor_name, year=year, entries=entries)
 
-    sg = sendgrid.SendGridAPIClient(
-        apikey=current_app.config["SENDGRID_API_KEY"])
-
-    mail = Mail()
-    mail.from_email = Email(current_app.config["FROM_MAILADDRESS"])
-    mail.subject = "[MFT2017出展申し込み]({})を受け付けました".format(
-        request.form.get(u"1-01. 出展者名", type=str))
-
-    personalization = Personalization()
-    personalization.add_to(
-        Email(request.form.get(u"1-08. 代表者のメールアドレス", type=str)))
-    personalization.add_cc(Email(current_app.config["CC_MAILADDRESS"]))
-    personalization.add_bcc(Email(current_app.config["BCC_MAILADDRESS"]))
-    mail.add_personalization(personalization)
-
-    mail.reply_to = Email(current_app.config["REPLY_MAILADDRESS"])
-    mail.add_category(Category("registration"))
-    mail.add_content(Content("text/plain", body))
+    content = Content("text/plain", body)
+    mail = Mail(from_email, subject, to_email, content)
+    mail.personalizations[0].add_cc(
+        Email(current_app.config["CC_MAILADDRESS"]))
+    mail.add_category(category)
 
     mg = mail.get()
     current_app.logger.info(mg)
+
     res = sg.client.mail.send.post(request_body=mg)
-
-    current_app.logger.info(res.status_code)
-
     if res.status_code != 202:
         return "An error occurred: {}".format(res.body), 500
     else:
         current_app.logger.info(res.headers)
-        current_app.logger.info("Body: " + res.body)
+        current_app.logger.info("Response Body: " + res.body)
         return "Successfully sent email!", 200

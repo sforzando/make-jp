@@ -67,7 +67,7 @@ describe('Input dummy data w/ Puppeteer', function() {
         'input#_115_class_commercial_maker'
       ])
     );
-    await page.select('select#_116_tags', util.getRandomInt(2, 15).toString());
+    await page.select('select#_116_tags', util.getRandomInt(4, 15).toString());
     await page.type(
       'input#_201_project_name',
       util.getRandomAlphanumerics(util.getRandomInt(1, 30))
@@ -91,14 +91,28 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_207_photo1', 'http://example.com/1.jpg');
     await page.type('input#_207_photo2', 'http://example.com/2.jpg');
     await page.type('input#_207_photo3', 'http://example.com/3.jpg');
+    await page.type('input#_207_movie1', 'http://example.com/1.mov');
+    await page.type('input#_207_movie2', 'http://example.com/2.mov');
+    await page.type('input#_207_movie3', 'http://example.com/3.mov');
+    await page.type(
+      'textarea#_208_products',
+      '* 遠足のしおり\u000d* カバン\u000d* お弁当\u000d* 水筒\u000d* おやつ\u000d'
+    );
     await page.type(
       'textarea#_208_equipments',
-      '* 遠足のしおり\u000d* カバン\u000d* お弁当\u000d* 水筒\u000d* おやつ\u000d* バナナ\u000d* 水筒\u000d* ビニールシート\u000d* 雨具\u000d* 帽子\u000d* タオル\u000d* エチケット袋\u000d* 絆創膏'
+      '* バナナ\u000d* 水筒\u000d* ビニールシート\u000d* 雨具\u000d* 帽子\u000d* タオル\u000d* エチケット袋\u000d* 絆創膏'
     );
     await page.select('select#_209_watt', util.getRandomInt(0, 15).toString());
-    await page.click('input#_301_space_type_space');
     await page.click(
       util.getRandomItemFromArray([
+        'input#_301_space_2100x2100',
+        'input#_301_space_2100x4200',
+        'input#_301_space_4200x4200'
+      ])
+    );
+    await page.click(
+      util.getRandomItemFromArray([
+        'input#_302_table_0',
         'input#_302_table_1',
         'input#_302_table_2',
         'input#_302_table_3'
@@ -106,25 +120,10 @@ describe('Input dummy data w/ Puppeteer', function() {
     );
     await page.click(
       util.getRandomItemFromArray([
-        'input#_303_space_area_2100x2100',
-        'input#_303_space_area_2100x4200',
-        'input#_303_space_area_4200x4200'
-      ])
-    );
-    await page.click(
-      util.getRandomItemFromArray([
-        'input#_303_space_table_0',
-        'input#_303_space_table_1',
-        'input#_303_space_table_2',
-        'input#_303_space_table_3'
-      ])
-    );
-    await page.click(
-      util.getRandomItemFromArray([
-        'input#_304_chair_1',
-        'input#_304_chair_2',
-        'input#_304_chair_3',
-        'input#_304_chair_4'
+        'input#_303_chair_1',
+        'input#_303_chair_2',
+        'input#_303_chair_3',
+        'input#_303_chair_4'
       ])
     );
     await page.click('input#_305_handson');

@@ -79,33 +79,35 @@ def registration():
             "_206_category1")]
         ordered_dict["2-06-b. 出展カテゴリー（第2希望）"] = current_app.config["CATEGORIES"][request.form.get(
             "_206_category2")]
-        ordered_dict["2-07-a. 写真や動画のURL（1）"] = request.form.get(
+        ordered_dict["2-07-a. 写真のURL（1）"] = request.form.get(
             "_207_photo1", default="", type=str)
-        ordered_dict["2-07-b. 写真や動画のURL（2）"] = request.form.get(
+        ordered_dict["2-07-b. 写真のURL（2）"] = request.form.get(
             "_207_photo2", default="", type=str)
-        ordered_dict["2-07-c. 写真や動画のURL（3）"] = request.form.get(
+        ordered_dict["2-07-c. 写真のURL（3）"] = request.form.get(
             "_207_photo3", default="", type=str)
-        ordered_dict["2-08. 会場に持ち込む作品と機材"] = request.form.get(
+        ordered_dict["2-07-d. 動画のURL（1）"] = request.form.get(
+            "_207_movie1", default="", type=str)
+        ordered_dict["2-07-e. 動画のURL（2）"] = request.form.get(
+            "_207_movie2", default="", type=str)
+        ordered_dict["2-07-f. 動画のURL（3）"] = request.form.get(
+            "_207_movie3", default="", type=str)
+        ordered_dict["2-08-a. 作品"] = request.form.get(
+            "_208_products", type=str)
+        ordered_dict["2-08-b. 機材・配布物"] = request.form.get(
             "_208_equipments", type=str)
         ordered_dict["2-09. 必要な電源容量（W数）"] = current_app.config["WATT"][request.form.get(
             "_209_watt", type=int)]
-        if request.form.get("_301_space_type") == "_301_space_type_table":
-            ordered_dict["3-01. 展示スペースの種類"] = "テーブル"
+        if request.form.get("_301_space") == "2100x2100":
+            ordered_dict["3-01. スペース"] = "2100mm * 2100mm"
+        elif request.form.get("_301_space") == "2100x4200":
+            ordered_dict["3-01. スペース"] = "2100mm * 4200mm"
+        elif request.form.get("_301_space") == "4200x4200":
+            ordered_dict["3-01. スペース"] = "4200mm * 4200mm"
         else:
-            ordered_dict["3-01. 展示スペースの種類"] = "広いスペース"
+            ordered_dict["3-01. スペース"] = ""
         ordered_dict["3-02. テーブルの数"] = request.form.get(
             "_302_table", default="", type=str)
-        if request.form.get("_303_space_area") == "2100x2100":
-            ordered_dict["3-03-a. 広いスペース"] = "2100mm * 2100mm"
-        elif request.form.get("_303_space_area") == "2100x4200":
-            ordered_dict["3-03-a. 広いスペース"] = "2100mm * 4200mm"
-        elif request.form.get("_303_space_area") == "4200x4200":
-            ordered_dict["3-03-a. 広いスペース"] = "4200mm * 4200mm"
-        else:
-            ordered_dict["3-03-a. 広いスペース"] = ""
-        ordered_dict["3-03-b. 広いスペースのテーブルの数"] = request.form.get(
-            "_303_space_table", default="", type=str)
-        ordered_dict["3-04. 椅子の数"] = request.form.get("_304_chair", type=str)
+        ordered_dict["3-03. 椅子の数"] = request.form.get("_303_chair", type=str)
         if request.form.get("_305_handson"):
             ordered_dict["3-05. ハンズオン（ミニワークショップ）用テーブル"] = "希望する"
         else:

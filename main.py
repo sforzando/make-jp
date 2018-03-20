@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 app.config.update({"DEBUG": True,  # XXX: it must be False used on production server.
                    "SENDGRID_API_KEY": os.environ['SENDGRID_API_KEY'],
+                   "YEAR": 2018,
                    "FROM_MAILADDRESS": "makers@makejapan.org",
                    "FROM_NAME": "Maker Faire Tokyo出展担当",
                    "CC_MAILADDRESS": "makers@makejapan.org",
@@ -29,7 +30,7 @@ app.config.update({"DEBUG": True,  # XXX: it must be False used on production se
                                   "18_software": "デジタルファブリケーションのためのソフトウェア（3D CADなど）", "19_fablab": "FabLab／Makerスペース／Makerのためのサービスなど", "20_art": "アート／デザイン", "21_craft": "クラフト（木工／ペーパークラフト／電子手芸など）", "22_fashion": "ファッション",
                                   "23_music": "ミュージック／サウンド", "24_vehicle": "ビークル（電気自動車／自転車など）", "25_science": "サイエンス", "26_space": "宇宙（ロケット／人工衛星など）", "27_bio": "バイオ", "28_agriculture": "農業（狩猟も含む）", "29_alternative": "オルタナティブエネルギー",
                                   "30_food": "食品 *食品を出展される方は必ずこのカテゴリを選択してください。", "31_sport": "スポーツ", "32_handson": "ハンズオン（ミニワークショップ）", "33_pro": "Maker Pro（Makerとしての起業）", "34_company": "企業内の部活動（業務外での作品製作）", "35_province": "地方（首都圏以外）からの出展"},
-                   "WATT": ["0W", "1〜100W", "101〜200W", "201〜300W", "301〜400W", "401〜500W", "501〜600W", "601〜700W", "701〜800W", "801〜900W", "901〜1000W", "1001〜1500W", "1501〜2000W", "2001〜2500W", "2501〜3000W", "3001W以上もしくは単相100V以外の電源"],
+                   "WATT": ["0", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000", "1500", "2000", "2500", "3000", "3001W以上もしくは単相100V以外の電源"],
                    # flask_debugtoolbar
                    "SECRET_KEY": os.urandom(24)})
 
@@ -41,6 +42,7 @@ if app.debug:
 
 app.logger.info("make-jp has been started!")
 
+app.jinja_env.globals["YEAR"] = app.config["YEAR"]
 app.register_blueprint(registration.blueprint)
 app.register_blueprint(survey.blueprint)
 

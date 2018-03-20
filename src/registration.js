@@ -214,29 +214,8 @@ $(document).ready(() => {
       },
       _205_category1: 'required',
       _205_category2: 'required',
-      _301_space_type: 'required',
-      _302_table: {
-        required: {
-          depends: () => {
-            return $('#_301_space_type_table').is(':checked');
-          }
-        }
-      },
-      _303_space_area: {
-        required: {
-          depends: () => {
-            return $('#_301_space_type_space').is(':checked');
-          }
-        }
-      },
-      _303_space_table: {
-        required: {
-          depends: () => {
-            return $('#_301_space_type_space').is(':checked');
-          }
-        }
-      },
-      _304_chair: 'required',
+      _301_space: 'required',
+      _303_chair: 'required',
       _306_handson_title: {
         required: {
           depends: () => {
@@ -361,58 +340,26 @@ $(document).ready(() => {
 
   $(':input[name^="_115_class"]').on('change', event => {
     if ($('#_115_class_company').is(':checked')) {
-      $('#_301_space_type_table').setChecked();
-      $('#_301_space_type_space').setDisabled();
-      $(':input[name^="_302_table"]').setUndisabled();
-      $('#_302_table_1').setChecked();
+      $('#_301_space_4200x4200').setDisabled();
+    } else {
+      $('#_301_space_4200x4200').setUndisabled();
+    }
+    form.validate().element(event.currentTarget);
+  });
+
+  $(':input[name^="_301_space"]').on('change', () => {
+    if ($('#_301_space_2100x2100').is(':checked')) {
+      $('#_302_table_2').setDisabled();
       $('#_302_table_3').setDisabled();
-      $(':input[name^="_303_space_area"]').setDisabled();
-      $(':input[name^="_303_space_table"]').setDisabled();
-    } else {
-      $('#_301_space_type_space').setUndisabled();
-      $(':input[name^="_302_table"]').setUndisabled();
-      $(':input[name^="_303_space_area"]').setUndisabled();
-      $(':input[name^="_303_space_table"]').setUndisabled();
-    }
-    form.validate().element(event.currentTarget);
-  });
-  $(':input[name^="_301_space_type"]').on('change', event => {
-    if ($('#_301_space_type_table').is(':checked')) {
-      $(':input[name^="_302_table"]').setUndisabled();
-      $('#label_302_table').setRequiredMark();
-      $(':input[name^="_303_space_area"]').setDisabled();
-      $('#label_303_space_area').unsetRequiredMark();
-      $(':input[name^="_303_space_table"]').setDisabled();
-      $('#label_303_space_table').unsetRequiredMark();
-    } else {
-      $(':input[name^="_302_table"]').setDisabled();
-      $('#label_302_table').unsetRequiredMark();
-      $(':input[name^="_303_space_area"]').setUndisabled();
-      $('#label_303_space_area').setRequiredMark();
-      $(':input[name^="_303_space_table"]').setUndisabled();
-      $('#label_303_space_table').setRequiredMark();
-    }
-    form.validate().element(event.currentTarget);
-  });
-  $(':input[name^="_303_space_area"]').on('change', () => {
-    $('#_303_space_table_0').setChecked();
-    if ($('#_303_space_area_2100x2100').is(':checked')) {
-      $('#_303_space_table_0').setDisabled();
-      $('#_303_space_table_1').setDisabled();
-      $('#_303_space_table_2').setDisabled();
-      $('#_303_space_table_3').setDisabled();
-    } else if ($('#_303_space_area_2100x4200').is(':checked')) {
-      $('#_303_space_table_0').setUndisabled();
-      $('#_303_space_table_1').setUndisabled();
-      $('#_303_space_table_2').setUndisabled();
-      $('#_303_space_table_3').setDisabled();
-    } else if ($('#_303_space_area_4200x4200').is(':checked')) {
-      $('#_303_space_table_0').setUndisabled();
-      $('#_303_space_table_1').setUndisabled();
-      $('#_303_space_table_2').setUndisabled();
-      $('#_303_space_table_3').setUndisabled();
+    } else if ($('#_301_space_2100x4200').is(':checked')) {
+      $('#_302_table_2').setUndisabled();
+      $('#_302_table_3').setDisabled();
+    } else if ($('#_301_space_4200x4200').is(':checked')) {
+      $('#_302_table_2').setUndisabled();
+      $('#_302_table_3').setUndisabled();
     }
   });
+
   $('#_305_handson').on('change', () => {
     if ($('#_305_handson').is(':checked')) {
       $('#label_306_handson_title').setRequiredMark();

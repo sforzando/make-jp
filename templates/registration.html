@@ -1,21 +1,23 @@
-{% extends "base.html" %} {% block title %}Maker Faire Tokyo 2017 出展申し込みフォーム{% endblock title %} {% block body %}
+{% extends "base.html" %} {% block title %}Maker Faire Tokyo {{ YEAR }} 出展申し込みフォーム{% endblock title %} {% block body %}
 
 <body>{{ super() }}
   <script type="text/javascript" src="../static/registration.js"></script>
   <main class="container">
     <div class="row">
       <div class="col s9">
-        <blockquote>Maker Faire Tokyo 2017への出展を希望される方は下記のフォームに必要事項を入力し、お申し込みをお願いします。
-          <br>For the application in English, please go to the Maker Faire Tokyo 2017 Maker Exhibit Application
+        <blockquote>Maker Faire Tokyo {{ YEAR }}への出展を希望される方は下記のフォームに必要事項を入力し、お申し込みをお願いします。
+          <br>For the application in English, please go to the Maker Faire Tokyo {{ YEAR }} Maker Exhibit Application
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUHgcaLakatG57i0gScJrOKkhBEmMZZF8um3rxifcyRzAfhg/viewform">here</a>.
+          <br>プレゼンテーションの実施のみ希望される方は、
+          <a href="https://goo.gl/forms/kmtiQnJW0YT8cY9L2" target="_blank">こちらのフォーム</a>よりお申し込みください。
           <ol>
-            <li>受付は5月2日（火）13時に締め切ります。</li>
-            <li>申し込みいただいた内容を元に選考を行い、5月31日（水）までに出展の可否をメールにてご連絡いたします。</li>
-            <li>展示スペースやハンズオン、プレゼンテーション、ワークショップ、ライブパフォーマンスはご要望に添えない場合もございます。</li>
-            <li>出展料やスペース、テーブル、追加のタグ、ワークショップなど、料金がかかるものは、出展決定後に振込先をご連絡します。</li>
+            <li>受付は5月2日（水）13時に締め切ります。</li>
+            <li>申し込みいただいた内容を元に選考を行い、5月31日（木）までに出展の可否をメールにてご連絡いたします。</li>
+            <li>展示スペースやハンズオン、プレゼンテーション、ワークショップ、ステージで行うライブパフォーマンスはご要望に添えない場合もございます。</li>
+            <li>出展料やスペース、追加のタグ、ワークショップなど、料金が必要なものは、出展決定後に振込先をご連絡します。</li>
             <li>実施決定内容については代表者へメールにてご連絡いたします。</li>
             <li>このフォームを使用した出展申し込みを持って「
-              <a href="http://makezine.jp/event/mft2017/callformakers/" target="_blank">出展申し込みページ</a>」の禁止事項などにご同意いただいたものとします。</li>
+              <a href="http://makezine.jp/event/mft2018/callformakers/" target="_blank">出展申し込みページ</a>」の禁止事項などにご同意いただいたものとします。</li>
             <li>
               <span class="required-mark red-text">
                 <i class="material-icons">star</i>
@@ -25,7 +27,7 @@
               Faireのライセンス元であるMaker Media, Inc.へ報告が行われること、統計処理を行い個人が特定されない形でオライリー・ジャパンのウェブサイトやパンフレット、報告資料にて紹介させていただく場合がございますことを、あらかじめご了承ください。オライリー・ジャパンの個人情報の取り扱いについては
               <a href="http://www.oreilly.co.jp/company/privacypolicy.shtml" target="_blank">こちら</a>をご覧ください。</li>
             <li>ご不明な点は、
-              <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>（makers@makejapan.org）までメールでお問い合わせください。</li>
+              <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>までメールでお問い合わせください。</li>
           </ol>
         </blockquote>
       </div>
@@ -215,7 +217,8 @@
                       <i class="material-icons">star</i>
                     </span>
                   </dt>
-                  <dd>該当する区分をお選びください。Commercial Maker、企業出展は出展料がかかります。出展区分に応じて、以後の入力項目が変わります。</dd>
+                  <dd>該当する区分をお選びください。Commercial Maker、企業出展は出展料が必要です。
+                    <br>出展区分に応じて、以後の入力項目が変わります。</dd>
                 </dl>
                 <p></p>
                 <p>
@@ -240,26 +243,24 @@
                       <i class="material-icons">star</i>
                     </span>
                   </dt>
-                  <dd>出展者タグは、出展者1組あたり2枚発行します。3枚を超える出展者タグが必要な場合は、追加分を1枚1,000円（税込）で販売します。必要な枚数を選択してください。
+                  <dd>出展者タグは、出展者1組あたり4枚発行します。5枚を超える出展者タグが必要な場合は、追加分を1枚1,000円（税込）で販売します。必要な枚数を選択してください。
                     <br>
                     <br>出展申し込み後に出展者タグが必要になった場合には、開催前日の設営日から会場内のインフォメーションカウンターにて販売します。</dd>
                 </dl>
                 <p></p>
                 <select id="_116_tags" name="_116_tags" data-name="1-16. 出展者タグの枚数">
-                  <option value="2" selected>2（無料）</option>
-                  <option value="3">3（1,000円／税込）</option>
-                  <option value="4">4（2,000円／税込）</option>
-                  <option value="5">5（3,000円／税込）</option>
-                  <option value="6">6（4,000円／税込）</option>
-                  <option value="7">7（5,000円／税込）</option>
-                  <option value="8">8（6,000円／税込）</option>
-                  <option value="9">9（7,000円／税込）</option>
-                  <option value="10">10（8,000円／税込）</option>
-                  <option value="11">11（9,000円／税込）</option>
-                  <option value="12">12（10,000円／税込）</option>
-                  <option value="13">13（11,000円／税込）</option>
-                  <option value="14">14（12,000円／税込）</option>
-                  <option value="15">15（13,000円／税込）</option>
+                  <option value="4" selected>4枚（無料）</option>
+                  <option value="5">5枚 （1,000円／税込）</option>
+                  <option value="6">6枚 （2,000円／税込）</option>
+                  <option value="7">7枚 （3,000円／税込）</option>
+                  <option value="8">8枚 （4,000円／税込）</option>
+                  <option value="9">9枚 （5,000円／税込）</option>
+                  <option value="10">10枚 （6,000円／税込）</option>
+                  <option value="11">11枚 （7,000円／税込）</option>
+                  <option value="12">12枚 （8,000円／税込）</option>
+                  <option value="13">13枚 （9,000円／税込）</option>
+                  <option value="14">14枚（10,000円／税込）</option>
+                  <option value="15">15枚（11,000円／税込）</option>
                 </select>
               </div>
             </div>
@@ -297,8 +298,8 @@
                       <i class="material-icons">star</i>
                     </span>
                   </dt>
-                  <dd>ウェブなどに掲載される紹介文です。選考で最も参考にさせていただきますので、200文字以内で、できるだけ具体的に記入してください。選考については、
-                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「6-1」をご覧ください。</dd>
+                  <dd>ウェブなどに掲載される紹介文です。選考で最も参考にさせていただく情報です。200文字以内で、できるだけ具体的に記入してください。選考については、
+                    <a href="http://makezine.jp/event/mft2018/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「6-1」をご覧ください。</dd>
                 </dl>
                 <textarea id="_203_project_describe" name="_203_project_describe" class="materialize-textarea validate" data-length="200"
                   required></textarea>
@@ -306,16 +307,16 @@
               <div class="col input-field s12">
                 <dl>
                   <dt>2-04-a. ウェブサイトのURL（1）</dt>
-                  <dd>出展者情報ページにて公開します。公開を希望しないウェブサイトは記入しないでください。ウェブに公開される情報について、お申し込み後の変更は受け付けていません。製作の進捗情報などはご自身のウェブサイトなどで公開することをおすすめします。</dd>
+                  <dd>出展者情報ページにて公開します。公開を希望しないウェブサイトは記入しないでください。ウェブに公開される情報について、お申し込み後の変更は受け付けていません。製作の進捗情報などはご自身のウェブサイト、SNSなどで公開することをおすすめします。</dd>
                 </dl>
-                <input type="url" id="_204_web1" name="_204_web1" class="validate" placeholder="http://makezine.jp/event/mft2017/">
+                <input type="url" id="_204_web1" name="_204_web1" class="validate" placeholder="http://makezine.jp/">
               </div>
               <div class="col input-field s12">
                 <dl>
                   <dt>2-04-b. ウェブサイトのURL（2）</dt>
                   <dd></dd>
                 </dl>
-                <input type="url" id="_204_web2" name="_204_web2" class="validate" placeholder="http://makezine.jp/">
+                <input type="url" id="_204_web2" name="_204_web2" class="validate" placeholder="https://www.oreilly.co.jp/">
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -327,7 +328,7 @@
               <div class="col input-field s12">
                 <dl>
                   <dt>2-06. 出展カテゴリ</dt>
-                  <dd>以下のカテゴリからご自身の作品・活動に近いと思われるものを第1希望と第2希望の2つ選択してください。選択したカテゴリと展示の内容をもとに、事務局が会場内のエリア（「エレクトロニクス」「ロボティクス」「キッズ・教育」「ミュージック」「デジタルファブリケーション」「地方からの出展」「サイエンス」「フード」など）に出展者の配置を行います。</dd>
+                  <dd>以下のカテゴリからご自身の作品・活動に近いと思われるものを第1希望と第2希望の2つ選択してください。選択したカテゴリと展示の内容をもとに、事務局が会場内のエリア（「エレクトロニクス」「ロボティクス」「キッズ・教育」「ミュージック」「デジタルファブリケーション」「サイエンス」「フード」など）に出展者の配置を行います。</dd>
                 </dl>
               </div>
               <div class="col s12">
@@ -363,37 +364,66 @@
               <div class="col input-field s12">
                 <dl>
                   <dt>2-07. 写真や動画のURL</dt>
-                  <dd>作品の写真や動画も選考の重要な要素です。最大3点まで、画像もしくは動画のURLを指定してください。Flickr、Instagram、Dropbox、YouTubeなどの該当ページのURLも可能です。写真をメールで送付する場合は、件名を「MFT2017写真（出展者名）」として、
-                    <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>へ5月2日（火）13時までにお送りください。
+                  <dd>作品 ・プロジェクトの写真や動画も選考の重要な要素です。画像もしくは動画のURLを最大3点まで指定してください。Flickr、Instagram、Dropbox、YouTubeなどの該当ページのURLも可能です。写真をメールで送付する場合は、件名を「MFT2018写真（出展者名）」として、
+                    <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>へ5月2日（水）13時までにお送りください。
                     <br>
-                    <br>指定いただいた写真や動画は、事務局が確認のうえ、ウェブサイトの出展者情報ページに掲載します。指定先が複数の画像・動画が掲載されているページで対象が不明な場合は掲載ができません。</dd>
+                    <br>公開用の写真や動画は、事務局が確認のうえ、 各1点ずつウェブサイトの出展者情報ページに掲載します。指定先が複数の画像・動画が掲載されているページで、対象が不明な場合は掲載ができません。
+                    <br>また、5月2日（水）13時以降の提出写真の差し替え、追加は対応いたしかねます。
+                  </dd>
                 </dl>
-                <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2017_table01.jpg" alt="出展者情報ページのイメージ">
+                <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2018_table01.jpg" alt="出展者情報ページのイメージ">
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>2-07-a. 写真や動画のURL（1）</dt>
+                  <dt>2-07-a. 写真のURL（1） 出展者ページ公開用
+                  </dt>
                   <dd></dd>
                 </dl>
                 <input type="url" id="_207_photo1" name="_207_photo1" class="validate" placeholder="">
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>2-07-b. 写真や動画のURL（2）</dt>
+                  <dt>2-07-b. 写真のURL（2） 出展者ページ公開用
+                  </dt>
                   <dd></dd>
                 </dl>
                 <input type="url" id="_207_photo2" name="_207_photo2" class="validate" placeholder="">
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>2-07-c. 写真や動画のURL（3）</dt>
+                  <dt>2-07-c. 写真のURL（3） 事務局参考用・非公開
+                  </dt>
                   <dd></dd>
                 </dl>
                 <input type="url" id="_207_photo3" name="_207_photo3" class="validate" placeholder="">
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>2-08. 会場に持ち込む作品と機材
+                  <dt>2-07-d. 動画のURL（1） 出展者ページ公開用
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <input type="url" id="_207_movie1" name="_207_movie1" class="validate" placeholder="">
+              </div>
+              <div class="col input-field s12">
+                <dl>
+                  <dt>2-07-e. 動画のURL（2） 出展者ページ公開用
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <input type="url" id="_207_movie2" name="_207_movie2" class="validate" placeholder="">
+              </div>
+              <div class="col input-field s12">
+                <dl>
+                  <dt>2-07-f. 動画のURL（3） 事務局参考用・非公開
+                  </dt>
+                  <dd></dd>
+                </dl>
+                <input type="url" id="_207_movie3" name="_207_movie3" class="validate" placeholder="">
+              </div>
+              <div class="col s12">
+                <dl>
+                  <dt>2-08. 会場への持ち込み品
                     <span class="required-mark red-text">
                       <i class="material-icons">star</i>
                     </span>
@@ -401,18 +431,40 @@
                   <dd>予定している作品、機材をすべて記載ください。台数、大きなものについてはサイズなども明記してください。
                     <br>
                     <br>特に、高温になる器具（ハンダごてを含む）、高電圧を扱う装置、高速で稼働する装置、レーザー光線を発する装置など、出展者や来場者が怪我をする可能性があるもの、工作機械、ドローン、飛行機、バルーン、大型の作品、無線を使った作品、食品などについては、必ず明記してください。この段階でお申し込みのなかったこれらの作品・機材については展示を撤去していただきます。詳しくは
-                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
-                    <br>
-                    <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
-                    <br>※出展者による市販品・販促品としての飲食物の配布はできません。</dd>
+                    <a href="http://makezine.jp/event/mft2018/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
+                  </dd>
                 </dl>
-                <textarea id="_208_equipments" name="_208_equipments" class="materialize-textarea validate" placeholder="高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点、RaspberryPiを使ったラジオ*1点、ノートPC*1台、ディスプレイ 19インチ、3Dプリンター*1台、家庭用ミシン*1台 など"
-                  required></textarea>
+                <div class="col input-field s12">
+                  <dl>
+                    <dt>2-08-a. 作品
+                      <span class="required-mark red-text">
+                        <i class="material-icons">star</i>
+                      </span>
+                    </dt>
+                    <dd></dd>
+                  </dl>
+                  <textarea id="_208_products" name="_208_products" class="materialize-textarea validate" placeholder="高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点、RaspberryPiを使ったラジオ*1点、リチウムポリマーバッテリー（14.8V 1300mAh）*2本 など"
+                    required></textarea>
+                </div>
+                <div class="col input-field s12">
+                  <dl>
+                    <dt>2-08-b. 機材・配布物
+                      <span class="required-mark red-text">
+                        <i class="material-icons">star</i>
+                      </span>
+                    </dt>
+                    <dd>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、できません。
+                      <br>※出展者による市販品・販促品としての飲食物の配布はできません。
+                    </dd>
+                  </dl>
+                  <textarea id="_208_equipments" name="_208_equipments" class="materialize-textarea validate" placeholder="ノートPC*1台、ディスプレイ 19インチ*1台、テーブルクロス（防炎）1枚、家庭用ミシン*1台、作品紹介チラシ200部（予定） など"
+                    required></textarea>
+                </div>
               </div>
               <div class="col s12">
                 <p></p>
                 <dl>
-                  <dt>2-09. 必要な電源容量（W数）
+                  <dt>2-09. 必要な最大電源容量（W数）
                     <span class="required-mark red-text">
                       <i class="material-icons">star</i>
                     </span>
@@ -433,102 +485,77 @@
                   </div>
                 </div>
               </div>
-              <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2017_table02.jpg" alt="展示スペースの例">
+              <img class="materialboxed responsive-img z-depth-1" src="../static/MFT2018_table02.jpg" alt="展示スペースの例">
               <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
-                  <dt>3-01. 展示スペースの種類
+                  <dt>3-01. スペース
                     <span class="required-mark red-text">
                       <i class="material-icons">star</i>
                     </span>
                   </dt>
-                  <dd>屋内の展示スペースを、会議用テーブル（180cm×60cm、以降テーブル）、広いスペースから選択してください。スペースの注意点については、
-                    <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「7-3」をご覧ください。
+                  <dd>展示スペースを選択してください。スペースの注意点については、
+                    <a href="http://makezine.jp/event/mft2018/callformakers/#guidelines" target="_blank">出展のガイドライン</a>「7-3」をご覧ください。
                     <br>
-                    <br>企業出展はテーブル数は2本を上限とします。また、広いスペースを申し込むことができません。スポンサーとしての出展をご検討ください。</dd>
+                    <br>大型の作品の展示や常時デモを行うために広いスペースを申請した場合は、出展作品、内容などを詳しく確認させていただきます。ご希望の広さを確保できない場合があることをご了承ください。
+                    <ul>
+                      <li>※Commercial Maker、企業出展はスペースごとに料金が必要です。</li>
+                      <li>※企業出展は4200mm*4200mmを選ぶことができません。広いスペースを希望の方は、スポンサーとしての出展をご検討ください。</li>
+                    </ul>
+                  </dd>
                 </dl>
-                <p></p>
                 <p>
-                  <input name="_301_space_type" id="_301_space_type_table" value="_301_space_type_table" class="with-gap" type="radio" data-error=".error_301_space_type">
-                  <label for="_301_space_type_table">テーブル</label>
+                  <input name="_301_space" id="_301_space_2100x2100" value="2100x2100" class="with-gap" type="radio" checked>
+                  <label for="_301_space_2100x2100">2100mm*2100mm</label>
                 </p>
                 <p>
-                  <input name="_301_space_type" id="_301_space_type_space" value="_301_space_type_space" class="with-gap" type="radio">
-                  <label for="_301_space_type_space">広いスペース</label>
+                  <input name="_301_space" id="_301_space_2100x4200" value="2100x4200" class="with-gap" type="radio">
+                  <label for="_301_space_2100x4200">2100mm*4200mm</label>
                 </p>
-                <div class="error_301_space_type"></div>
+                <p>
+                  <input name="_301_space" id="_301_space_4200x4200" value="4200x4200" class="with-gap" type="radio">
+                  <label for="_301_space_4200x4200">4200mm*4200mm</label>
+                </p>
+                <div class="error_301_space"></div>
               </div>
               <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
-                  <dt id="label_302_table">3-02. テーブルの数</dt>
-                  <dd>原則としてテーブルを1本ご用意します。それ以上のテーブルが必要な場合は出展区分により規定数までご選択いただけます。ただし、テーブルを多く使用する場合は、出展作品、内容などを詳しく確認させていただきます。（例：追加なしで計1本必要という方は「1」を選択）
-                    <br>
-                    <br>Commercial Maker、企業出展は追加のテーブルごとに料金がかかります。企業出展はテーブル数は2本を上限とします。</dd>
+                  <dt id="label_302_table">3-02. テーブルの数
+                    <span class="required-mark red-text">
+                      <i class="material-icons">star</i>
+                    </span>
+                  </dt>
+                  <dd>
+                    スペースに応じた規定のテーブル数（2100mm*2100mm：0〜1本／2100mm*4200mm：0〜2本／4200mm*4200mm：0〜4本）から必要な数を選択してください。。</dd>
                 </dl>
                 <p></p>
                 <p>
-                  <input name="_302_table" id="_302_table_1" value="1" class="with-gap" type="radio" data-error=".error_302_table">
+                  <input name="_302_table" id="_302_table_0" value="0" class="with-gap" type="radio" checked data-error=".error_302_table">
+                  <label for="_302_table_0">0</label>
+                </p>
+                <p>
+                  <input name="_302_table" id="_302_table_1" value="1" class="with-gap" type="radio">
                   <label for="_302_table_1">1</label>
                 </p>
                 <p>
-                  <input name="_302_table" id="_302_table_2" value="2" class="with-gap" type="radio">
+                  <input name="_302_table" id="_302_table_2" value="2" class="with-gap" type="radio" disabled>
                   <label for="_302_table_2">2</label>
                 </p>
                 <p>
-                  <input name="_302_table" id="_302_table_3" value="3" class="with-gap" type="radio">
+                  <input name="_302_table" id="_302_table_3" value="3" class="with-gap" type="radio" disabled>
                   <label for="_302_table_3">3</label>
+                </p>
+                <p>
+                  <input name="_302_table" id="_302_table_4" value="4" class="with-gap" type="radio" disabled>
+                  <label for="_302_table_4">4</label>
                 </p>
                 <div class="error_302_table"></div>
               </div>
               <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
-                  <dt id="label_303_space_area">3-03-a. 広いスペース</dt>
-                  <dd>大型の作品の展示や常時デモを行うために広いスペースが必要な場合は、2100mm*2100mm、2100mm*4200mm、4200mm*4200mmからお申し込みください。Commercial Makerはスペースごとに料金がかかります。</dd>
-                </dl>
-                <p></p>
-                <p>
-                  <input name="_303_space_area" id="_303_space_area_2100x2100" value="2100x2100" class="with-gap" type="radio">
-                  <label for="_303_space_area_2100x2100">2100mm*2100mm</label>
-                </p>
-                <p>
-                  <input name="_303_space_area" id="_303_space_area_2100x4200" value="2100x4200" class="with-gap" type="radio">
-                  <label for="_303_space_area_2100x4200">2100mm*4200mm</label>
-                </p>
-                <p>
-                  <input name="_303_space_area" id="_303_space_area_4200x4200" value="4200x4200" class="with-gap" type="radio">
-                  <label for="_303_space_area_4200x4200">4200mm*4200mm</label>
-                </p>
-              </div>
-              <div class="col s12">
-                <p style="margin-bottom:30px"></p>
-                <dl>
-                  <dt id="label_303_space_table">3-03-b. 広いスペースのテーブルの数</dt>
-                  <dd>広さに応じた規定のテーブル数（2100mm*2100mm：0本／2100mm*4200mm：0〜2本／4200mm*4200mm：0〜3本）からご選択いただけます。</dd>
-                </dl>
-                <p></p>
-                <p>
-                  <input name="_303_space_table" id="_303_space_table_0" value="0" class="with-gap" type="radio">
-                  <label for="_303_space_table_0">0</label>
-                </p>
-                <p>
-                  <input name="_303_space_table" id="_303_space_table_1" value="1" class="with-gap" type="radio">
-                  <label for="_303_space_table_1">1</label>
-                </p>
-                <p>
-                  <input name="_303_space_table" id="_303_space_table_2" value="2" class="with-gap" type="radio">
-                  <label for="_303_space_table_2">2</label>
-                </p>
-                <p>
-                  <input name="_303_space_table" id="_303_space_table_3" value="3" class="with-gap" type="radio">
-                  <label for="_303_space_table_3">3</label>
-                </p>
-              </div>
-              <div class="col s12">
-                <p style="margin-bottom:30px"></p>
-                <dl>
-                  <dt>3-04. 椅子の数
+                  <dt>3-03. 椅子の数
                     <span class="required-mark red-text">
                       <i class="material-icons">star</i>
                     </span>
@@ -537,30 +564,64 @@
                 </dl>
                 <p></p>
                 <p>
-                  <input name="_304_chair" id="_304_chair_1" value="1" class="with-gap" type="radio" data-error=".error_304_chair">
-                  <label for="_304_chair_1">1</label>
+                  <input name="_303_chair" id="_303_chair_1" value="1" class="with-gap" type="radio" checked data-error=".error_303_chair">
+                  <label for="_303_chair_1">1</label>
                 </p>
                 <p>
-                  <input name="_304_chair" id="_304_chair_2" value="2" class="with-gap" type="radio">
-                  <label for="_304_chair_2">2</label>
+                  <input name="_303_chair" id="_303_chair_2" value="2" class="with-gap" type="radio">
+                  <label for="_303_chair_2">2</label>
                 </p>
                 <p>
-                  <input name="_304_chair" id="_304_chair_3" value="3" class="with-gap" type="radio">
-                  <label for="_304_chair_3">3</label>
+                  <input name="_303_chair" id="_303_chair_3" value="3" class="with-gap" type="radio">
+                  <label for="_303_chair_3">3</label>
                 </p>
                 <p>
-                  <input name="_304_chair" id="_304_chair_4" class="with-gap" value="4" type="radio">
-                  <label for="_304_chair_4">4</label>
+                  <input name="_303_chair" id="_303_chair_4" class="with-gap" value="4" type="radio">
+                  <label for="_303_chair_4">4</label>
                 </p>
-                <div class="error_304_chair"></div>
+                <div class="error_303_chair"></div>
+              </div>
+              <div class="col s12">
+                <p style="margin-bottom:30px"></p>
+                <dl>
+                  <dt>
+                    3-04. 展示の音量のめやす
+                    <span class="required-mark red-text">
+                      <i class="material-icons">star</i>
+                    </span>
+                  </dt>
+                  <dd>
+                    いずれかを選択してください。ただし、音を流す展示に関しては、周囲にご配慮をお願いします。
+                  </dd>
+                </dl>
+                <p></p>
+                <p>
+                  <input name="_304_sound" id="_304_sound_1" value="1" class="with-gap" type="radio" checked data-error=".error_304_sound">
+                  <label for="_304_sound_1">
+                    特に音が出る展示は予定していない（会話ができるレベル）
+                  </label>
+                </p>
+                <p>
+                  <input name="_304_sound" id="_304_sound_2" value="2" class="with-gap" type="radio">
+                  <label for="_304_sound_2">
+                    デモを行う際に音がする展示（会話ができるレベル）
+                  </label>
+                </p>
+                <p>
+                  <input name="_304_sound" id="_304_sound_3" value="3" class="with-gap" type="radio">
+                  <label for="_304_sound_3">
+                    デモを行う際に大音量を流す展示
+                  </label>
+                </p>
+                <div class="error_304_sound"></div>
               </div>
               <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-05. ハンズオン（ミニワークショップ）用テーブル</dt>
-                  <dd>Maker、Commercial Makerの方でハンズオン（ミニワークショップ）用テーブルの追加を希望する場合、「希望する」を選択してください。事務局で内容を確認して追加を検討します。事務局が認めた場合には、無料にてハンズオン用のテーブル1本と椅子を4脚追加します。ご希望にそえない場合もありますので、あらかじめご了承ください。
+                  <dd>Maker、Commercial Makerの方でハンズオン（ミニワークショップ）用テーブルの追加を希望する場合、「希望する」を選択してください。ハンズオンの内容を事務局が検討させていただき、実施を認めた場合には、ハンズオン⽤の追加スペース（2,100*2,100mmのスペースとテーブル1本と椅⼦を4脚）を無料にて提供します。
                     <br>
-                    <br>「希望する」を選択した場合は、以下3-06〜3-08にもご回答ください。なお、ハンズオンを申し込んだ場合、会場内に新設される予定の「ハンズオンエリア」（仮称、ジャンルを問わずハンズオンを行う出展者を集めたエリア）にて、展示とハンズオンを行っていただく可能性があります。</dd>
+                    <br>「希望する」を選択した場合は、以下3-06〜3-08にもご回答ください。事務局が申し込みの内容を検討して、出展決定後に別途ハンズオン⽤追加スペースの提供の可否を連絡します。ご希望にそえない場合もありますので、あらかじめご了承ください。</dd>
                 </dl>
                 <p></p>
                 <p>
@@ -593,27 +654,39 @@
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-09. 暗いスペース</dt>
-                  <dd>暗いスペースの使用をご希望する場合、「希望する」を選択してください。</dd>
+                  <dd>暗いスペースの使用を希望する場合、いずれかを選択してください。</dd>
                 </dl>
-                <p></p>
                 <p>
-                  <input type="checkbox" id="_309_dark" class="with-gap" name="_309_dark">
-                  <label for="_309_dark">希望する</label>
+                  <input type="checkbox" id="_309_dark_dark" class="with-gap" name="_309_dark_dark">
+                  <label for="_309_dark_dark">暗室</label>
                 </p>
+                <p>
+                  <input type="checkbox" id="_309_dark_dim" class="with-gap" name="_309_dark_dim">
+                  <label for="_309_dark_dim">薄暗いスペース</label>
+                </p>
+                <div class="col s6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img class="materialboxed responsive-img z-depth-1" data-caption="暗室" src="../static/dark.jpg" alt="暗室">
+                      <span class="card-title">暗室</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img class="materialboxed responsive-img z-depth-1" data-caption="薄暗いスペース" src="../static/dim.jpg" alt="薄暗いスペース">
+                      <span class="card-title">薄暗いスペース</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>3-10. その他、スペースについて</dt>
-                  <dd>その他、スペースについてご要望がある場合は、こちらにてお知らせください。ご希望に添えない場合もありますので、あらかじめご了承ください。今回、会場の都合で「薄暗いスペース」はなくなりました。</dd>
-                </dl>
-                <textarea id="_310_space_special_requests" name="_310_space_special_requests" class="materialize-textarea validate"></textarea>
-              </div>
-              <div class="col input-field s12">
-                <dl>
-                  <dt>3-11. 近くで出展したい他の出展者（最大2組まで）</dt>
+                  <dt>3-10. 近くで出展したい他の出展者（最大2組まで）</dt>
                   <dd>必ず、事前に該当する出展者と連絡を取り合い、同じ出展カテゴリを選択した上で、共に「近くで出展したい他の出展者」としてお申し込みください。それ以外のお申し込みはお受けいたしかねます。運営の都合上、できるだけお申し込みの日を近づけていただけますようお願いいたします。また、ご希望にそえない場合もありますので、あらかじめご了承ください。スポンサーとの隣接はできません。</dd>
                 </dl>
-                <textarea id="_311_space_collaborators" name="_311_space_collaborators" class="materialize-textarea validate"></textarea>
+                <textarea id="_310_space_collaborators" name="_310_space_collaborators" class="materialize-textarea validate"></textarea>
               </div>
             </div>
             <div id="4_extra" class="section scrollspy">
@@ -653,7 +726,7 @@
                 <dl>
                   <dt>4-04. ワークショップ（50分間、110分間から選択）</dt>
                   <dd>「希望する」を選択した場合は、以下4-05から4-11に回答してください。Commercial Maker、企業出展の場合、ワークショップ専用スペースを使ったワークショップの実施には別途 スペースの利用費が必要です（開催時間に関わらず1回につき、Commercial
-                    Maker：10,800円［税込］、企業出展：54,000円［税込］）。出展決定後に実施の可否を連絡します。
+                    Maker：21,600円［税込］、企業出展：54,000円［税込］）。出展決定後に実施の可否を連絡します。
                   </dd>
                 </dl>
                 <p>
@@ -684,8 +757,8 @@
                 <p></p>
                 <select id="_407_workshop_times" name="_407_workshop_times">
                   <option value="0" selected disabled>回数を選択</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
+                  <option value="1">1回</option>
+                  <option value="2">2回</option>
                 </select>
               </div>
               <div class="col s12">
@@ -786,7 +859,7 @@
               <p>お申し込みの前に下記の「Maker Faire Tokyo参加規約」を必ずご一読ください。お申し込み内容の送信をもって「Maker Faire Tokyo参加規約」に承諾いただいたものといたします。</p>
               <div id="agreements">
                 <h5 class="center-align">Maker Faire Tokyo参加規約</h5>
-                <p class="right-align">2016年4月5日 制定
+                <p class="right-align">2018年4月4日 制定
                   <br>株式会社オライリー・ジャパン
                   <br>
                 </p>

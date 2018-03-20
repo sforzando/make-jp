@@ -27,7 +27,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     });
     await page.type(
       'input#_101_makers_name',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type(
       'input#_102_makers_name_phonetic',
@@ -67,7 +67,7 @@ describe('Input dummy data w/ Puppeteer', function() {
         'input#_115_class_commercial_maker'
       ])
     );
-    await page.select('select#_116_tags', util.getRandomInt(2, 15).toString());
+    await page.select('select#_116_tags', util.getRandomInt(4, 15).toString());
     await page.type(
       'input#_201_project_name',
       util.getRandomAlphanumerics(util.getRandomInt(1, 30))
@@ -86,45 +86,46 @@ describe('Input dummy data w/ Puppeteer', function() {
       'input#_205_twitter',
       util.getRandomAlphanumerics(util.getRandomInt(8, 16))
     );
-    await page.select('select#_206_category1', '11_kids');
-    await page.select('select#_206_category2', '30_food');
+    await page.select('select#_206_category1', '26_space');
+    await page.select('select#_206_category2', '34_company');
     await page.type('input#_207_photo1', 'http://example.com/1.jpg');
     await page.type('input#_207_photo2', 'http://example.com/2.jpg');
     await page.type('input#_207_photo3', 'http://example.com/3.jpg');
+    await page.type('input#_207_movie1', 'http://example.com/1.mov');
+    await page.type('input#_207_movie2', 'http://example.com/2.mov');
+    await page.type('input#_207_movie3', 'http://example.com/3.mov');
+    await page.type(
+      'textarea#_208_products',
+      '* 遠足のしおり\u000d* カバン\u000d* お弁当\u000d* 水筒\u000d* おやつ\u000d'
+    );
     await page.type(
       'textarea#_208_equipments',
-      '* 遠足のしおり\u000d* カバン\u000d* お弁当\u000d* 水筒\u000d* おやつ\u000d* バナナ\u000d* 水筒\u000d* ビニールシート\u000d* 雨具\u000d* 帽子\u000d* タオル\u000d* エチケット袋\u000d* 絆創膏'
+      '* バナナ\u000d* 水筒\u000d* ビニールシート\u000d* 雨具\u000d* 帽子\u000d* タオル\u000d* エチケット袋\u000d* 絆創膏'
     );
     await page.select('select#_209_watt', util.getRandomInt(0, 15).toString());
-    await page.click('input#_301_space_type_space');
     await page.click(
       util.getRandomItemFromArray([
-        'input#_302_table_1',
-        'input#_302_table_2',
-        'input#_302_table_3'
+        'input#_301_space_2100x2100',
+        'input#_301_space_2100x4200',
+        'input#_301_space_4200x4200'
+      ])
+    );
+    await page.click(
+      util.getRandomItemFromArray(['input#_302_table_0', 'input#_302_table_1'])
+    );
+    await page.click(
+      util.getRandomItemFromArray([
+        'input#_303_chair_1',
+        'input#_303_chair_2',
+        'input#_303_chair_3',
+        'input#_303_chair_4'
       ])
     );
     await page.click(
       util.getRandomItemFromArray([
-        'input#_303_space_area_2100x2100',
-        'input#_303_space_area_2100x4200',
-        'input#_303_space_area_4200x4200'
-      ])
-    );
-    await page.click(
-      util.getRandomItemFromArray([
-        'input#_303_space_table_0',
-        'input#_303_space_table_1',
-        'input#_303_space_table_2',
-        'input#_303_space_table_3'
-      ])
-    );
-    await page.click(
-      util.getRandomItemFromArray([
-        'input#_304_chair_1',
-        'input#_304_chair_2',
-        'input#_304_chair_3',
-        'input#_304_chair_4'
+        'input#_304_sound_1',
+        'input#_304_sound_2',
+        'input#_304_sound_3'
       ])
     );
     await page.click('input#_305_handson');
@@ -137,13 +138,10 @@ describe('Input dummy data w/ Puppeteer', function() {
       '色はにほへど　散りぬるを\u000d我が世たれぞ　常ならむ\u000d有為の奥山　今日越えて\u000d浅き夢見し　酔ひもせず(空白込み45文字)'
     );
     await page.type('input#_308_handson_charge', '無料');
-    await page.click('input#_309_dark');
+    // await page.click('input#_309_dark_dark');
+    await page.click('input#_309_dark_dim');
     await page.type(
-      'textarea#_310_space_special_requests',
-      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。\u000d「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
-    );
-    await page.type(
-      'textarea#_311_space_collaborators',
+      'textarea#_310_space_collaborators',
       '・ 北島三郎\u000d・ 小林幸子'
     );
     await page.click('input#_401_presentation');
@@ -211,14 +209,14 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_101_makers_id', 'M9999');
     await page.type(
       'input#_102_makers_name',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type('input#_103_primary_lastname', '鈴木');
     await page.type('input#_104_primary_firstname', '真一朗');
-    await page.type('input#_105_email', 'shin@forzando.co.jp');
+    await page.type('input#_105_email', 'shin@sforzando.co.jp');
     await page.type(
       'textarea#_201_equipments',
-      'Maker Faire Tokyo 2018は8月4日（土）、5日（日）に東京ビッグサイトにて開催いたします。\u000d出展者募集は例年同様に4月上旬から5月上旬まで行う予定です。\u000d詳しい情報は、このmakezine.jpやTwitter、Facebookにて今後公開します。\u000dすでにいくつかの企画も進んでおり、発表できるのが楽しみです。\u000dご出展、ご来場をお待ちしています！'
+      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。\u000d「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
     );
     await page.click(
       util.getRandomItemFromArray([
@@ -252,7 +250,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_304b_car_number', 'レンタカー');
     await page.type(
       'input#_304c_car_driver',
-      util.getRandomAlphanumerics(util.getRandomInt(10, 20))
+      util.getRandomAlphanumerics(util.getRandomInt(4, 20))
     );
     await page.type(
       'input#_304d_car_telephone',

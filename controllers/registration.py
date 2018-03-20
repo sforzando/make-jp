@@ -2,9 +2,13 @@
 
 from collections import OrderedDict
 from datetime import datetime
+import urllib
+import urllib2
 
 from flask import current_app, Blueprint, render_template, request
 from google.appengine.api import taskqueue
+import sendgrid
+from sendgrid.helpers.mail import *
 
 from utilities import timezone
 
@@ -79,33 +83,44 @@ def registration():
             "_206_category1")]
         ordered_dict["2-06-b. 出展カテゴリー（第2希望）"] = current_app.config["CATEGORIES"][request.form.get(
             "_206_category2")]
-        ordered_dict["2-07-a. 写真や動画のURL（1）"] = request.form.get(
+        ordered_dict["2-07-a. 写真のURL（1）"] = request.form.get(
             "_207_photo1", default="", type=str)
-        ordered_dict["2-07-b. 写真や動画のURL（2）"] = request.form.get(
+        ordered_dict["2-07-b. 写真のURL（2）"] = request.form.get(
             "_207_photo2", default="", type=str)
-        ordered_dict["2-07-c. 写真や動画のURL（3）"] = request.form.get(
+        ordered_dict["2-07-c. 写真のURL（3）"] = request.form.get(
             "_207_photo3", default="", type=str)
-        ordered_dict["2-08. 会場に持ち込む作品と機材"] = request.form.get(
+        ordered_dict["2-07-d. 動画のURL（1）"] = request.form.get(
+            "_207_movie1", default="", type=str)
+        ordered_dict["2-07-e. 動画のURL（2）"] = request.form.get(
+            "_207_movie2", default="", type=str)
+        ordered_dict["2-07-f. 動画のURL（3）"] = request.form.get(
+            "_207_movie3", default="", type=str)
+        ordered_dict["2-08-a. 作品"] = request.form.get(
+            "_208_products", type=str)
+        ordered_dict["2-08-b. 機材・配布物"] = request.form.get(
             "_208_equipments", type=str)
         ordered_dict["2-09. 必要な電源容量（W数）"] = current_app.config["WATT"][request.form.get(
             "_209_watt", type=int)]
-        if request.form.get("_301_space_type") == "_301_space_type_table":
-            ordered_dict["3-01. 展示スペースの種類"] = "テーブル"
+        if request.form.get("_301_space") == "2100x2100":
+            ordered_dict["3-01. スペース"] = "2100mm * 2100mm"
+        elif request.form.get("_301_space") == "2100x4200":
+            ordered_dict["3-01. スペース"] = "2100mm * 4200mm"
+        elif request.form.get("_301_space") == "4200x4200":
+            ordered_dict["3-01. スペース"] = "4200mm * 4200mm"
         else:
-            ordered_dict["3-01. 展示スペースの種類"] = "広いスペース"
+            ordered_dict["3-01. スペース"] = ""
         ordered_dict["3-02. テーブルの数"] = request.form.get(
-            "_302_table", default="", type=str)
-        if request.form.get("_303_space_area") == "2100x2100":
-            ordered_dict["3-03-a. 広いスペース"] = "2100mm * 2100mm"
-        elif request.form.get("_303_space_area") == "2100x4200":
-            ordered_dict["3-03-a. 広いスペース"] = "2100mm * 4200mm"
-        elif request.form.get("_303_space_area") == "4200x4200":
-            ordered_dict["3-03-a. 広いスペース"] = "4200mm * 4200mm"
+            "_302_table", default="0", type=str)
+        ordered_dict["3-03. 椅子の数"] = request.form.get(
+            "_303_chair", default="0", type=str)
+        if request.form.get("_304_sound", type=str) == "1":
+            ordered_dict["3-04. 展示の音量のめやす"] = "特に音が出る展示は予定していない"
+        elif request.form.get("_304_sound", type=str) == "2":
+            ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に音がする展示"
+        elif request.form.get("_304_sound", type=str) == "3":
+            ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に大音量を流す展示"
         else:
-            ordered_dict["3-03-a. 広いスペース"] = ""
-        ordered_dict["3-03-b. 広いスペースのテーブルの数"] = request.form.get(
-            "_303_space_table", default="", type=str)
-        ordered_dict["3-04. 椅子の数"] = request.form.get("_304_chair", type=str)
+            ordered_dict["3-04. 展示の音量のめやす"] = ""
         if request.form.get("_305_handson"):
             ordered_dict["3-05. ハンズオン（ミニワークショップ）用テーブル"] = "希望する"
         else:
@@ -116,14 +131,16 @@ def registration():
             "_307_handson_describe", default="", type=str)
         ordered_dict["3-08. ハンズオンの参加料"] = request.form.get(
             "_308_handson_charge", default="", type=str)
-        if request.form.get("_309_dark"):
-            ordered_dict["3-09. 暗いスペース"] = "希望する"
+        if request.form.get("_309_dark_dark") and request.form.get("_309_dark_dim"):
+            ordered_dict["3-09. 暗いスペース"] = "暗室、薄暗いスペース"
+        elif request.form.get("_309_dark_dark"):
+            ordered_dict["3-09. 暗いスペース"] = "暗室"
+        elif request.form.get("_309_dark_dim"):
+            ordered_dict["3-09. 暗いスペース"] = "薄暗いスペース"
         else:
-            ordered_dict["3-09. 暗いスペース"] = "希望しない"
-        ordered_dict["3-10. その他、スペースについて"] = request.form.get(
-            "_310_space_special_requests", default="", type=str)
-        ordered_dict["3-11. 近くで出展したい他の出展者（最大2組まで）"] = request.form.get(
-            "_311_space_collaborators", default="", type=str)
+            ordered_dict["3-09. 暗いスペース"] = ""
+        ordered_dict["3-10. 近くで出展したい他の出展者（最大2組まで）"] = request.form.get(
+            "_310_space_collaborators", default="", type=str)
         if request.form.get("_401_presentation"):
             ordered_dict["4-01. プレゼンテーション"] = "希望する"
         else:
@@ -179,9 +196,6 @@ def registration():
 
 @blueprint.route("/registration/store", methods=["POST"])
 def store():
-    import urllib
-    import urllib2
-
     url = "https://script.google.com/macros/s/AKfycbyBJFGzebnDwKpVo83Z4Dr6CSRn5wIoGMAjIlRv5u2af8hm-g/exec"
 
     data = urllib.urlencode(request.form)
@@ -195,17 +209,25 @@ def store():
 
 @blueprint.route("/registration/send", methods=["POST"])
 def send():
-    import sendgrid
-    from sendgrid.helpers.mail import Email, Mail, Content, Personalization, Category
+    sg = sendgrid.SendGridAPIClient(
+        apikey=current_app.config["SENDGRID_API_KEY"])
 
     entries = ""
     for key, value in sorted(request.form.to_dict().items()):
         entries += "{}:\n{}\n\n".format(key, value)
 
+    year = current_app.config["YEAR"]
+    exhibitor_name = request.form.get(u"1-01. 出展者名", type=str)
+    from_email = Email(current_app.config["FROM_MAILADDRESS"])
+    subject = "[MFT{year}] 出展申し込み 受付確認 ({exhibitor_name} 様)".format(
+        year=year, exhibitor_name=exhibitor_name)
+    to_email = Email(request.form.get(u"1-08. 代表者のメールアドレス", type=str))
+    category = Category("registration")
+
     body = """
 {exhibitor_name}様
 
-このたびはMaker Faire Tokyo 2017へ
+このたびはMaker Faire Tokyo {year}へ
 出展申し込みをいただきありがとうございます。
 
 本メールはお申し込み内容を確認するための自動送信メールです。
@@ -213,7 +235,7 @@ def send():
 
 以下のお申し込み内容を必ずご確認ください。
 
-なお、5月31日（水）までに、すべての出展申し込み者の方に
+なお、5月31日（木）までに、すべての出展申し込み者の方に
 出展の可否をメールにてお知らせいたします。期日を過ぎても
 メールが届かない場合には、事務局までご連絡いただけますと幸いです。
 
@@ -227,36 +249,21 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 ［申込内容]
 {entries}
 ------
-以上
-    """.format(exhibitor_name=request.form.get(u"1-01. 出展者名", type=str), entries=entries)
+以上""".format(exhibitor_name=exhibitor_name, year=year, entries=entries)
 
-    sg = sendgrid.SendGridAPIClient(
-        apikey=current_app.config["SENDGRID_API_KEY"])
-
-    mail = Mail()
-    mail.from_email = Email(current_app.config["FROM_MAILADDRESS"])
-    mail.subject = "[MFT2017出展申し込み]({})を受け付けました".format(
-        request.form.get(u"1-01. 出展者名", type=str))
-
-    personalization = Personalization()
-    personalization.add_to(
-        Email(request.form.get(u"1-08. 代表者のメールアドレス", type=str)))
-    personalization.add_cc(Email(current_app.config["CC_MAILADDRESS"]))
-    personalization.add_bcc(Email(current_app.config["BCC_MAILADDRESS"]))
-    mail.add_personalization(personalization)
-
-    mail.reply_to = Email(current_app.config["REPLY_MAILADDRESS"])
-    mail.add_category(Category("registration"))
-    mail.add_content(Content("text/plain", body))
+    content = Content("text/plain", body)
+    mail = Mail(from_email, subject, to_email, content)
+    mail.personalizations[0].add_cc(
+        Email(current_app.config["CC_MAILADDRESS"]))
+    mail.add_category(category)
 
     mg = mail.get()
     current_app.logger.info(mg)
-    res = sg.client.mail.send.post(request_body=mg)
 
-    current_app.logger.info(res.status_code)
+    res = sg.client.mail.send.post(request_body=mg)
     if res.status_code != 202:
         return "An error occurred: {}".format(res.body), 500
     else:
         current_app.logger.info(res.headers)
-        current_app.logger.info("Body: " + res.body)
+        current_app.logger.info("Response Body: " + res.body)
         return "Successfully sent email!", 200

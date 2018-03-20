@@ -144,13 +144,24 @@ $ touch globals.js
 
 GAS project can be shared.
 
-`globals.js` should be written `sheetId` like
+`globals.js` should be written `sheetId` and `headerColumns` like
 
 ```
 var sheetId = {
   REGISTRATION_MASTER: 'xxxxxxxxxxxxxxxx',
   REGISTRATION_WORKSHEET: 'yyyyyyyyyyyyyyyy'
 };
+var headerColumns = [
+  '1-01. 出展者名',
+  '1-02. 出展者名ふりがな',
+  '1-03. 出展者名の英文表記',
+  '1-04. 代表者名（姓）',
+  '1-05. 代表者名（名）',
+  '1-06. 代表者名（姓）ふりがな',
+  '1-07. 代表者名（名）ふりがな',
+  '1-08. 代表者のメールアドレス',
+  '送信日時'
+];
 ```
 
 After `clasp push` for each project, do some function on web to get the privileges.

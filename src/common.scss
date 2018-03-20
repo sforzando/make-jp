@@ -60,8 +60,56 @@ footer {
 /* Survey */
 
 /* Thanks */
+@font-face {
+  font-family: 'icomoon';
+  src: url('../static/icons/icomoon.eot?xiqhi9');
+  src: url('../static/icons/icomoon.eot?xiqhi9#iefix')
+      format('embedded-opentype'),
+    url('../static/icons/icomoon.ttf?xiqhi9') format('truetype'),
+    url('../static/icons/icomoon.svg?xiqhi9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-size: x-large;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 8px;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-google-plus:before {
+  content: '\ea8b';
+}
+.icon-google-plus2:before {
+  content: '\ea8c';
+}
+.icon-facebook:before {
+  content: '\ea90';
+}
+.icon-facebook2:before {
+  content: '\ea91';
+}
+.icon-instagram:before {
+  content: '\ea92';
+}
+.icon-twitter:before {
+  content: '\ea96';
+}
+
 .social {
-  margin: 30px auto;
+  margin: 15px auto;
 }
 
 .twitter {
@@ -69,14 +117,14 @@ footer {
   box-shadow: 0 4px 0 #0078bd;
   display: inline;
   position: relative;
-  font-size: 14px;
+  font-size: large;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 
   &:active {
     top: 2px;
@@ -94,14 +142,14 @@ footer {
   text-shadow: 0 -1px -1px #1b3d82;
   display: inline;
   position: relative;
-  font-size: 14px;
+  font-size: large;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 
   &:hover {
     background-color: #354f84;
@@ -118,14 +166,14 @@ footer {
   box-shadow: 0 4px 0 #ba2714;
   display: inline;
   position: relative;
-  font-size: 14px;
+  font-size: large;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 
   &:active {
     top: 2px;
@@ -142,14 +190,14 @@ footer {
   box-shadow: 0 4px 0 #e1306c;
   display: inline;
   position: relative;
-  font-size: 14px;
+  font-size: large;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 50px;
 
   &:active {
     top: 2px;

@@ -57,23 +57,6 @@ function doGet(e) {}
 function setHeaderForSurveyMaster() {
   var spreadSheet = SpreadsheetApp.openById(sheetId.SURVEY_MASTER);
   var sheet = spreadSheet.getSheets()[0];
-  var headerColumns = [
-    '1-01. 出展者ID',
-    '1-02. 出展者名',
-    '1-03. 代表者名（姓）',
-    '1-04. 代表者名（名）',
-    '1-05. 代表者のメールアドレス',
-    '2-01. 会場に持ち込む作品と機材',
-    '2-02. 東京都火災予防条例上の危険物に該当する物品の持ち込み予定',
-    '3-01. 搬入方法',
-    '3-02. 搬入日',
-    '3-03. 搬出方法',
-    '3-04-a. 車種、色（自動車の場合）',
-    '3-04-b. 車両番号（ナンバー、自動車の場合）',
-    '3-04-c. 運転者氏名（自動車の場合）',
-    '3-04-d. 運転者携帯電話番号（自動車の場合）',
-    '送信日時'
-  ];
   for (var i = 0; i < headerColumns.length; i++) {
     sheet
       .getRange(1, i + 1)

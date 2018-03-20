@@ -86,8 +86,8 @@ describe('Input dummy data w/ Puppeteer', function() {
       'input#_205_twitter',
       util.getRandomAlphanumerics(util.getRandomInt(8, 16))
     );
-    await page.select('select#_206_category1', '11_kids');
-    await page.select('select#_206_category2', '30_food');
+    await page.select('select#_206_category1', '26_space');
+    await page.select('select#_206_category2', '34_company');
     await page.type('input#_207_photo1', 'http://example.com/1.jpg');
     await page.type('input#_207_photo2', 'http://example.com/2.jpg');
     await page.type('input#_207_photo3', 'http://example.com/3.jpg');

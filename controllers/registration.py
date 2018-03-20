@@ -108,6 +108,14 @@ def registration():
         ordered_dict["3-02. テーブルの数"] = request.form.get(
             "_302_table", default="", type=str)
         ordered_dict["3-03. 椅子の数"] = request.form.get("_303_chair", type=str)
+        if request.form.get("_304_sound", type=int) == 1:
+            ordered_dict["3-04. 展示の音量のめやす"] = "特に音が出る展示は予定していない"
+        elif request.form.get("_304_sound", type=int) == 2:
+            ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に音がする展示"
+        elif request.form.get("_304_sound", type=int) == 3:
+            ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に大音量を流す展示"
+        else:
+            ordered_dict["3-04. 展示の音量のめやす"] = ""
         if request.form.get("_305_handson"):
             ordered_dict["3-05. ハンズオン（ミニワークショップ）用テーブル"] = "希望する"
         else:

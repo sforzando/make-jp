@@ -111,12 +111,7 @@ describe('Input dummy data w/ Puppeteer', function() {
       ])
     );
     await page.click(
-      util.getRandomItemFromArray([
-        'input#_302_table_0',
-        'input#_302_table_1',
-        'input#_302_table_2',
-        'input#_302_table_3'
-      ])
+      util.getRandomItemFromArray(['input#_302_table_0', 'input#_302_table_1'])
     );
     await page.click(
       util.getRandomItemFromArray([
@@ -124,6 +119,13 @@ describe('Input dummy data w/ Puppeteer', function() {
         'input#_303_chair_2',
         'input#_303_chair_3',
         'input#_303_chair_4'
+      ])
+    );
+    await page.click(
+      util.getRandomItemFromArray([
+        'input#_304_sound_1',
+        'input#_304_sound_2',
+        'input#_304_sound_3'
       ])
     );
     await page.click('input#_305_handson');

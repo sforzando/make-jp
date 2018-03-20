@@ -215,7 +215,9 @@ $(document).ready(() => {
       _205_category1: 'required',
       _205_category2: 'required',
       _301_space: 'required',
+      _302_table: 'required',
       _303_chair: 'required',
+      _304_sound: 'required',
       _306_handson_title: {
         required: {
           depends: () => {
@@ -348,6 +350,7 @@ $(document).ready(() => {
   });
 
   $(':input[name^="_301_space"]').on('change', () => {
+    $('#_302_table_0').setChecked();
     if ($('#_301_space_2100x2100').is(':checked')) {
       $('#_302_table_2').setDisabled();
       $('#_302_table_3').setDisabled();

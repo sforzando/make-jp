@@ -8,7 +8,7 @@
         <blockquote>Maker Faire Tokyo {{ YEAR }}への出展を希望される方は下記のフォームに必要事項を入力し、お申し込みをお願いします。
           <br>For the application in English, please go to the Maker Faire Tokyo {{ YEAR }} Maker Exhibit Application
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUHgcaLakatG57i0gScJrOKkhBEmMZZF8um3rxifcyRzAfhg/viewform">here</a>.
-          <br> プレゼンテーションの実施のみ希望される方は、
+          <br>プレゼンテーションの実施のみ希望される方は、
           <a href="https://goo.gl/forms/kmtiQnJW0YT8cY9L2" target="_blank">こちらのフォーム</a>よりお申し込みください。
           <ol>
             <li>受付は5月2日（水）13時に締め切ります。</li>
@@ -619,9 +619,9 @@
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-05. ハンズオン（ミニワークショップ）用テーブル</dt>
-                  <dd>Maker、Commercial Makerの方でハンズオン（ミニワークショップ）用テーブルの追加を希望する場合、「希望する」を選択してください。事務局で内容を確認して追加を検討します。事務局が認めた場合には、無料にてハンズオン用のテーブル1本と椅子を4脚追加します。ご希望にそえない場合もありますので、あらかじめご了承ください。
+                  <dd>Maker、Commercial Makerの方でハンズオン（ミニワークショップ）用テーブルの追加を希望する場合、「希望する」を選択してください。ハンズオンの内容を事務局が検討させていただき、実施を認めた場合には、ハンズオン⽤の追加スペース（2,100*2,100mmのスペースとテーブル1本と椅⼦を4脚）を無料にて提供します。
                     <br>
-                    <br>「希望する」を選択した場合は、以下3-06〜3-08にもご回答ください。なお、ハンズオンを申し込んだ場合、会場内に新設される予定の「ハンズオンエリア」（仮称、ジャンルを問わずハンズオンを行う出展者を集めたエリア）にて、展示とハンズオンを行っていただく可能性があります。</dd>
+                    <br>「希望する」を選択した場合は、以下3-06〜3-08にもご回答ください。事務局が申し込みの内容を検討して、出展決定後に別途ハンズオン⽤追加スペースの提供の可否を連絡します。ご希望にそえない場合もありますので、あらかじめご了承ください。</dd>
                 </dl>
                 <p></p>
                 <p>
@@ -654,27 +654,39 @@
                 <p style="margin-bottom:30px"></p>
                 <dl>
                   <dt>3-09. 暗いスペース</dt>
-                  <dd>暗いスペースの使用をご希望する場合、「希望する」を選択してください。</dd>
+                  <dd>暗いスペースの使用を希望する場合、いずれかを選択してください。</dd>
                 </dl>
-                <p></p>
                 <p>
-                  <input type="checkbox" id="_309_dark" class="with-gap" name="_309_dark">
-                  <label for="_309_dark">希望する</label>
+                  <input type="checkbox" id="_309_dark_dark" class="with-gap" name="_309_dark_dark">
+                  <label for="_309_dark_dark">暗室</label>
                 </p>
+                <p>
+                  <input type="checkbox" id="_309_dark_dim" class="with-gap" name="_309_dark_dim">
+                  <label for="_309_dark_dim">薄暗いスペース</label>
+                </p>
+                <div class="col s6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img class="materialboxed responsive-img z-depth-1" data-caption="暗室" src="../static/dark.jpg" alt="暗室">
+                      <span class="card-title">暗室</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col s6">
+                  <div class="card">
+                    <div class="card-image">
+                      <img class="materialboxed responsive-img z-depth-1" data-caption="薄暗いスペース" src="../static/dim.jpg" alt="薄暗いスペース">
+                      <span class="card-title">薄暗いスペース</span>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="col input-field s12">
                 <dl>
-                  <dt>3-10. その他、スペースについて</dt>
-                  <dd>その他、スペースについてご要望がある場合は、こちらにてお知らせください。ご希望に添えない場合もありますので、あらかじめご了承ください。今回、会場の都合で「薄暗いスペース」はなくなりました。</dd>
-                </dl>
-                <textarea id="_310_space_special_requests" name="_310_space_special_requests" class="materialize-textarea validate"></textarea>
-              </div>
-              <div class="col input-field s12">
-                <dl>
-                  <dt>3-11. 近くで出展したい他の出展者（最大2組まで）</dt>
+                  <dt>3-10. 近くで出展したい他の出展者（最大2組まで）</dt>
                   <dd>必ず、事前に該当する出展者と連絡を取り合い、同じ出展カテゴリを選択した上で、共に「近くで出展したい他の出展者」としてお申し込みください。それ以外のお申し込みはお受けいたしかねます。運営の都合上、できるだけお申し込みの日を近づけていただけますようお願いいたします。また、ご希望にそえない場合もありますので、あらかじめご了承ください。スポンサーとの隣接はできません。</dd>
                 </dl>
-                <textarea id="_311_space_collaborators" name="_311_space_collaborators" class="materialize-textarea validate"></textarea>
+                <textarea id="_310_space_collaborators" name="_310_space_collaborators" class="materialize-textarea validate"></textarea>
               </div>
             </div>
             <div id="4_extra" class="section scrollspy">

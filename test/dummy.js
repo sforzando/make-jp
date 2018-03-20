@@ -138,13 +138,10 @@ describe('Input dummy data w/ Puppeteer', function() {
       '色はにほへど　散りぬるを\u000d我が世たれぞ　常ならむ\u000d有為の奥山　今日越えて\u000d浅き夢見し　酔ひもせず(空白込み45文字)'
     );
     await page.type('input#_308_handson_charge', '無料');
-    await page.click('input#_309_dark');
+    // await page.click('input#_309_dark_dark');
+    await page.click('input#_309_dark_dim');
     await page.type(
-      'textarea#_310_space_special_requests',
-      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。\u000d「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
-    );
-    await page.type(
-      'textarea#_311_space_collaborators',
+      'textarea#_310_space_collaborators',
       '・ 北島三郎\u000d・ 小林幸子'
     );
     await page.click('input#_401_presentation');
@@ -219,7 +216,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_105_email', 'shin@sforzando.co.jp');
     await page.type(
       'textarea#_201_equipments',
-      'Maker Faire Tokyo 2018は8月4日（土）、5日（日）に東京ビッグサイトにて開催いたします。\u000d出展者募集は例年同様に4月上旬から5月上旬まで行う予定です。\u000d詳しい情報は、このmakezine.jpやTwitter、Facebookにて今後公開します。\u000dすでにいくつかの企画も進んでおり、発表できるのが楽しみです。\u000dご出展、ご来場をお待ちしています！'
+      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。\u000d「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
     );
     await page.click(
       util.getRandomItemFromArray([

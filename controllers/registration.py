@@ -131,14 +131,16 @@ def registration():
             "_307_handson_describe", default="", type=str)
         ordered_dict["3-08. ハンズオンの参加料"] = request.form.get(
             "_308_handson_charge", default="", type=str)
-        if request.form.get("_309_dark"):
-            ordered_dict["3-09. 暗いスペース"] = "希望する"
+        if request.form.get("_309_dark_dark") and request.form.get("_309_dark_dim"):
+            ordered_dict["3-09. 暗いスペース"] = "暗室、薄暗いスペース"
+        elif request.form.get("_309_dark_dark"):
+            ordered_dict["3-09. 暗いスペース"] = "暗室"
+        elif request.form.get("_309_dark_dim"):
+            ordered_dict["3-09. 暗いスペース"] = "薄暗いスペース"
         else:
-            ordered_dict["3-09. 暗いスペース"] = "希望しない"
-        ordered_dict["3-10. その他、スペースについて"] = request.form.get(
-            "_310_space_special_requests", default="", type=str)
-        ordered_dict["3-11. 近くで出展したい他の出展者（最大2組まで）"] = request.form.get(
-            "_311_space_collaborators", default="", type=str)
+            ordered_dict["3-09. 暗いスペース"] = ""
+        ordered_dict["3-10. 近くで出展したい他の出展者（最大2組まで）"] = request.form.get(
+            "_310_space_collaborators", default="", type=str)
         if request.form.get("_401_presentation"):
             ordered_dict["4-01. プレゼンテーション"] = "希望する"
         else:

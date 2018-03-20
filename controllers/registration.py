@@ -108,11 +108,11 @@ def registration():
         ordered_dict["3-02. テーブルの数"] = request.form.get(
             "_302_table", default="", type=str)
         ordered_dict["3-03. 椅子の数"] = request.form.get("_303_chair", type=str)
-        if request.form.get("_304_sound", type=int) == 1:
+        if request.form.get("_304_sound", type=str) == "1":
             ordered_dict["3-04. 展示の音量のめやす"] = "特に音が出る展示は予定していない"
-        elif request.form.get("_304_sound", type=int) == 2:
+        elif request.form.get("_304_sound", type=str) == "2":
             ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に音がする展示"
-        elif request.form.get("_304_sound", type=int) == 3:
+        elif request.form.get("_304_sound", type=str) == "3":
             ordered_dict["3-04. 展示の音量のめやす"] = "デモを行う際に大音量を流す展示"
         else:
             ordered_dict["3-04. 展示の音量のめやす"] = ""
@@ -237,8 +237,7 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 ［申込内容]
 {entries}
 ------
-以上
-    """.format(exhibitor_name=request.form.get(u"1-01. 出展者名", type=str), entries=entries)
+以上""".format(exhibitor_name=request.form.get(u"1-01. 出展者名", type=str), entries=entries)
 
     sg = sendgrid.SendGridAPIClient(
         apikey=current_app.config["SENDGRID_API_KEY"])
@@ -264,6 +263,7 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
     res = sg.client.mail.send.post(request_body=mg)
 
     current_app.logger.info(res.status_code)
+
     if res.status_code != 202:
         return "An error occurred: {}".format(res.body), 500
     else:

@@ -138,8 +138,7 @@ Maker Faire Tokyo 事務局（makers@makejapan.org）
 ［申込内容]
 {entries}
 ------
-以上
-    """.format(exhibitor_name=request.form.get(u"1-02. 出展者名", type=str), entries=entries)
+以上""".format(exhibitor_name=request.form.get(u"1-02. 出展者名", type=str), entries=entries)
 
     sg = sendgrid.SendGridAPIClient(
         apikey=current_app.config["SENDGRID_API_KEY"])

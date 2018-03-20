@@ -29,10 +29,13 @@
   },
   "scripts": {
     "start": "dev_appserver.py app.yaml",
-    "clean": "yarn run clean:cache && yarn run clean:static",
+    "clean":
+      "yarn run clean:cache && yarn run clean:static && yarn run clean:python",
     "clean:cache": "rm -rf .cache",
     "clean:static":
       "find static -type f \\( -name '*.woff*' -or -name '*.css' -or -name '*.js' \\) -exec rm -f {} \\;",
+    "clean:python":
+      "find . -type f \\( -name '*.pyo' -or -name '*.pyc' \\) -exec rm -f {} \\;",
     "build": "yarn run build:debug",
     "build:debug":
       "yarn run build:debug:common && yarn run build:debug:registration && yarn run build:debug:survey",
@@ -50,14 +53,11 @@
       "parcel build src/registration.js --no-cache --target browser --detailed-report --out-dir static",
     "build:production:survey":
       "parcel build src/survey.js --no-cache --target browser --detailed-report --out-dir static",
-    "pretest": "yarn start &",
-    "test": "yarn test:production",
+    "test": "yarn test:debug",
     "test:report":
       "env mode=production mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./test/test-results.xml",
-    "test:debug": "yarn test:debug:e2e",
-    "test:debug:e2e": "env mode=local mocha",
-    "test:production": "yarn test:production:e2e",
-    "test:production:e2e": "env mode=production mocha",
+    "test:debug": "env mode=local mocha",
+    "test:production": "env mode=production mocha",
     "cover": "openssl enc -e -aes256 -in app.yaml -out app.yaml.secret",
     "uncover": "openssl enc -d -aes256 -in app.yaml.secret -out app.yaml"
   }

@@ -42,13 +42,13 @@ if app.debug:
 
 app.logger.info("make-jp has been started!")
 
-app.jinja_env.globals["YEAR"] = app.config["YEAR"]
 app.register_blueprint(registration.blueprint)
 app.register_blueprint(survey.blueprint)
 
 
 @app.route("/")
 def root():
+    app.jinja_env.globals["YEAR"] = app.config["YEAR"]
     return redirect("/registration", code=302)
     # return redirect("/survey", code=302)
 

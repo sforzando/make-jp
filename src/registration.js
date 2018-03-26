@@ -362,7 +362,7 @@ $(document).ready(() => {
     } else if ($('#_301_space_4200x4200').is(':checked')) {
       $('#_302_table_2').setUndisabled();
       $('#_302_table_3').setUndisabled();
-      $('#_302_table_4').setUnDisabled();
+      $('#_302_table_4').setUndisabled();
     }
   });
 

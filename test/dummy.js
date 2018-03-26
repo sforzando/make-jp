@@ -51,7 +51,7 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_111_zip', '160-0002');
     await page.select(
       'select#_112_prefectures',
-      util.getRandomInt(1, 48).toString()
+      util.getRandomInt(0, 47).toString()
     );
     await page.type(
       'input#_113_address',
@@ -86,8 +86,8 @@ describe('Input dummy data w/ Puppeteer', function() {
       'input#_205_twitter',
       util.getRandomAlphanumerics(util.getRandomInt(8, 16))
     );
-    await page.select('select#_206_category1', '26_space');
-    await page.select('select#_206_category2', '34_company');
+    await page.select('select#_206_category1', '27_space');
+    await page.select('select#_206_category2', '36_company');
     await page.type('input#_207_photo1', 'http://example.com/1.jpg');
     await page.type('input#_207_photo2', 'http://example.com/2.jpg');
     await page.type('input#_207_photo3', 'http://example.com/3.jpg');
@@ -138,7 +138,6 @@ describe('Input dummy data w/ Puppeteer', function() {
       '色はにほへど　散りぬるを\u000d我が世たれぞ　常ならむ\u000d有為の奥山　今日越えて\u000d浅き夢見し　酔ひもせず(空白込み45文字)'
     );
     await page.type('input#_308_handson_charge', '無料');
-    // await page.click('input#_309_dark_dark');
     await page.click('input#_309_dark_dim');
     await page.type(
       'textarea#_310_space_collaborators',
@@ -195,7 +194,7 @@ describe('Input dummy data w/ Puppeteer', function() {
       await page.pdf({ path: 'test/registration.pdf', printBackground: true });
     } else {
       await page.screenshot({
-        path: 'test/registration.png',
+        path: 'test/registration-full.png',
         fullPage: true
       });
     }
@@ -265,7 +264,7 @@ describe('Input dummy data w/ Puppeteer', function() {
       await page.pdf({ path: 'test/survey.pdf', printBackground: true });
     } else {
       await page.screenshot({
-        path: 'test/survey.png',
+        path: 'test/survey-full.png',
         fullPage: true
       });
     }

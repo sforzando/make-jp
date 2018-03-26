@@ -7,9 +7,9 @@
       <div class="col s9">
         <blockquote>Maker Faire Tokyo {{ YEAR }}への出展を希望される方は下記のフォームに必要事項を入力し、お申し込みをお願いします。
           <br>For the application in English, please go to the Maker Faire Tokyo {{ YEAR }} Maker Exhibit Application
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUHgcaLakatG57i0gScJrOKkhBEmMZZF8um3rxifcyRzAfhg/viewform">here</a>.
+          <a href="https://goo.gl/forms/TqApGU17W CDTYjGk2">here</a>.
           <br>プレゼンテーションの実施のみ希望される方は、
-          <a href="https://goo.gl/forms/kmtiQnJW0YT8cY9L2" target="_blank">こちらのフォーム</a>よりお申し込みください。
+          <a href="https://goo.gl/forms/gvkwGBveE70tGbt72" target="_blank">こちらのフォーム</a>よりお申し込みください。
           <ol>
             <li>受付は5月2日（水）13時に締め切ります。</li>
             <li>申し込みいただいた内容を元に選考を行い、5月31日（木）までに出展の可否をメールにてご連絡いたします。</li>
@@ -182,8 +182,8 @@
                   <dd>リストから選択してください。</dd>
                 </dl>
                 <select id="_112_prefectures" name="_112_prefectures" data-name="1-12. 代表者の住所（都道府県）" required>
-                  <option value="0" selected disabled>都道府県</option>{% for prefecture in prefectures %}
-                  <option value="{{ loop.index }}">{{ prefecture }}</option>{% endfor %}</select>
+                  <option value="99" selected disabled>都道府県</option>{% for prefecture in prefectures %}
+                  <option value="{{ loop.index0 }}">{{ prefecture }}</option>{% endfor %}</select>
               </div>
               <div class="col input-field s12">
                 <dl>
@@ -248,7 +248,7 @@
                     <br>出展申し込み後に出展者タグが必要になった場合には、開催前日の設営日から会場内のインフォメーションカウンターにて販売します。</dd>
                 </dl>
                 <p></p>
-                <select id="_116_tags" name="_116_tags" data-name="1-16. 出展者タグの枚数">
+                <select id="_116_tags" class="browser-default" name="_116_tags" data-name="1-16. 出展者タグの枚数">
                   <option value="4" selected>4枚（無料）</option>
                   <option value="5">5枚 （1,000円／税込）</option>
                   <option value="6">6枚 （2,000円／税込）</option>
@@ -472,7 +472,8 @@
                   <dd>携帯電話（充電）10W、ノートPC 50〜150W、デスクトップPC 150W〜500W、電子ピアノ 150W〜400W、ドライヤー 600W〜1500Wを参考に、必要な合計W数を選択してください。「3001W以上もしくは単相100V以外の電源」を選択した方は、個別に仕様を確認させていただきます。</dd>
                 </dl>
                 <p></p>
-                <select id="_209_watt" name="_209_watt" data-name="2-09. 必要な電源容量（W数）">{% for w in watt %}
+                <select id="_209_watt" class="browser-default" name="_209_watt" data-name="2-09. 必要な電源容量（W数）">
+                  <option value="0" selected disabled>必要な最大電源容量を選択</option>{% for w in watt %}
                   <option value="{{ loop.index0 }}">{{ w }}</option>{% endfor %}</select>
               </div>
             </div>
@@ -527,7 +528,7 @@
                     </span>
                   </dt>
                   <dd>
-                    スペースに応じた規定のテーブル数（2100mm*2100mm：0〜1本／2100mm*4200mm：0〜2本／4200mm*4200mm：0〜4本）から必要な数を選択してください。。</dd>
+                    スペースに応じた規定のテーブル数（2100mm*2100mm：0〜1本／2100mm*4200mm：0〜2本／4200mm*4200mm：0〜4本）から必要な数を選択してください。</dd>
                 </dl>
                 <p></p>
                 <p>
@@ -653,15 +654,24 @@
               <div class="col s12">
                 <p style="margin-bottom:30px"></p>
                 <dl>
-                  <dt>3-09. 暗いスペース</dt>
+                  <dt>3-09. 暗いスペース
+                    <span class="required-mark red-text">
+                      <i class="material-icons">star</i>
+                    </span>
+                  </dt>
                   <dd>暗いスペースの使用を希望する場合、いずれかを選択してください。</dd>
                 </dl>
                 <p>
-                  <input type="checkbox" id="_309_dark_dark" class="with-gap" name="_309_dark_dark">
+                  <input type="radio" id="_309_dark_normal" data-name="通常のスペース（暗いスペースは希望しない）" class="with-gap" name="_309_dark" value="_309_dark_normal"
+                    checked>
+                  <label for="_309_dark_normal">通常のスペース（暗いスペースは希望しない）</label>
+                </p>
+                <p>
+                  <input type="radio" id="_309_dark_dark" data-name="暗室" class="with-gap" name="_309_dark" value="_309_dark_dark">
                   <label for="_309_dark_dark">暗室</label>
                 </p>
                 <p>
-                  <input type="checkbox" id="_309_dark_dim" class="with-gap" name="_309_dark_dim">
+                  <input type="radio" id="_309_dark_dim" data-name="薄暗いスペース" class="with-gap" name="_309_dark" value="_309_dark_dim">
                   <label for="_309_dark_dim">薄暗いスペース</label>
                 </p>
                 <div class="col s6">
@@ -726,7 +736,7 @@
                 <dl>
                   <dt>4-04. ワークショップ（50分間、110分間から選択）</dt>
                   <dd>「希望する」を選択した場合は、以下4-05から4-11に回答してください。Commercial Maker、企業出展の場合、ワークショップ専用スペースを使ったワークショップの実施には別途 スペースの利用費が必要です（開催時間に関わらず1回につき、Commercial
-                    Maker：21,600円［税込］、企業出展：54,000円［税込］）。出展決定後に実施の可否を連絡します。
+                    Maker：21,600円［税込］、企業出展：162,000円［税込］）。出展決定後に実施の可否を連絡します。
                   </dd>
                 </dl>
                 <p>
@@ -807,7 +817,7 @@
               </div>
               <div class="col s12">
                 <dl>
-                  <dt>4-12. ライブパフォーマンス</dt>
+                  <dt>4-12. ステージで行うライブパフォーマンス</dt>
                   <dd>「希望する」を選択した場合は、以下4-13、4-14に回答してください。出展決定後に実施の可否を連絡します。</dd>
                 </dl>
                 <p>
@@ -843,7 +853,7 @@
               <div class="col input-field s12">
                 <dl>
                   <dt>5-01. その他、不明な点や事務局へのご要望</dt>
-                  <dd>200文字以内で記入してください。スペース・備品に関するご要望は「3. 展示スペース」にてご回答、記入してください。</dd>
+                  <dd>200文字以内で記入してください。</dd>
                 </dl>
                 <textarea id="_501_comment" name="_501_comment" class="materialize-textarea validate" data-length="200"></textarea>
               </div>

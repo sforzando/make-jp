@@ -1,265 +1,302 @@
 {% extends "base.html" %} {% block title %}Maker Faire Tokyo {{ YEAR }}出展内容調査シート{% endblock title %} {% block body %}
 
 <body>{{ super() }}
-  <script type="text/javascript" src="../static/survey.js"></script>
-  <main class="container">
-    <div class="row">
-      <div class="col s12">
-        <blockquote>Maker Faire Tokyo の最終的な出展内容、持ち込み機材と搬入出方法について、以下のフォームからお知らせください。
-          <br>受付は6月15日（木）17時に締め切ります。
-          <ol>
-            <li>
+<script type="text/javascript" src="../static/survey.js"></script>
+<main class="container">
+  <div class="row">
+    <div class="col s12">
+      <blockquote>Maker Faire Tokyo の最終的な出展内容、持ち込み機材と搬入出方法について、以下のフォームからお知らせください。
+        <br>受付は6月15日（金）17時に締め切ります。
+        <ol>
+          <li>
               <span class="required-mark red-text">
                 <i class="material-icons">star</i>
-              </span>が付いた項目は記入が必須となります。</li>
-            <li>入力欄の記入例を参考に、正確な情報を入力してください。</li>
-            <li>出展に関する
-              <a href="http://makezine.jp/event/mft2017/faq/" target="_blank">よくある質問</a>もまとめていますので、参考にご確認ください。</li>
-            <li>申し込みいただいた情報は、出展に関するご連絡、資料や資材の発送、出展内容の告知などMaker Faire Tokyoの運営に関わる業務や、関連イベントのご案内などの目的に使用させていただきます。また、出展者の情報はMaker
-              Faireのライセンス元であるMaker Media, Inc.へ報告が行われること、統計処理を行い個人が特定されない形でオライリー・ジャパンのウェブサイトやパンフレット、報告資料にて紹介させていただく場合がございますことを、あらかじめご了承ください。オライリー・ジャパンの個人情報の取り扱いについては
-              <a href="http://www.oreilly.co.jp/company/privacypolicy.shtml" target="_blank">こちら</a>をご覧ください。</li>
-            <li>ご不明な点は、
-              <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>まで電子メールでお問い合わせください。</li>
-          </ol>
-        </blockquote>
-      </div>
-      <div class="col s12">
-        <div class="row">
-          <form id="form" class="col s12" action="/survey" method="post">
-            <div class="col input-field s12">
-              <dl>
-                <dt>1-01. 出展者ID
-                  <span class="required-mark red-text">
+              </span>が付いた項目は入力必須項目です。
+          </li>
+          <li>入力欄の記入例を参考に、正確な情報を入力してください。</li>
+          <li>出展に関する
+            <a href="http://makezine.jp/event/mft2018/callformakers/#faq" target="_blank">よくある質問</a>もまとめていますので、参考にご確認ください。
+          </li>
+          <li>申し込みいただいた情報は、出展に関するご連絡、資料や資材の発送、出展内容の告知などMaker Faire
+            Tokyoの運営に関わる業務や、関連イベントのご案内などの目的に使用させていただきます。また、出展者の情報はMaker Faireのライセンス元であるMaker Media,
+            Inc.へ報告が行われること、統計処理を行い個人が特定されない形でオライリー・ジャパンのウェブサイトやパンフレット、報告資料にて紹介させていただくことを、あらかじめご了承ください。オライリー・ジャパンの個人情報の取り扱いについては<a
+              href="http://www.oreilly.co.jp/company/privacypolicy.shtml" target="_blank">こちら</a>をご覧ください。
+          </li>
+          <li>ご不明な点は、
+            <a href="mailto:makers@makejapan.org">Maker Faire Tokyo出展者担当</a>まで電子メールでお問い合わせください。
+          </li>
+        </ol>
+      </blockquote>
+    </div>
+    <div class="col s12">
+      <div class="row">
+        <form id="form" class="col s12" action="/survey" method="post">
+          <div class="col input-field s12">
+            <dl>
+              <dt>1-01. 出展者ID
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>出展承認メールに記載された出展者ID（Mから始まる5桁）を半角で記入してください。</dd>
-              </dl>
-              <input type="text" id="_101_makers_id" name="_101_makers_id" class="validate" placeholder="M0000" required>
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt>1-02. 出展者名
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>出展承認メールに記載された出展者ID（Mから始まる5桁）を半角で記入してください。</dd>
+            </dl>
+            <input type="text" id="_101_makers_id" name="_101_makers_id" class="validate" placeholder="M0000" required>
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt>1-02. 出展者名
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>申し込みいただいた出展者名を記入してください。</dd>
-              </dl>
-              <input type="text" id="_102_makers_name" name="_102_makers_name" class="validate" placeholder="MAKE日本語版編集部" required>
-            </div>
-            <div class="col input-field s6">
-              <dl>
-                <dt>1-03. 代表者名（姓）
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>申し込みいただいた出展者名を記入してください。</dd>
+            </dl>
+            <input type="text" id="_102_makers_name" name="_102_makers_name" class="validate" placeholder="MAKE日本語版編集部"
+                   required>
+          </div>
+          <div class="col input-field s6">
+            <dl>
+              <dt>1-03. 代表者名（姓）
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd></dd>
-              </dl>
-              <input type="text" autocomplete="family-name" id="_103_primary_lastname" name="_103_primary_lastname" class="validate" placeholder="山田"
-                required>
-            </div>
-            <div class="col input-field s6">
-              <dl>
-                <dt>1-04. 代表者名（名）
-                  <span class="required-mark red-text">
+              </dt>
+              <dd></dd>
+            </dl>
+            <input type="text" autocomplete="family-name" id="_103_primary_lastname" name="_103_primary_lastname"
+                   class="validate" placeholder="山田"
+                   required>
+          </div>
+          <div class="col input-field s6">
+            <dl>
+              <dt>1-04. 代表者名（名）
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd></dd>
-              </dl>
-              <input type="text" autocomplete="given-name" id="_104_primary_firstname" name="_104_primary_firstname" class="validate" placeholder="太郎"
-                required>
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt>1-05. 代表者のメールアドレス
-                  <span class="required-mark red-text">
+              </dt>
+              <dd></dd>
+            </dl>
+            <input type="text" autocomplete="given-name" id="_104_primary_firstname" name="_104_primary_firstname"
+                   class="validate" placeholder="太郎"
+                   required>
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt>1-05. 代表者のメールアドレス
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>携帯メールアドレス(@docomo.ne.jp, @ezweb.ne.jp, @softbank.ne.jp, @ymobile.ne.jp, @vodafone.ne.jp, @willcom.com, @pdx.ne.jp,
-                  @disney.ne.jp など)はご使用になれません。</dd>
-              </dl>
-              <input type="email" autocomplete="email" id="_105_email" name="_105_email" class="validate" placeholder="makers@makejapan.org"
-                required>
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt>2-01. 会場に持ち込む作品と機材
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>携帯メールアドレス(@docomo.ne.jp, @ezweb.ne.jp, @softbank.ne.jp, @ymobile.ne.jp, @vodafone.ne.jp, @willcom.com,
+                @pdx.ne.jp,
+                @disney.ne.jp など)はご使用になれません。
+              </dd>
+            </dl>
+            <input type="email" autocomplete="email" id="_105_email" name="_105_email" class="validate"
+                   placeholder="makers@makejapan.org"
+                   required>
+          </div>
+          <div class="col s12">
+            <dl>
+              <dt>2-01. 会場への持ち込み品</dt>
+              <dd>予定している作品、機材をすべて記載ください。台数、大きなものについてはサイズなども明記してください。
+                <br>
+                出展申し込み時に記載いただいたものも、再度申請をお願いします。<br>
+                <br>特に、高温になる器具（ハンダごてを含む）、高電圧を扱う装置、高速で稼働する装置、薬品類、レーザー光線を発する装置など、出展者や来場者が怪我をする可能性があるもの、工作機械、ドローン、飛行機、バルーン、大型の作品、無線を使った作品、食品などについては、必ず明記してください。この段階でお申し込みのなかったこれらの作品・機材については展示を撤去していただきます。詳しくは
+                <a href="http://makezine.jp/event/mft2018/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
+              </dd>
+            </dl>
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt>2-01-a. 作品<span class="required-mark red-text">
+                    <i class="material-icons">star</i>
+                  </span></dt>
+              <dd></dd>
+            </dl>
+            <textarea id="_201_products" name="_201_products" class="materialize-textarea validate"
+                      placeholder="高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点、RaspberryPiを使ったラジオ*1点、リチウムポリマーバッテリー（14.8V 1300mAh）*2本 など"
+                      required></textarea>
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt>2-01-b. 機材・配布物<span class="required-mark red-text">
+                    <i class="material-icons">star</i>
+                  </span></dt>
+              <dd>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みはできません。<br>
+                ※出展者による市販品・販促品としての飲食物の配布はできません。<br>
+                ※食品に関連した展示がある方は、順次必要な手続きについてご案内いたします
+              </dd>
+            </dl>
+            <textarea id="_201_equipments" name="_201_equipments" class="materialize-textarea validate"
+                      placeholder="ノートPC*1台、ディスプレイ 19インチ*1台、テーブルクロス（防炎）1枚、家庭用ミシン*1台、作品紹介チラシ200部（予定） など"
+                      required></textarea>
+          </div>
+          <div class="col s12">
+            <p style="margin-bottom:30px"></p>
+            <dl>
+              <dt>2-02. 東京都火災予防条例上の危険物に該当する物品の持ち込み予定
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>予定している作品、機材をすべて記載ください。台数、大きなものについてはサイズなども明記してください。プレゼンテーション、ワークショップ、ハンズオンに使用する持ち込み品も合わせて申請をお願いします。
-                  <br>
-                  <br>特に、高温になる器具（ハンダごてを含む）、高電圧を扱う装置、高速で稼働する装置、薬品類、レーザー光線を発する装置など、出展者や来場者が怪我をする可能性があるもの、工作機械、ドローン、飛行機、バルーン、大型の作品、無線を使った作品、食品などについては、必ず明記してください。お申し込みのなかったこれらの作品・機材については展示を撤去していただきます。詳しくは
-                  <a href="http://makezine.jp/event/mft2017/callformakers/#guidelines" target="_blank">出展のガイドライン</a>の「7-7」をご参照ください。
-                  <br>
-                  <br>
-                  <br>※出展者の作品修理用に、事務局にてハンダごてを使用できるコーナーをご用意いたします。修理目的でのハンダごての持ち込みは、ご遠慮ください。
-                  <br>※出展者による市販品・販促品としての飲食物の配布はできません。
-                  <br>※食品に関連した展示がある方は、順次必要な手続きについてご案内いたします。</dd>
-              </dl>
-              <textarea id="_201_equipments" name="_201_equipments" class="materialize-textarea validate" placeholder="・高さ20cm×幅50cm BLEを搭載した多脚ロボット*1点・RaspberryPiを使ったラジオ*1点・ノートPC*1台・ディスプレイ 19インチ*1台・3Dプリンター*1台・家庭用ミシン*1台 など"
-                required></textarea>
-            </div>
-            <div class="col s12">
-              <p style="margin-bottom:30px"></p>
-              <dl>
-                <dt>2-02. 東京都火災予防条例上の危険物に該当する物品の持ち込み予定
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>持ち込む予定がある方は「有り」をチェックし、別途「危険物申請書」「展示レイアウト図」をご提出ください。</dd>
+            </dl>
+            <p></p>
+            <p>
+              <input name="_202_dangerous" id="_202_dangerous_YES" class="with-gap" type="radio" value="YES"
+                     data-error=".error_202_dangerous">
+              <label for="_202_dangerous_YES">有り</label>
+            </p>
+            <p>
+              <input name="_202_dangerous" id="_202_dangerous_NO" class="with-gap" type="radio" value="NO">
+              <label for="_202_dangerous_NO">無し</label>
+            </p>
+            <div class="error_202_dangerous"></div>
+          </div>
+          <div class="col s12">
+            <p style="margin-bottom:30px"></p>
+            <dl>
+              <dt>3-01. 搬入方法
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>持ち込む予定がある方は「有り」をチェックし、別途「危険物申請書」「展示レイアウト図」をご提出ください。</dd>
-              </dl>
-              <p></p>
-              <p>
-                <input name="_202_dangerous" id="_202_dangerous_YES" class="with-gap" type="radio" value="YES" data-error=".error_202_dangerous">
-                <label for="_202_dangerous_YES">有り</label>
-              </p>
-              <p>
-                <input name="_202_dangerous" id="_202_dangerous_NO" class="with-gap" type="radio" value="NO">
-                <label for="_202_dangerous_NO">無し</label>
-              </p>
-              <div class="error_202_dangerous"></div>
-            </div>
-            <div class="col s12">
-              <p style="margin-bottom:30px"></p>
-              <dl>
-                <dt>3-01. 搬入方法
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>作品や機材の搬入方法について下記より選択ください。開催期間中の車両による搬入出は大変混みあうことが予想されますので、できるだけ手持ちによる搬入か事前発送をご検討ください。
+                「自動車」を選択された場合は、3-04の項目に車両の情報を入力ください。イベント前に車両証をお送りします。
+              </dd>
+            </dl>
+            <p></p>
+            <p>
+              <input type="checkbox" id="_301_loading_hand" name="_301_loading[]" value="hand"
+                     data-error=".error_301_loading">
+              <label for="_301_loading_hand">手持ち</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_301_loading_car" name="_301_loading[]" value="car">
+              <label for="_301_loading_car">自動車（自家用車、レンタカー、下記「ヤマトJITBOX」を除くチャーター便など）</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_301_loading_yamato" name="_301_loading[]" value="yamato">
+              <label for="_301_loading_yamato">宅配便（ヤマト宅急便を予定）</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_301_loading_jitbox" name="_301_loading[]" value="jitbox">
+              <label for="_301_loading_jitbox">ヤマトJITBOXチャーター便</label>
+            </p>
+            <div class="error_301_loading"></div>
+          </div>
+          <div class="col s12">
+            <p style="margin-bottom:30px"></p>
+            <dl>
+              <dt>3-02. 搬入日
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>作品や機材の搬入方法について下記より選択ください。開催期間中の車両による搬入出は大変混みあうことが予想されますので、できるだけ公共交通機関か事前発送をご検討ください。 「自動車」を選択された場合は、3-04の項目に車両の情報を入力ください。イベント前に車両証をお送りします。</dd>
-              </dl>
-              <p></p>
-              <p>
-                <input type="checkbox" id="_301_loading_hand" name="_301_loading[]" value="hand" data-error=".error_301_loading">
-                <label for="_301_loading_hand">手持ち</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_301_loading_car" name="_301_loading[]" value="car">
-                <label for="_301_loading_car">自動車</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_301_loading_yamato" name="_301_loading[]" value="yamato">
-                <label for="_301_loading_yamato">宅配便（ヤマト宅急便を予定）</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_301_loading_sagawa" name="_301_loading[]" value="sagawa">
-                <label for="_301_loading_sagawa">宅配便（佐川急便を予定）</label>
-              </p>
-              <div class="error_301_loading"></div>
-            </div>
-            <div class="col s12">
-              <p style="margin-bottom:30px"></p>
-              <dl>
-                <dt>3-02. 搬入日
-                  <span class="required-mark red-text">
+              </dt>
+              <dd>搬入の時間はそれぞれ以下を予定しています。搬入出についての詳細は後日配布する出展者マニュアルにてお知らせします。搬入：8月3日（金）午後、8月4日（土）09:00〜12:00</dd>
+            </dl>
+            <p></p>
+            <p>
+              <input type="checkbox" id="_302_loading_day_3" name="_302_loading_day[]" value="8/3"
+                     data-error=".error_302_loading_day">
+              <label for="_302_loading_day_3">8月3日（金）</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_302_loading_day_4" name="_302_loading_day[]" value="8/4">
+              <label for="_302_loading_day_4">8月4日（土）</label>
+            </p>
+            <div class="error_302_loading_day"></div>
+          </div>
+          <div class="col s12">
+            <p style="margin-bottom:30px"></p>
+            <dl>
+              <dt>3-03. 搬出方法
+                <span class="required-mark red-text">
                     <i class="material-icons">star</i>
                   </span>
-                </dt>
-                <dd>搬入の時間はそれぞれ以下を予定しています。搬入出についての詳細は後日配布する出展者マニュアルにてお知らせします。搬入：8月4日（金）午後、8月5日（土）09:00〜12:00</dd>
-              </dl>
-              <p></p>
-              <p>
-                <input type="checkbox" id="_302_loading_day_4" name="_302_loading_day[]" value="8/4" data-error=".error_302_loading_day">
-                <label for="_302_loading_day_4">8月4日（金）</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_302_loading_day_5" name="_302_loading_day[]" value="8/5">
-                <label for="_302_loading_day_5">8月5日（土）</label>
-              </p>
-              <div class="error_302_loading_day"></div>
+              </dt>
+              <dd>作品や機材の搬出方法について下記より選択ください。開催期間中の車両による搬入出は大変混みあうことが予想されますので、できるだけ手持ちによる搬出か宅配便をご検討ください。
+                「自動車」を選択された場合は、3-04の項目に車両の情報を入力ください。イベント前に車両証をお送りします。
+              </dd>
+            </dl>
+            <p></p>
+            <p>
+              <input type="checkbox" id="_303_unloading_hand" name="_303_unloading[]" value="hand"
+                     data-error=".error_303_unloading">
+              <label for="_303_unloading_hand">手持ち</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_303_unloading_car" name="_303_unloading[]" value="car">
+              <label for="_303_unloading_car">自動車</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_303_unloading_yamato" name="_303_unloading[]" value="yamato">
+              <label for="_303_unloading_yamato">宅配便（ヤマト宅急便を予定）</label>
+            </p>
+            <p>
+              <input type="checkbox" id="_303_unloading_jitbox" name="_303_unloading[]" value="jitbox">
+              <label for="_303_unloading_jitbox">ヤマトJITBOXチャーター便</label>
+            </p>
+            <div class="error_303_unloading"></div>
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt class="label_car">3-04-a. 車両情報（車種、色）</dt>
+              <dd>レンタカーを使用するため当日まで車両番号が不明という場合は、「レンタカー」と記入してください。</dd>
+            </dl>
+            <input type="text" id="_304a_car_type" name="_304a_car_type" class="validate" placeholder="">
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt class="label_car">3-04-b. 車両情報（車両番号）</dt>
+              <dd>レンタカーを使用するため当日まで車両番号が不明という場合は、「レンタカー」と記入してください。</dd>
+            </dl>
+            <input type="text" id="_304b_car_number" name="_304b_car_number" class="validate" placeholder="">
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt class="label_car">3-04-c. 運転者氏名（自動車の場合）</dt>
+              <dd></dd>
+            </dl>
+            <input type="text" id="_304c_car_driver" name="_304c_car_driver" class="validate" placeholder="">
+          </div>
+          <div class="col input-field s12">
+            <dl>
+              <dt class="label_car">3-04-d. 運転者の携帯電話番号</dt>
+              <dd>半角、-［ハイフン］を含めて記入してください。</dd>
+            </dl>
+            <input type="tel" id="_304d_car_telephone" name="_304d_car_telephone" class="validate"
+                   placeholder="080-0000-0000">
+          </div>
+          <div class="right">
+            <a id="pre-submit-button" class="btn btn-large waves-effect waves-light" href="#">申請内容を確認する
+              <i class="material-icons right">done</i>
+            </a>
+          </div>
+          <div id="submit-modal" class="modal bottom-sheet">
+            <div class="modal-content">
+              <h4>
+                <i class="material-icons">info</i>申請内容の確認</h4>
+              <p>申請内容を確認のうえ、内容を送信してください。</p>
             </div>
-            <div class="col s12">
-              <p style="margin-bottom:30px"></p>
-              <dl>
-                <dt>3-03. 搬出方法
-                  <span class="required-mark red-text">
-                    <i class="material-icons">star</i>
-                  </span>
-                </dt>
-                <dd>作品や機材の搬出方法について下記より選択ください。開催期間中の車両による搬入出は大変混みあうことが予想されますので、できるだけ公共交通機関か宅配便をご検討ください。 「自動車」を選択された場合は、3-04の項目に車両の情報を入力ください。イベント前に車両証をお送りします。</dd>
-              </dl>
-              <p></p>
-              <p>
-                <input type="checkbox" id="_303_unloading_hand" name="_303_unloading[]" value="hand" data-error=".error_303_unloading">
-                <label for="_303_unloading_hand">手持ち</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_303_unloading_car" name="_303_unloading[]" value="car">
-                <label for="_303_unloading_car">自動車</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_303_unloading_yamato" name="_303_unloading[]" value="yamato">
-                <label for="_303_unloading_yamato">宅配便（ヤマト宅急便を予定）</label>
-              </p>
-              <p>
-                <input type="checkbox" id="_303_unloading_sagawa" name="_303_unloading[]" value="sagawa">
-                <label for="_303_unloading_sagawa">宅配便（佐川急便を予定）</label>
-              </p>
-              <div class="error_303_unloading"></div>
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt class="label_car">3-04-a. 車種、色（自動車の場合）</dt>
-                <dd></dd>
-              </dl>
-              <input type="text" id="_304a_car_type" name="_304a_car_type" class="validate" placeholder="">
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt class="label_car">3-04-b. 車両番号（ナンバー、自動車の場合）</dt>
-                <dd>レンタカーを使用するため当日まで車両番号が不明という場合は、「レンタカー」と記入してください。</dd>
-              </dl>
-              <input type="text" id="_304b_car_number" name="_304b_car_number" class="validate" placeholder="">
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt class="label_car">3-04-c. 運転者氏名（自動車の場合）</dt>
-                <dd></dd>
-              </dl>
-              <input type="text" id="_304c_car_driver" name="_304c_car_driver" class="validate" placeholder="">
-            </div>
-            <div class="col input-field s12">
-              <dl>
-                <dt class="label_car">3-04-d. 運転者携帯電話番号（自動車の場合）</dt>
-                <dd></dd>
-              </dl>
-              <input type="tel" id="_304d_car_telephone" name="_304d_car_telephone" class="validate" placeholder="080-0000-0000">
-            </div>
-            <div class="right">
-              <a id="pre-submit-button" class="btn btn-large waves-effect waves-light" href="#">申請内容を確認する
-                <i class="material-icons right">done</i>
+            <div class="modal-footer">
+              <div class="divider"></div>
+              <div id="submit-progress" class="progress" style="display:none">
+                <div class="indeterminate"></div>
+              </div>
+              <a href="#" id="submit-button" class="btn modal-action modal-close waves-effect">入力した内容で申請する
+                <i class="material-icons right">done_all</i>
+              </a>
+              <a href="#" id="replay-button" class="btn modal-close waves-effect">戻る
+                <i class="material-icons right">replay</i>
               </a>
             </div>
-            <div id="submit-modal" class="modal bottom-sheet">
-              <div class="modal-content">
-                <h4>
-                  <i class="material-icons">info</i>申請内容の確認</h4>
-                <p>申請内容を確認のうえ、内容を送信してください。</p>
-              </div>
-              <div class="modal-footer">
-                <div class="divider"></div>
-                <div id="submit-progress" class="progress" style="display:none">
-                  <div class="indeterminate"></div>
-                </div>
-                <a href="#" id="submit-button" class="btn modal-action modal-close waves-effect">入力した内容で申請する
-                  <i class="material-icons right">done_all</i>
-                </a>
-                <a href="#" id="replay-button" class="btn modal-close waves-effect">戻る
-                  <i class="material-icons right">replay</i>
-                </a>
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
-  </main>{% include '_footer.html' %}
+  </div>
+</main>
+{% include '_footer.html' %}
 </body>{% endblock body %}

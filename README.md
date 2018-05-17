@@ -1,5 +1,7 @@
 # make-jp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/sforzando/make-jp.svg)](https://greenkeeper.io/)
+
 for Maker Faire Tokyo
 
 [![CircleCI](https://circleci.com/gh/sforzando/make-jp/tree/master.svg?style=svg)](https://circleci.com/gh/sforzando/make-jp/tree/master)

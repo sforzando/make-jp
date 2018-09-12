@@ -214,8 +214,12 @@ describe('Input dummy data w/ Puppeteer', function() {
     await page.type('input#_104_primary_firstname', '真一朗');
     await page.type('input#_105_email', 'shin@sforzando.co.jp');
     await page.type(
+      'textarea#_201_products',
+      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。'
+    );
+    await page.type(
       'textarea#_201_equipments',
-      '「Make」は、アメリカ発のテクノロジー系DIY工作専門雑誌として2005年に誕生しました。\u000d自宅の庭や地下室やガレージで、びっくりするようなものを作っている才能あふれる人たちのコミュニティが、どんどん大きくなっています。\u000d「Make」は、そうしたコミュニティ同士を結びつけ、刺激と情報と娯楽を与えることを目的としています。\u000d「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
+      '「Make」は、すべての人が思いのままに、あらゆるテクノロジーを遊び、いじくり、改造する権利を称賛します。\u000d「Make」の読者は、自分自身、環境、教育──私たちの世界全体をよりよいものにするための文化、コミュニティとして成長を続けています。\u000dそれは、雑誌の読者という枠を超え、全世界的なムーブメントになりました。\u000d私たちはそれを「Makerムーブメント」と呼んでいます。'
     );
     await page.click(
       util.getRandomItemFromArray([
@@ -228,21 +232,22 @@ describe('Input dummy data w/ Puppeteer', function() {
         'input#_301_loading_hand',
         'input#_301_loading_car',
         'input#_301_loading_yamato',
-        'input#_301_loading_sagawa'
+        'input#_301_loading_jitbox'
       ])
     );
     await page.click(
       util.getRandomItemFromArray([
-        'input#_302_loading_day_4',
-        'input#_302_loading_day_5'
+        'input#_302_loading_day_3',
+        'input#_302_loading_day_4'
       ])
     );
     await page.click('input#_303_unloading_car');
     await page.click(
       util.getRandomItemFromArray([
         'input#_303_unloading_hand',
+        'input#_303_unloading_car',
         'input#_303_unloading_yamato',
-        'input#_303_unloading_sagawa'
+        'input#_303_unloading_jitbox'
       ])
     );
     await page.type('input#_304a_car_type', 'レンタカー');

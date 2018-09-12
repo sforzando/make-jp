@@ -17,7 +17,7 @@ describe('Take screenshots w/ Puppeteer', function() {
   });
 
   afterEach(async done => {
-    browser.close();
+    await browser.close();
     done();
   });
 

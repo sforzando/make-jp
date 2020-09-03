@@ -25,7 +25,7 @@
     "prettier": "^1.17.0",
     "prettier-eslint": "^8.8.2",
     "prettier-eslint-cli": "^4.7.1",
-    "puppeteer": "^1.15.0"
+    "puppeteer": "^1.13.0"
   },
   "scripts": {
     "start": "dev_appserver.py app.yaml",

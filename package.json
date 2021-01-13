@@ -11,7 +11,7 @@
   "license": "WTFPL",
   "private": true,
   "dependencies": {
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.3",
     "materialize-css": "^1.0.0",
     "toastr": "^2.1.4"
   },
